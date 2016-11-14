@@ -1,85 +1,66 @@
-<div class="row">
-  </div>
-      <div class="row">
-        <div class="col-md-offset-1 col-md-6">
-          <h1>Rejestracja</h1>
-        </div>
-        <div class="col-md-6">
-        <?php
-          $attributes = array('class' => 'form-horizontal');
-          echo form_open('', $attributes);
-        ?>
-              <div class="form-group">
-                <label for="imie" class="col-sm-3 control-label">Imie</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" id="imie" placeholder="Imie" name="imie">
-                </div>
-                <?php echo "<div class='bladwalidacji'>".form_error('imie')."</div>"; ?>
-              </div>
-              <div class="form-group">
-                <label for="nazwisko" class="col-sm-3 control-label">Nazwisko</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" id="nazwisko" placeholder="Nazwisko" name="nazwisko">
-                </div>
-                <?php echo "<div class='bladwalidacji'>".form_error('nazwisko')."</div>"; ?>
-              </div>
-              <div class="form-group">
-                <label for="login" class="col-sm-3 control-label">Login</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" id="login" placeholder="Login" name="login">
-                </div>
-                <?php echo "<div class='bladwalidacji'>".form_error('login')."</div>"; ?>
-              </div>
-              <div class="form-group">
-                <label for="haslo" class="col-sm-3 control-label">Haslo</label>
-                <div class="col-sm-5">
-                  <input type="password" class="form-control" id="haslo" placeholder="Hasło" name="haslo">
-                </div>
-                <?php echo "<div class='bladwalidacji'>".form_error('haslo')."</div>"; ?>
-              </div>
-              <div class="form-group">
-                <label for="haslo2" class="col-sm-3 control-label">Powtórz hasło</label>
-                <div class="col-sm-5">
-                  <input type="password" class="form-control" id="haslo2" placeholder="Powtórz hasło" name="haslo2">
-                </div>
-                <?php echo "<div class='bladwalidacji'>".form_error('haslo2')."</div>"; ?>
-              </div>
-              <div class="form-group">
-                <label for="email" class="col-sm-3 control-label">Email</label>
-                <div class="col-sm-5">
-                  <input type="email" class="form-control" id="email" placeholder="Email" name="email">
-                </div>
-                <?php echo "<div class='bladwalidacji'>".form_error('email')."</div>"; ?>
-              </div>
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Street Wood</title> 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
-              <div class="form-group">
-                <label for="telefon" class="col-sm-3 control-label">Telefon</label>
-                <div class="col-sm-5">
-                  <input type="tel" class="form-control" id="telefon" placeholder="Telefon" name="telefon" max="9">
+    <!-- Bootstrap -->
+    <link href="<?php echo base_url();?>assetss/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assetss/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assetss/css/signin.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url();?>assetss/img/favicon.png">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      
+      <div class="row" id="pwd-container">
+        <div class="col-md-4"></div>
+        
+        <div class="col-md-4">
+          <section class="login-form">
+          <?php
+            $attributes = array('class' => 'form-horizontal', 'role' => 'login');
+            echo form_open('', $attributes);
+          ?>
+              <img src="<?php echo base_url();?>assetss/img/logo.jpg" class="img-responsive" alt="" />
+              <?php echo '<p class="bladwalidacji">'.validation_errors().'</p>'; ?>
+              <input type="text" name="imie" placeholder="Imie" required class="form-control input-lg" autofocus="" value="<?php echo set_value('imie'); ?>" />
+              <input type="text" name="nazwisko" placeholder="Nazwisko" required class="form-control input-lg" value="<?php echo set_value('nazwisko'); ?>"/>
+              <input type="text" name="login" placeholder="Login" required class="form-control input-lg" value="<?php echo set_value('login'); ?>"/>
+              <input type="password" name="haslo" class="form-control input-lg" placeholder="Hasło" required=""/>
+              <input type="password" name="haslo2" class="form-control input-lg" placeholder="Powtórz hasło" required=""/>
+              <input type="email" name="email" class="form-control input-lg" placeholder="E-mail" required="" value="<?php echo set_value('email'); ?>" />
+              <input type="tel" name="telefon" class="form-control input-lg" maxlength="9" placeholder="Telefon" required="" value="<?php echo set_value('telefon'); ?>"/>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="regulamin">Akceptuje regulamin
+                  </label>
                 </div>
-                <?php echo "<div class='bladwalidacji'>".form_error('telefon')."</div>"; ?>
+              <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Zarejestruj się</button>
+              <div>
+                <a href="<?php echo base_url().'uzytkownik/zaloguj' ?>">Zaloguj się</a>
               </div>
               
-              <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-5">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="regulamin"> Akcjeptuje regulamin
-                    </label>
-                  </div>
-                </div>
-                <?php echo "<div class='bladwalidacji'>".form_error('regulamin')."</div>"; ?>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-danger">Załóż konto</button>
-                </div>
-              </div>
             </form>
-        </div>
-        <div class="col-md-5 col-md-offset-1">
-          <img src="<?php echo base_url(); ?>assets/img/1.jpg" class="img-responsive center-block" alt="Logo">
-        </div>
-      </div>
-      
+          </section>  
+          </div> 
+      </div>      
     </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

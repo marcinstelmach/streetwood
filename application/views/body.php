@@ -1,7 +1,7 @@
 <div class="container bestsellers">
       <div clss="row"> 
         <hr class="style-bestsellers">
-      </div>
+      </div> 
       <div class="row" style="padding-top: 20px;">
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">

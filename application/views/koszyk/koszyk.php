@@ -90,7 +90,7 @@
 	}
 	else
 	{ 
-		echo "</div></div><h1>Brak produktów w koszyku</h1>";
+		echo "<h1>Brak produktów w koszyku</h1></div>";
 	}
 	?>
 </div>

@@ -1,4 +1,4 @@
-        <div class="col-md-6">
+       <div class="col-md-6">
           <h3>Podaj tylko te dane, które chcesz zmienic</h3>
         <?php
           $attributes = array('class' => 'form-horizontal');

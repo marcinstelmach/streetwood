@@ -7,22 +7,22 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assetss/img/favicon.png">
 
-    <title>Panel administracyjny</title>
+    <title>StreetWood - Panel administracyjny</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/bootstrap.css" media="screen" type="text/css" />
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="<?php echo base_url(); ?>assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assetss/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/dashboard.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/dashboard.css" media="screen" type="text/css" />
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="<?php echo base_url(); ?>assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="<?php echo base_url(); ?>assetss/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php echo base_url().'administrator/nowe-zamowienia'; ?>">Maty Wiklinowe</a>
+          <a class="navbar-brand" href="<?php echo base_url().'administrator/nowe-zamowienia'; ?>">StreetWood</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">

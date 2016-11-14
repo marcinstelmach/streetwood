@@ -64,12 +64,9 @@
                 <li><a href="#">Guzik</a></li>
               </ul>
             </li>
-            <li><a href="#">Breloki</a></li>
             <li><a href="#">Case</a></li>
             <li><a href="#">Odzież</a></li>
-            <li><a href="#">BackPack</a></li>
-            <li><a href="#">Naszyjniki</a></li>
-            
+            <li><a href="#">BackPack</a></li>            
           </ul>
         </div>
       </div>

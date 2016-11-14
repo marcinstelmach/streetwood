@@ -41,7 +41,7 @@ class Uzytkownik extends CI_Controller
 		$this->form_validation->set_message('matches', 'Hasła nie nie są identyczne');
 		if ($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('uzytkownik/rrejestracja'); 
+			$this->load->view('uzytkownik/rejestracja'); 
 		}
 		else
 		{
@@ -136,8 +136,10 @@ class Uzytkownik extends CI_Controller
 				if ($this->form_validation->run() == FALSE)
 				{
 					$this->load->view('header');
+					$this->load->view('uzytkownik/start_container');
 					$this->load->view('uzytkownik/menu_boczne');
 					$this->load->view('uzytkownik/modyfikacja');
+					$this->load->view('uzytkownik/koniec_container');
 					$this->load->view('footer');
 				}
 				else
