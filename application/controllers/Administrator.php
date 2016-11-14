@@ -34,7 +34,7 @@ class Administrator extends CI_Controller
 		{
 			header('location: '.base_url());
                         //$this->load->view('index');
-				die();
+				die(); 
 		}
 		$data = array('error' => ' ',
 				'rekordy'=>$this->Model_m->get('kategorie')
@@ -54,48 +54,56 @@ class Administrator extends CI_Controller
 				die();
 		}
 		/* utworzenie zmiennych */
-				$folder_upload="./assets/uploads";
-				$plik_nazwa=$_FILES['plik']['name'];
-				$plik_lokalizacja=$_FILES['plik']['tmp_name']; //tymczasowa lokalizacja pliku
-				$plik_mime=$_FILES['plik']['type']; //typ MIME pliku wysłany przez przeglądarkę
-				$plik_rozmiar=$_FILES['plik']['size'];
-				$plik_blad=$_FILES['plik']['error']; //kod błędu
-				 
-				/* sprawdzenie, czy plik został wysłany */
-				if (!$plik_lokalizacja) {
-				    //exit("Nie wysłano żadnego pliku");
-				}
-				 
-				/* sprawdzenie błędów */
-				switch ($plik_blad) {
-				    case UPLOAD_ERR_OK:
-				        break;
-				    case UPLOAD_ERR_NO_FILE:
-				        exit("Brak pliku.");
-				        break;
-				    case UPLOAD_ERR_INI_SIZE:
-				    case UPLOAD_ERR_FORM_SIZE:
-				        exit("Przekroczony maksymalny rozmiar pliku.");
-				        break;
-				    default:
-				        exit("Nieznany błąd.");
-				        break;
-				}
-				 
-				/* sprawdzenie rozszerzenia pliku - dzięki temu mamy pewność, że ktoś nie zapisze na serwerze pliku .php */
-				$dozwolone_rozszerzenia=array("jpg", "tif", "png", "gif");
-				$plik_rozszerzenie=pathinfo(strtolower($plik_nazwa), PATHINFO_EXTENSION);
-				if (!in_array($plik_rozszerzenie, $dozwolone_rozszerzenia, true)) {
-				    exit("Niedozwolone rozszerzenie pliku.");
-				}
-				 
-				/* przeniesienie pliku z folderu tymczasowego do właściwej lokalizacji */
-				if (!move_uploaded_file($plik_lokalizacja, $folder_upload."/".$plik_nazwa)) {
-				    exit("Nie udało się przenieść pliku.");
-				}
-				 
-				/* nie było błędów */
-				$this->thumb($plik_nazwa);  //utworzenie miniaturki
+				$folder_upload="./assetss/uploads";
+				if (isset($_FILES['my_file']))
+            {
+                $myFile = $_FILES['my_file'];
+                $fileCount = count($myFile["name"]);
+
+                for ($i = 0; $i < $fileCount; $i++)
+                {
+                   
+                        /* sprawdzenie, czy plik został wysłany */
+                    if (!$myFile["tmp_name"][$i])
+                    {
+                        //exit("Nie wysłano żadnego pliku");
+                    }
+                    
+                    /* sprawdzenie błędów */
+                    switch ($myFile["error"][$i])
+                    {
+                        case UPLOAD_ERR_OK:
+                            break;
+                        case UPLOAD_ERR_NO_FILE:
+                            exit("Brak pliku.");
+                            break;
+                        case UPLOAD_ERR_INI_SIZE:
+                        case UPLOAD_ERR_FORM_SIZE:
+                            exit("Przekroczony maksymalny rozmiar pliku.");
+                            break;
+                        default:
+                            exit("Nieznany błąd.");
+                            break;
+                    }
+                    
+                    /* sprawdzenie rozszerzenia pliku - dzięki temu mamy pewność, że ktoś nie zapisze na serwerze pliku .php */
+                    $dozwolone_rozszerzenia=array("jpg", "tif", "png", "gif");
+                    $plik_rozszerzenie=pathinfo(strtolower($myFile["name"][$i]), PATHINFO_EXTENSION);
+                    if (!in_array($plik_rozszerzenie, $dozwolone_rozszerzenia, true))
+                    {
+                        exit("Niedozwolone rozszerzenie pliku.");
+                    }
+                        
+                    /* przeniesienie pliku z folderu tymczasowego do właściwej lokalizacji */
+                    if (!move_uploaded_file($myFile["tmp_name"][$i], $folder_upload."/".$myFile["name"][$i]))
+                    {
+                        exit("Nie udało się przenieść pliku.");
+                    }
+                    //wysłano pomyślnie
+                    $this->thumb($myFile["name"][$i]);  //utworzenie miniaturki
+                }
+            }
+				
 
 			$this->form_validation->set_rules('nazwa', 'Nazwa', 'required');
 			$this->form_validation->set_rules('opis', 'Opis', 'required');
@@ -120,16 +128,22 @@ class Administrator extends CI_Controller
 					$data['cena']=$this->input->post('cena');
 					$data['id_kategorii']=strtolower($this->input->post('id_kategorii'));
 					$data['dlugosc']=$this->input->post('dlugosc');
-					$data['szerokosc']=strtolower($this->input->post('szerokosc'));	
-					$data['zdjecie']=$plik_nazwa;	
+					$data['szerokosc']=strtolower($this->input->post('szerokosc'));		
 					$data['stan']=$this->input->post('stan');	
-					$data['opis']=$this->input->post('opis');		
+					$data['opis']=$this->input->post('opis');	
+
 					
 					$this->Model_m->dodaj('produkty', $data);
 					$newdata = array(
 	                   'nazwa_przedmiotu' => $data['nazwa'],
-				  );
-
+				  	);
+					$id_produktu=$this->db->insert_id();
+					for ($i = 0; $i < $fileCount; $i++)
+					{
+						$zdjecia['nazwa_zdjecia']=$myFile['name'][$i];
+						$zdjecia['id_produktu']=$id_produktu;
+						$this->Model_m->dodaj('zdjecia', $zdjecia);
+					}
 					$this->session->set_userdata($newdata);
 					header('location: '.base_url().'administrator/dodaj_przedmiot');
 			}
@@ -238,7 +252,7 @@ class Administrator extends CI_Controller
 
 		if (empty($args))
 			{
-				$data['produkty']=$this->Model_m->query('select p.id_produktu, p.nazwa, p.cena, p.dlugosc, p.szerokosc, p.stan, p.zdjecie, k.nazwa_kategorii from produkty p, kategorie k where k.id_kategorii=p.id_kategorii');
+				$data['produkty']=$this->Model_m->query('select p.id_produktu, p.nazwa, p.cena, p.dlugosc, p.szerokosc, p.stan, k.nazwa_kategorii from produkty p, kategorie k where k.id_kategorii=p.id_kategorii');
 				$this->load->view('administrator/header');
 				$this->load->view('administrator/przedmiot/wyswietl_przedmioty', $data);
 				$this->load->view('administrator/footer');

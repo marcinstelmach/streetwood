@@ -1,6 +1,6 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Dodaj nowy przedmiot</h1>
-          <script src="<?php echo base_url();?>assets/js/upload.js"></script>
+          <script src="<?php echo base_url();?>assetss/js/upload.js"></script>
     <?php 
     if (isset($_SESSION['nazwa_przedmiotu']))
     {
@@ -21,14 +21,8 @@
           echo form_open_multipart('administrator/do_upload', $attributes);
         ?>
               <div class="form-group">
-                <div class="col-sm-8">
-                  <input type="file" name="plik" id="plik" class="filestyle" data-input="false" />
-                   <br />
-                   <section>
-                        <h3>Postęp wysyłania</h3>
-                        <output id="status"></output>
-                        <progress value="0" max="100" id="postep"></progress>
-                    </section>
+                <div class="col-sm-8 upload">
+                  <input type="file" name="my_file[]" id="plik" multiple="" />
                  </div>  
               </div> 
               <div class="form-group">
