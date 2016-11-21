@@ -8,8 +8,6 @@
                   <th>Nazwa</th> 
                   <th>Kategoria</th>
                   <th>Cena</th>
-                  <th>Długość</th>
-                  <th>Szerokość</th>
                   <th>Stan</th>
                   <th>Edytuj</th>
                 </tr>
@@ -21,10 +19,20 @@
                     <td><?php echo $key->nazwa; ?></td> 
                     <td><?php echo $key->nazwa_kategorii; ?></td>
                     <td><?php echo $key->cena; ?></td>
-                    <td><?php echo $key->dlugosc; ?></td>
-                    <td><?php echo $key->szerokosc; ?></td>
                     <td><?php echo $key->stan; ?></td>
-                    <td><a class="btn btn-default" href="<?php echo base_url().'administrator/modyfikacja-przedmiotu/'.$key->id_produktu;?>" role="button">Edytuj</a></td>
+                    <!--<td><a class="btn btn-default" href="<?php echo base_url().'administrator/modyfikacja-przedmiotu/'.$key->id_produktu;?>" role="button">Edytuj</a></td>-->
+                    <td>
+                      <div class="dropdown">
+                        <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                          <li class="menu-kontekstowe"><a class="class="btn btn-link"" href="<?php echo base_url().'administrator/modyfikacja-przedmiotu/'.$key->id_produktu;?>">Edytuj</a></li>
+                          <li class="menu-kontekstowe"><a class="class="btn btn-link"" href="<?php echo base_url().'administrator/dodaj-podobny/'.$key->id_produktu;?>">Dodaj podobny</a></li>
+                        </ul>
+                      </div>
+
+                    </td>
                   </tr>
                   <?php } ?>
               </tbody>

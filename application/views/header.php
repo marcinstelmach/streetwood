@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/style.css" media="screen" type="text/css" />
     <link rel="stylesheet" href="http://localhost/streetwood/assetss/css/fontello.css" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assetss/img/favicon.png">
-    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,7 +26,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <a class="social-links" href="tel:753-159-852"><i class="icon-globe" style="font-size: 20px;"></i> MY LOCATION POLAND</a>
+            <a class="navbar-left" href="#"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg" width="150"></a>
           </div>
           <div class="col-md-offset-5 col-md-4">
             <a class="social-links" href="http://facebook.com/streetwoodpl"><i class="icon-facebook-official" style="font-size: 20px;"></i></a>
@@ -51,7 +50,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-left" href="#"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg"></a>
+          <a class="navbar-left" href="#"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg" width="150"></a>
         </div><!--Zamknięcie headera-->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
@@ -71,28 +70,3 @@
         </div>
       </div>
     </nav> <!-- Koniec menu nav -->
-
-    <!-- SLIDER -->
-        <div id="carousel-example" class="carousel slide" data-ride="carousel">
-
-
-          <div class="carousel-inner">
-            <div class="item active">
-              <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/2.jpg" alt="Zdjęcie 1" /></a>
-            </div>
-            <div class="item">
-              <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/1.jpg" alt="Zdjęcie 2" /></a>
-            </div>
-            <div class="item">
-              <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/3.jpg" alt="Zdjęcie 3" /></a>
-            </div>
-          </div>
-
-          <a class="left carousel-control" href="#carousel-example" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          </a>
-          <a class="right carousel-control" href="#carousel-example" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </a>
-        </div>
-    <!--Koniec Slider -->

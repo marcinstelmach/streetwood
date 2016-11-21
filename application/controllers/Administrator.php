@@ -15,7 +15,6 @@ class Administrator extends CI_Controller
 		if(($this->session->userdata('administrator')==FALSE))
 		{
 			header('location: '.base_url());
-                        //$this->load->view('index');
 				die();
 		}
         elseif(($this->session->userdata('administrator')==TRUE))
@@ -33,7 +32,6 @@ class Administrator extends CI_Controller
 		if(($this->session->userdata('administrator')==FALSE))
 		{
 			header('location: '.base_url());
-                        //$this->load->view('index');
 				die(); 
 		}
 		$data = array('error' => ' ',
@@ -45,33 +43,34 @@ class Administrator extends CI_Controller
 	}
 
 	
-	function do_upload()
+	public function do_upload()
 	{
 		if(($this->session->userdata('administrator')==FALSE))
 		{
 			header('location: '.base_url());
-                        //$this->load->view('index');
 				die();
 		}
+		$kategoria=$this->Model_m->query('select nazwa_kategorii from kategorie where id_kategorii='.$this->input->post('id_kategorii'));
+		foreach ($kategoria as $key) 
+		{
+			$nazwa_kategorii=str_replace(' ', '_', strtolower($key->nazwa_kategorii));
+		}
 		/* utworzenie zmiennych */
-				$folder_upload="./assetss/uploads";
-				if (isset($_FILES['my_file']))
+			$folder_upload='./assetss/img/products/'.$nazwa_kategorii;
+			if (isset($_FILES['my_file']))
             {
                 $myFile = $_FILES['my_file'];
                 $fileCount = count($myFile["name"]);
 
-                for ($i = 0; $i < $fileCount; $i++)
-                {
-                   
-                        /* sprawdzenie, czy plik został wysłany */
-                    if (!$myFile["tmp_name"][$i])
-                    {
+                for ($i = 0; $i < $fileCount; $i++) {
+
+                    // sprawdzenie, czy plik został wysłany
+                    if (!$myFile["tmp_name"][$i]) {
                         //exit("Nie wysłano żadnego pliku");
                     }
-                    
-                    /* sprawdzenie błędów */
-                    switch ($myFile["error"][$i])
-                    {
+
+                    //sprawdzenie błędów 
+                    switch ($myFile["error"][$i]) {
                         case UPLOAD_ERR_OK:
                             break;
                         case UPLOAD_ERR_NO_FILE:
@@ -85,22 +84,20 @@ class Administrator extends CI_Controller
                             exit("Nieznany błąd.");
                             break;
                     }
-                    
-                    /* sprawdzenie rozszerzenia pliku - dzięki temu mamy pewność, że ktoś nie zapisze na serwerze pliku .php */
-                    $dozwolone_rozszerzenia=array("jpg", "tif", "png", "gif");
-                    $plik_rozszerzenie=pathinfo(strtolower($myFile["name"][$i]), PATHINFO_EXTENSION);
-                    if (!in_array($plik_rozszerzenie, $dozwolone_rozszerzenia, true))
-                    {
+
+                    //sprawdzenie rozszerzenia pliku - dzięki temu mamy pewność, że ktoś nie zapisze na serwerze pliku .php 
+                    $dozwolone_rozszerzenia = array("jpg", "tif", "png", "gif");
+                    $plik_rozszerzenie = pathinfo(strtolower($myFile["name"][$i]), PATHINFO_EXTENSION);
+                    if (!in_array($plik_rozszerzenie, $dozwolone_rozszerzenia, true)) {
                         exit("Niedozwolone rozszerzenie pliku.");
                     }
-                        
-                    /* przeniesienie pliku z folderu tymczasowego do właściwej lokalizacji */
-                    if (!move_uploaded_file($myFile["tmp_name"][$i], $folder_upload."/".$myFile["name"][$i]))
-                    {
+
+                    // przeniesienie pliku z folderu tymczasowego do właściwej lokalizacji 
+                    if (!move_uploaded_file($myFile["tmp_name"][$i], $folder_upload . "/" . $myFile["name"][$i])) {
                         exit("Nie udało się przenieść pliku.");
                     }
                     //wysłano pomyślnie
-                    $this->thumb($myFile["name"][$i]);  //utworzenie miniaturki
+                    $this->thumb($myFile['name'][$i], $nazwa_kategorii);
                 }
             }
 				
@@ -109,8 +106,6 @@ class Administrator extends CI_Controller
 			$this->form_validation->set_rules('opis', 'Opis', 'required');
 			$this->form_validation->set_rules('cena', 'Cena', 'required');
 			$this->form_validation->set_rules('id_kategorii', 'Kategoria', 'required');
-			$this->form_validation->set_rules('dlugosc', 'Długość', 'required|numeric');
-			$this->form_validation->set_rules('szerokosc', 'Szerokość', 'required|numeric');
 			$this->form_validation->set_rules('stan', 'Stan', 'required');
 			$this->form_validation->set_message('required', 'Pole %s jest wymagane');
 			$this->form_validation->set_message('numeric', 'Pole %s musi być liczbą');
@@ -126,9 +121,7 @@ class Administrator extends CI_Controller
 			{
 					$data['nazwa']=ucwords($this->input->post('nazwa'));
 					$data['cena']=$this->input->post('cena');
-					$data['id_kategorii']=strtolower($this->input->post('id_kategorii'));
-					$data['dlugosc']=$this->input->post('dlugosc');
-					$data['szerokosc']=strtolower($this->input->post('szerokosc'));		
+					$data['id_kategorii']=$this->input->post('id_kategorii');
 					$data['stan']=$this->input->post('stan');	
 					$data['opis']=$this->input->post('opis');	
 
@@ -143,12 +136,106 @@ class Administrator extends CI_Controller
 						$zdjecia['nazwa_zdjecia']=$myFile['name'][$i];
 						$zdjecia['id_produktu']=$id_produktu;
 						$this->Model_m->dodaj('zdjecia', $zdjecia);
+
 					}
 					$this->session->set_userdata($newdata);
 					header('location: '.base_url().'administrator/dodaj_przedmiot');
 			}
+			
 
 	}
+    public function zmien_zdjecie($id_produktu, $nazwa_kategorii)
+    {
+        if(($this->session->userdata('administrator')==FALSE))
+        {
+            header('location: '.base_url());
+            die();
+        }
+        $folder_upload='./assetss/img/products/'.$nazwa_kategorii;
+        if (isset($_FILES['my_file']))
+        {
+            $myFile = $_FILES['my_file'];
+            $fileCount = count($myFile["name"]);
+
+            for ($i = 0; $i < $fileCount; $i++)
+            {
+
+                // sprawdzenie, czy plik został wysłany
+                if (!$myFile["tmp_name"][$i])
+                {
+                    //exit("Nie wysłano żadnego pliku");
+                }
+
+                //sprawdzenie błędów
+                switch ($myFile["error"][$i])
+                {
+                    case UPLOAD_ERR_OK:
+                        break;
+                    case UPLOAD_ERR_NO_FILE:
+                        exit("Brak pliku.");
+                        break;
+                    case UPLOAD_ERR_INI_SIZE:
+                    case UPLOAD_ERR_FORM_SIZE:
+                        exit("Przekroczony maksymalny rozmiar pliku.");
+                        break;
+                    default:
+                        exit("Nieznany błąd.");
+                        break;
+                }
+
+                //sprawdzenie rozszerzenia pliku - dzięki temu mamy pewność, że ktoś nie zapisze na serwerze pliku .php
+                $dozwolone_rozszerzenia=array("jpg", "tif", "png", "gif");
+                $plik_rozszerzenie=pathinfo(strtolower($myFile["name"][$i]), PATHINFO_EXTENSION);
+                if (!in_array($plik_rozszerzenie, $dozwolone_rozszerzenia, true))
+                {
+                    exit("Niedozwolone rozszerzenie pliku.");
+                }
+
+                // przeniesienie pliku z folderu tymczasowego do właściwej lokalizacji
+                if (!move_uploaded_file($myFile["tmp_name"][$i], $folder_upload."/".$myFile["name"][$i]))
+                {
+                    exit("Nie udało się przenieść pliku.");
+                }
+                //wysłano pomyślnie
+                $this->thumb($myFile['name'][$i], $nazwa_kategorii);  //utworzenie miniaturki
+            }
+        }
+        /* nie było błędów */
+        $zdjecia=$this->Model_m->query('SELECT nazwa_zdjecia from zdjecia where id_produktu ='.$id_produktu);
+        foreach ($zdjecia as $key)
+        {
+            $zdjecie=$key->nazwa_zdjecia;
+            $thumb= substr($zdjecie, 0, -4);
+            $thumb=$thumb.'_thumb.jpg';
+            $this->usun_zdjecie($zdjecie, $nazwa_kategorii);
+            $this->usun_thumb($thumb, $nazwa_kategorii);
+        }
+        $this->Model_m->delete_zdjecie($id_produktu);
+        for ($i = 0; $i < $fileCount; $i++)
+        {
+            $zdjecia['nazwa_zdjecia']=$myFile['name'][$i];
+            $zdjecia['id_produktu']=$id_produktu;
+            $this->Model_m->dodaj('zdjecia', $zdjecia);
+        }
+        header('location: '.base_url().'administrator/modyfikacja_przedmiotu/'.$id_produktu);
+    }
+
+    private function thumb($nazwa_zdjecia, $nazwa_kategorii)
+    {
+        $config['image_library'] = 'gd2';
+        $config['source_image']	= './assetss/img/products/'.$nazwa_kategorii.'/'.$nazwa_zdjecia;
+        $config['create_thumb'] = TRUE;
+        $config['new_image'] = './assetss/img/products/'.$nazwa_kategorii.'/thumbs';
+        $config['maintain_ratio'] = TRUE;
+        $config['width']= 100;
+        $config['height']= 100;
+
+        $this->load->library('image_lib', $config);
+        $this->image_lib->initialize($config);
+
+        $this->image_lib->resize();
+        $this->image_lib->clear();
+    }
 
 
 	public function dodaj_kategorie()
@@ -174,7 +261,9 @@ class Administrator extends CI_Controller
 			$data['nazwa_kategorii']=ucwords($this->input->post('nazwa'));		
 			$this->Model_m->dodaj('kategorie', $data);
 			//$this->load->view('formsuccess', $data);
-			echo "dodano kategorie";
+			mkdir('./assetss/img/products/'.str_replace(' ', '_', strtolower($data['nazwa_kategorii'])), 0700);
+			mkdir('./assetss/img/products/'.str_replace(' ', '_', strtolower($data['nazwa_kategorii'])).'/thumbs', 0700);
+			header('location: '.base_url().'administrator/dodaj-kategorie');
 		}
 	}
 
@@ -245,14 +334,13 @@ class Administrator extends CI_Controller
 		if(($this->session->userdata('administrator')==FALSE))
 		{
 			header('location: '.base_url());
-                        //$this->load->view('index');
 				die();
 		}
 		$args = func_get_args();
 
 		if (empty($args))
 			{
-				$data['produkty']=$this->Model_m->query('select p.id_produktu, p.nazwa, p.cena, p.dlugosc, p.szerokosc, p.stan, k.nazwa_kategorii from produkty p, kategorie k where k.id_kategorii=p.id_kategorii');
+				$data['produkty']=$this->Model_m->query('select p.id_produktu, p.nazwa, p.cena, p.stan, k.nazwa_kategorii from produkty p, kategorie k where k.id_kategorii=p.id_kategorii');
 				$this->load->view('administrator/header');
 				$this->load->view('administrator/przedmiot/wyswietl_przedmioty', $data);
 				$this->load->view('administrator/footer');
@@ -262,17 +350,16 @@ class Administrator extends CI_Controller
 				$this->form_validation->set_rules('nazwa', 'Nazwa', 'min_length[2]');
 				$this->form_validation->set_rules('id_kategorii', 'Kategoria');
 				$this->form_validation->set_rules('cena', 'Cena', 'numeric');
-				$this->form_validation->set_rules('dlugosc', 'Długość', 'numeric');
-				$this->form_validation->set_rules('szerokosc', 'Szerokość', 'numeric');
 				$this->form_validation->set_rules('stan', 'Stan');
 				$this->form_validation->set_message('min_length', 'Pole %s jest za krótkie');
 				$this->form_validation->set_message('numeric', 'Pole %s musi być liczbą !');
 				$this->form_validation->set_message('required', 'Pole %s jest wymagane !');
 				if ($this->form_validation->run() == FALSE)
 				{
-					$data['produkty']=$this->Model_m->query('select p.id_produktu, p.nazwa, p.cena, p.zdjecie, p.dlugosc, p.szerokosc, p.stan, k.nazwa_kategorii from produkty p, kategorie k where k.id_kategorii=p.id_kategorii and id_produktu='.$par);
+					$data['produkty']=$this->Model_m->query('select p.id_produktu, p.nazwa, p.cena, p.stan, k.nazwa_kategorii, k.id_kategorii from produkty p, kategorie k where k.id_kategorii=p.id_kategorii and id_produktu='.$par);
 					$data['kategorie']=$this->Model_m->get('kategorie');
 					$data['error']='';
+					$data['zdjecia']=$this->Model_m->query('select * from zdjecia z where z.id_produktu='.$par);
 					$this->load->view('administrator/header');
 					$this->load->view('administrator/przedmiot/modyfikuj_przedmiot', $data);
 					$this->load->view('administrator/footer');
@@ -280,12 +367,11 @@ class Administrator extends CI_Controller
 				else
 				{
 					$stareDane=$this->Model_m->pobierzgdzie('id_produktu', $par, 'produkty');
-					foreach($stareDane as $row){
+					foreach($stareDane as $row)
+                    {
 						$stareD['nazwa']=$row->nazwa;
 						$stareD['id_kategorii']=$row->id_kategorii;
 						$stareD['cena']=$row->cena;
-						$stareD['dlugosc']=$row->dlugosc;
-						$stareD['szerokosc']=$row->szerokosc;
 						$stareD['stan']=$row->stan;
 					}
 
@@ -304,16 +390,6 @@ class Administrator extends CI_Controller
 					else
 						$dane['cena']=$stareD['cena'];
 
-					if($this->input->post('dlugosc')!="")
-						$dane['dlugosc']=$this->input->post('dlugosc');
-					else
-						$dane['dlugosc']=$stareD['dlugosc'];
-
-					if($this->input->post('szerokosc')!="")
-						$dane['szerokosc']=$this->input->post('szerokosc');
-					else
-						$dane['szerokosc']=$stareD['szerokosc'];
-
 					if($this->input->post('stan')!="")
 						$dane['stan']=$this->input->post('stan');
 					else
@@ -321,13 +397,83 @@ class Administrator extends CI_Controller
 				
 
 					$this->Model_m->update('produkty', $dane, 'id_produktu', $par);
-					//$this->load->view('klient\klient_modyfikacja_sukces_view');
 					header('location: '.base_url().'administrator/modyfikacja-przedmiotu');
 				}
 		}
-		
 	}
-	public function modyfikacja_kategorii()
+
+	public function dodaj_podobny()
+	{
+		if(($this->session->userdata('administrator')==FALSE))
+		{
+			header('location: '.base_url());
+			die();
+		}
+		$args = func_get_args();
+
+		if (empty($args))
+		{
+			header('location: '.base_url());
+			die();
+		}
+		foreach ($args as $par)
+		{
+			$this->form_validation->set_rules('nazwa', 'Nazwa', 'min_length[2]');
+			$this->form_validation->set_rules('id_kategorii', 'Kategoria');
+			$this->form_validation->set_rules('cena', 'Cena', 'numeric');
+			$this->form_validation->set_rules('stan', 'Stan');
+			$this->form_validation->set_message('min_length', 'Pole %s jest za krótkie');
+			$this->form_validation->set_message('numeric', 'Pole %s musi być liczbą !');
+			$this->form_validation->set_message('required', 'Pole %s jest wymagane !');
+			if ($this->form_validation->run() == FALSE)
+			{
+				$data['produkty']=$this->Model_m->query('select p.id_produktu, p.nazwa, p.cena, p.stan, p.opis, k.nazwa_kategorii, k.id_kategorii from produkty p, kategorie k where k.id_kategorii=p.id_kategorii and id_produktu='.$par);
+				$data['kategorie']=$this->Model_m->get('kategorie');
+				$data['error']='';
+				//$data['zdjecia']=$this->Model_m->query('select * from zdjecia z where z.id_produktu='.$par);
+				$this->load->view('administrator/header');
+				$this->load->view('administrator/przedmiot/dodaj_podobny', $data);
+				$this->load->view('administrator/footer');
+			}
+			else
+			{
+				$stareDane=$this->Model_m->pobierzgdzie('id_produktu', $par, 'produkty');
+				foreach($stareDane as $row){
+					$stareD['nazwa']=$row->nazwa;
+					$stareD['id_kategorii']=$row->id_kategorii;
+					$stareD['cena']=$row->cena;
+					$stareD['stan']=$row->stan;
+				}
+
+				if($this->input->post('nazwa')!="")
+					$dane['nazwa']=ucwords($this->input->post('nazwa'));
+				else
+					$dane['nazwa']=$stareD['nazwa'];
+
+				if($this->input->post('id_kategorii')!="")
+					$dane['id_kategorii']=$this->input->post('id_kategorii');
+				else
+					$dane['id_kategorii']=$stareD['id_kategorii'];
+
+				if($this->input->post('cena')!="")
+					$dane['cena']=$this->input->post('cena');
+				else
+					$dane['cena']=$stareD['cena'];
+
+				if($this->input->post('stan')!="")
+					$dane['stan']=$this->input->post('stan');
+				else
+					$dane['stan']=$stareD['stan'];
+
+
+				$this->Model_m->dodaj('produkty', $dane);
+				header('location: '.base_url().'administrator/modyfikacja-przedmiotu');
+			}
+		}
+
+	}
+	
+	public function modyfikacja_kategorii() //Dodać zarządzanie katalogami ze zdjęciami
 	{
 		if(($this->session->userdata('administrator')==FALSE))
 		{
@@ -356,8 +502,6 @@ class Administrator extends CI_Controller
 				else
 				{
 					$dane['nazwa_kategorii']=ucwords($this->input->post('nazwa_kategorii'));
-				
-
 					$this->Model_m->update('kategorie', $dane, 'id_kategorii', $par);
 					header('Location: '.base_url().'administrator/modyfikacja_kategorii');
 				}
@@ -365,38 +509,65 @@ class Administrator extends CI_Controller
 		
 	}
 
-	private function usun_produkt($id_produktu, $zdjecie)
+	public function usun_produkt($id_produktu, $nazwa_kategorii)
 	{
-		$thumb= substr($zdjecie, 0, -4);
-		$thumb=$thumb.'_thumb.jpg';
-		$this->usun_zdjecie($zdjecie);
-		$this->usun_zdjecie($thumb);
+        $zdjecia=$this->Model_m->query('select nazwa_zdjecia from zdjecia z WHERE z.id_produktu='.$id_produktu);
+        foreach($zdjecia as $key)
+        {
+            $zdjecie=$key->nazwa_zdjecia;
+            $thumb= substr($zdjecie, 0, -4);
+            $thumb=$thumb.'_thumb.jpg';
+            $this->usun_zdjecie($zdjecie, $nazwa_kategorii);
+            $this->usun_thumb($thumb, $nazwa_kategorii);
+        }
+		
 		$this->Model_m->delete($id_produktu, 'id_produktu', 'produkty');
 		header('Location: '.base_url().'administrator/modyfikacja_przedmiotu');
 	}
 
-	private function usun_kategorie()
+    private function usun_zdjecie($file_name, $nazwa_kategorii)
+    {
+        if(! unlink('./assetss/img/products/'.$nazwa_kategorii.'/'.$file_name))
+        {
+            echo "bład";
+        }
+        else
+        {
+            echo "usunięto";
+        }
+    }
+
+    private function usun_thumb($file_name, $nazwa_kategorii)
+    {
+        if(! unlink('./assetss/img/products/'.$nazwa_kategorii.'/thumbs/'.$file_name))
+        {
+            echo "bład";
+        }
+        else
+        {
+            echo "usunięto";
+        }
+    }
+
+	public function usun_kategorie()
 	{
+        $nazwa_kategorii=str_replace(' ', '_', strtolower($this->input->post('nazwa_kategorii')));
 		$id=$this->input->post('id_kategorii');
 		$this->Model_m->delete($id, 'id_kategorii', 'kategorie');
+		array_map('unlink', glob('./assetss/img/products/'.$nazwa_kategorii.'/*.*'));
+		rmdir('./assetss/img/products/'.$nazwa_kategorii);
 		header('Location: '.base_url().'administrator/modyfikacja_kategorii');
 	}
 
-
 	public function wyloguj()
 	{
-		//$this->session->sess_destroy();
 		$this->session->unset_userdata('administrator');
 		header('location: '.base_url());
 	}
 
-
-
-
 	private function username_check($str)
 	{
 		$wynik=$this->Model_m->where('login', $str, 'uzytkownicy');
-
 		if($str=='')
 		{
 			$this->form_validation->set_message('username_check', 'Podaj login');
@@ -480,7 +651,7 @@ class Administrator extends CI_Controller
 		}
 		$dane['adres']=$this->Model_m->query('select a.miasto, a.ulica, a.nr_domu, a.kod_pocztowy from adresy a, zamowienia z where a.id_adresu=z.id_adresu and z.id_zamowienia='.$id_zamowienia);
 		$dane['uzytkownik']=$this->Model_m->query('select u.imie, u.nazwisko, u.email, u.telefon from uzytkownicy u, zamowienia z WHERE z.id_uzytkownika=u.id_uzytkownika and z.id_zamowienia='.$id_zamowienia);
-		$dane['produkt']=$this->Model_m->query('select p.nazwa, p.dlugosc, p.szerokosc, p.cena, t.ilosc FROM produkty p, zamowienia z, zam_tow t WHERE p.id_produktu=t.id_produktu and t.id_zamowienia=z.id_zamowienia and z.id_zamowienia='.$id_zamowienia);
+		$dane['produkt']=$this->Model_m->query('select p.nazwa, p.cena, t.ilosc FROM produkty p, zamowienia z, zam_tow t WHERE p.id_produktu=t.id_produktu and t.id_zamowienia=z.id_zamowienia and z.id_zamowienia='.$id_zamowienia);
 		$dane['id_zamowienia']=$id_zamowienia;
 		$dane['zamowienie']=$this->Model_m->query('select z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from zamowienia z where z.id_zamowienia='.$id_zamowienia);
 
@@ -644,89 +815,9 @@ class Administrator extends CI_Controller
 		header('location: '.base_url().'administrator/szczegoly-zamowienia/'.$id_zamowienia);
 	}
 
-	private function usun_zdjecie($file_name)
-	{
-		if(! unlink("./assets/uploads/".$file_name))
-		{
-			echo "bład";
-		}
-		else
-		{
-			echo "usunięto";
-		}
-	}
 
-	public function zmien_zdjecie($id_produktu, $zdjecie)
-	{
-		if(($this->session->userdata('administrator')==FALSE))
-		{
-			header('location: '.base_url());
-				die();
-		}
-				/* utworzenie zmiennych */
-				$folder_upload="./assets/uploads";
-				$plik_nazwa=$_FILES['plik']['name'];
-				$plik_lokalizacja=$_FILES['plik']['tmp_name']; //tymczasowa lokalizacja pliku
-				$plik_mime=$_FILES['plik']['type']; //typ MIME pliku wysłany przez przeglądarkę
-				$plik_rozmiar=$_FILES['plik']['size'];
-				$plik_blad=$_FILES['plik']['error']; //kod błędu
-				 
-				/* sprawdzenie, czy plik został wysłany */
-				if (!$plik_lokalizacja) {
-				    exit("Nie wysłano żadnego pliku");
-				}
-				 
-				/* sprawdzenie błędów */
-				switch ($plik_blad) {
-				    case UPLOAD_ERR_OK:
-				        break;
-				    case UPLOAD_ERR_NO_FILE:
-				        exit("Brak pliku.");
-				        break;
-				    case UPLOAD_ERR_INI_SIZE:
-				    case UPLOAD_ERR_FORM_SIZE:
-				        exit("Przekroczony maksymalny rozmiar pliku.");
-				        break;
-				    default:
-				        exit("Nieznany błąd.");
-				        break;
-				}
-				 
-				/* sprawdzenie rozszerzenia pliku - dzięki temu mamy pewność, że ktoś nie zapisze na serwerze pliku .php */
-				$dozwolone_rozszerzenia=array("jpeg", "jpg", "tiff", "tif", "png", "gif");
-				$plik_rozszerzenie=pathinfo(strtolower($plik_nazwa), PATHINFO_EXTENSION);
-				if (!in_array($plik_rozszerzenie, $dozwolone_rozszerzenia, true)) {
-				    exit("Niedozwolone rozszerzenie pliku.");
-				}
-				 
-				/* przeniesienie pliku z folderu tymczasowego do właściwej lokalizacji */
-				if (!move_uploaded_file($plik_lokalizacja, $folder_upload."/".$plik_nazwa)) {
-				    exit("Nie udało się przenieść pliku.");
-				}
-				$this->thumb($plik_nazwa);  //utworzenie miniaturki
-				/* nie było błędów */
-				$thumb= substr($zdjecie, 0, -4);
-				$thumb=$thumb.'_thumb.jpg';
-				$this->usun_zdjecie($zdjecie);
-				$this->usun_zdjecie($thumb);
-				$dane['zdjecie']=$plik_nazwa;
-				$this->Model_m->update('produkty', $dane, 'id_produktu', $id_produktu);
-				header('location: '.base_url().'administrator/modyfikacja_przedmiotu/'.$id_produktu);
-		}
 
-		private function thumb($nazwa_zdjecia)
-		{
-			$config['image_library'] = 'gd2';
-			$config['source_image']	= './assets/uploads/'.$nazwa_zdjecia;
-			$config['create_thumb'] = TRUE;
-			$config['maintain_ratio'] = TRUE;
-			$config['width']	= 100;
-			$config['height']	= 100;
 
-			$this->load->library('image_lib', $config); 
-
-			$this->image_lib->resize();
-		}
 
 		public function statystyki()
 		{

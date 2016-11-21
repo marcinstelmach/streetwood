@@ -31,6 +31,7 @@
                 <div class="modal-footer">
                 <?php echo form_open('administrator/usun-kategorie'); ?>
                 <input type="hidden" name="id_kategorii" value="<?php echo $key->id_kategorii; ?>" />
+                <input type="hidden" name="nazwa_kategorii" value="<?php echo $key->nazwa_kategorii; ?>" />
                   <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
 
                   <input type="submit" name="usun" class="btn btn-danger" value="Usuń" />

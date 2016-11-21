@@ -76,23 +76,9 @@
 
     <div class="container bestsellers"> 
       <div clss="row">
-        <hr class="style-u-nas">
+        <p class="text-center">@street_wood #streetwood #streetwoodteam</p>
+
+        <!-- LightWidget WIDGET --><script src="//lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/9b69fed94d165c2e890f5e26f9d20ed1.html" id="lightwidget_9b69fed94d" name="lightwidget_9b69fed94d"  scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
       </div>
-      <div class="row" style="padding-top: 20px;">
-        <div class="col-xs-6 col-md-4">
-          <a href="#" class="thumbnail">
-            <img src="<?php echo base_url(); ?>assetss/img/footer/footer1.jpg" alt="Zdjęcie">
-          </a>
-        </div>
-        <div class="col-xs-6 col-md-4">
-          <a href="#" class="thumbnail">
-            <img src="<?php echo base_url(); ?>assetss/img/footer/footer2.jpg" alt="Zdjęcie">
-          </a>
-        </div>
-        <div class="col-xs-6 col-md-4">
-          <a href="#" class="thumbnail">
-            <img src="<?php echo base_url(); ?>assetss/img/footer/footer3.jpg" alt="Zdjęcie">
-          </a>
-        </div>
-      </div>
+
     </div><!-- END OF U NAS ZAWSZE -->

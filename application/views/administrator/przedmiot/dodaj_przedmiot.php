@@ -13,7 +13,6 @@
       $this->session->unset_userdata('nazwa_przedmiotu');
     }
     ?>
- 
       <div class="row">
         <div class="col-md-6">
         <?php
@@ -48,22 +47,6 @@
                     } ?>
                   </select>
                 </div>
-                <?php echo "<div class='bladwalidacji'>".form_error('nazwa')."</div>"; ?>
-              </div>
-              
-              <div class="form-group">
-                <label for="dlugosc" class="col-sm-3 control-label">Podaj długość</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" id="dlugosc" placeholder="Podaj długość" name="dlugosc">
-                </div>
-                <?php echo "<div class='bladwalidacji'>".form_error('dlugosc')."</div>"; ?>
-              </div>
-              <div class="form-group">
-                <label for="szerokosc" class="col-sm-3 control-label">Szerokość</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" id="szerokosc" placeholder="Szerokość" name="szerokosc">
-                </div>
-                <?php echo "<div class='bladwalidacji'>".form_error('szerokosc')."</div>"; ?>
               </div>
               <div class="form-group">
                 <label for="ilosc" class="col-sm-3 control-label">Stan</label>

@@ -156,5 +156,10 @@ class Model_m extends CI_Model
 		$this->db->where($id_org, $id);
 		$this->db->delete($tabela); 
 	}
-	
+
+	public function delete_zdjecie($id_produktu)
+	{
+		$this->db->where('id_produktu', $id_produktu);
+		$this->db->delete('zdjecia');
+	}
 }
