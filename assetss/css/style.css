@@ -3,13 +3,12 @@ body
   background-color: white;
   color: #161617;
   font-family: 'Ubuntu', sans-serif;
+  padding-top: 70px;
 }
 
 .first_container
 {
-  /*border-style: solid;
-  border-width: 0px 0px 1px 0px;
-  border-color: #EDEFF0;*/
+
   padding-top: 8px;
   padding-bottom: 8px;
   background-color: #000000;
@@ -24,111 +23,6 @@ a.social-links:hover
   color:#ffffff;
   text-decoration: none;
 }
-
-.navbar-default {
-  background-color: #ffffff;
-  border-color: #ffffff;
-}
-.navbar-default .navbar-brand {
-  color: #000000;
-
-}
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: #423e3e;
-}
-.navbar-default .navbar-text {
-  color: #000000;
-}
-.navbar-default .navbar-nav > li > a {
-  color: #000000;
-}
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-  color: #423e3e;
-}
-.navbar-default .navbar-nav > li > .dropdown-menu {
-  background-color: #ffffff;
-}
-.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
-  color: #000000;
-}
-.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
-.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
-  color: #423e3e;
-  background-color: #ffffff;
-}
-.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
-  background-color: #ffffff;
-}
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-  color: #423e3e;
-  background-color: #ffffff;
-}
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  color: #423e3e;
-  background-color: #ffffff;
-}
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
-  color: #423e3e;
-  background-color: #ffffff;
-}
-.navbar-default .navbar-toggle {
-  border-color: #ffffff;
-}
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-  background-color: #ffffff;
-}
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: #000000;
-}
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
-  border-color: #fff;
-}
-.navbar-default .navbar-link {
-  color: #000000;
-}
-.navbar-default .navbar-link:hover {
-  color: #423e3e;
-}
-
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #000000;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #423e3e;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #423e3e;
-    background-color: #ffffff;
-  }
-}
-
-.navbar-nav > li{
-  padding-left:30px;
-  padding-right:30px;
-}
-
- .navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu {
-    background-color: #fff;
-    color:#161617;
-    border-color:transparent;
-    padding-left:22px;
-    padding-right:30px;
-    box-shadow: none;
-  }
 
 hr.style-bestsellers {
     padding-top: 0;
@@ -230,6 +124,7 @@ hr.style-sugestie:after {
     padding-left: 5px;
     padding-bottom: 5px;
     text-align: center;
+    border-radius: 5px;
 }
 
 .increment {
@@ -237,3 +132,43 @@ hr.style-sugestie:after {
 
 }
 
+.navbar-custom {
+    background-color:#000000;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #33aa33;
+}
+
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+    background-color:#0f0f0f;
+}
+.navbar-custom .icon-bar {
+    background-color:#33aa33;
+}
+
+.nazwa-przedmiotu
+{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.cena-przedmiotu
+{
+    font-size: 30px;
+    font-weight: bold;
+}

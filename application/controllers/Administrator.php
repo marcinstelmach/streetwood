@@ -154,6 +154,16 @@ class Administrator extends CI_Controller
         $folder_upload='./assetss/img/products/'.$nazwa_kategorii;
         if (isset($_FILES['my_file']))
         {
+            $zdjecia=$this->Model_m->query('SELECT nazwa_zdjecia from zdjecia where id_produktu ='.$id_produktu);
+            foreach ($zdjecia as $key)
+            {
+                $zdjecie=$key->nazwa_zdjecia;
+                $thumb= substr($zdjecie, 0, -4);
+                $thumb=$thumb.'_thumb.jpg';
+                $this->usun_zdjecie($zdjecie, $nazwa_kategorii);// usuniecie zdjec z dysku
+                $this->usun_thumb($thumb, $nazwa_kategorii);
+            }
+            $this->Model_m->delete_zdjecie($id_produktu); // usunięcie zdjęc z bazy dancyh
             $myFile = $_FILES['my_file'];
             $fileCount = count($myFile["name"]);
 
@@ -201,21 +211,12 @@ class Administrator extends CI_Controller
             }
         }
         /* nie było błędów */
-        $zdjecia=$this->Model_m->query('SELECT nazwa_zdjecia from zdjecia where id_produktu ='.$id_produktu);
-        foreach ($zdjecia as $key)
-        {
-            $zdjecie=$key->nazwa_zdjecia;
-            $thumb= substr($zdjecie, 0, -4);
-            $thumb=$thumb.'_thumb.jpg';
-            $this->usun_zdjecie($zdjecie, $nazwa_kategorii);
-            $this->usun_thumb($thumb, $nazwa_kategorii);
-        }
-        $this->Model_m->delete_zdjecie($id_produktu);
+
         for ($i = 0; $i < $fileCount; $i++)
         {
-            $zdjecia['nazwa_zdjecia']=$myFile['name'][$i];
-            $zdjecia['id_produktu']=$id_produktu;
-            $this->Model_m->dodaj('zdjecia', $zdjecia);
+            $zdjecia_d['nazwa_zdjecia']=$myFile['name'][$i];
+            $zdjecia_d['id_produktu']=$id_produktu;
+            $this->Model_m->dodaj('zdjecia', $zdjecia_d);
         }
         header('location: '.base_url().'administrator/modyfikacja_przedmiotu/'.$id_produktu);
     }
@@ -246,7 +247,7 @@ class Administrator extends CI_Controller
                         //$this->load->view('index');
 				die();
 		}
-		$this->form_validation->set_rules('nazwa', 'Nazwa', 'required|min_length[2]');
+		$this->form_validation->set_rules('nazwa', 'Nazwa', 'required|min_length[2]|callback_category_check');
 		$this->form_validation->set_message('required', 'Pole %s jest wymagane');
 		$this->form_validation->set_message('min_length', 'Pole %s jest za krótkie');
 		if ($this->form_validation->run() == FALSE)
@@ -584,18 +585,18 @@ class Administrator extends CI_Controller
 		}
 	}
 
-	private function email_check($str)
+	function category_check($str)
 	{
-		$wynik=$this->Model_m->where('email', $str, 'uzytkownicy');
+		$wynik=$this->Model_m->where('nazwa_kategorii', $str, 'kategorie');
 
 		if($str=='')
 		{
-			$this->form_validation->set_message('email_check', 'Podaj email');
+			$this->form_validation->set_message('category_check', 'Podaj email');
 			return FALSE;
 		}
 		if ($wynik==0)
 		{
-			$this->form_validation->set_message('email_check', 'E-mail %s istnieje juz w bazie danych, wybierz inny :)');
+			$this->form_validation->set_message('category_check', 'Taka kategoria istnieje juz w bazie danych');
 			return FALSE;
 		}
 		else

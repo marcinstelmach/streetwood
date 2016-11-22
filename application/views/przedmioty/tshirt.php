@@ -115,18 +115,19 @@
             </div>
             <!-- Jssor Slider End -->
         </div>
+
+
         <div class="col-md-6" style="padding-left: 50px; margin-top: 20px;">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Nazwa: Plecak szary</p>
-                    <p>Cena: 55.00 zł</p>
-
+                    <h1 class="nazwa-przedmiotu">T-shirt StreetWood</h1>
+                    <p class="cena-przedmiotu"><span id="cena">55.00</span> </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-5">
+            <div class="row" style="margin-top: 20px;">
+                <p>Rozmiar</p>
+                <div class="col-md-2">
                     <select class="form-control" name="size">
-                        <option value="">Wybierz rozmiar</option>
                         <option value="s">S</option>
                         <option value="m">M</option>
                         <option value="l">L</option>
@@ -134,19 +135,61 @@
                     </select>
                 </div>
             </div>
+            <div class="row" style="margin-top: 20px;">
+                <p>Kolor</p>
+                <div class="col-md-4">
+                    <select class="form-control" name="kolor">
+                        <option value="czarny">Czarny</option>
+                        <option value="bialy">Biały</option>
+                        <option value="szary">Szary</option>
+                    </select>
+                </div>
+            </div>
             <div class="row" style="padding-top: 20px">
-                <div class="col-md-1 col-xs-1">
+                <div class="col-xs-1">
                     <button id="minus" class="increment btn btn-primary" style="background-color: #555555; border: none">
-                        -
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                     </button>
                 </div>
-                <div class="col-md-1 col-xs-1" >
+                <div class="col-xs-1" >
                     <input type="text" value="1" id="ilosc" class="ilosc" />
                 </div>
-                <div class="col-md-1 col-xs-1">
+                <div class="col-xs-1">
                     <button id="plus" class="increment btn btn-primary" style="background-color: #555555; border: none;">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <p>Suma: <span id="suma"></span>.00</p>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="center-block">
+                    <input class="btn btn-success btn-lg" type="submit" value="Dodaj do koszyka">
+                </div>
+            </div>
+            <div class="row">
+            <hr style="border-width: 2px; border-color:#0f1f0f />
+                <div class="col-md-7">
+
+                    <h2>Szczegóły</h2>
+                    <p>Wyjdź z przekazem! Najlepiej do siebie przed lustro :)
+
+                        No chyba, że chciałabyś komuś jeszcze powiedzieć „I just want to say you look great today”.
+
+                        Na pewno nikt się nie obrazi zobaczyć Cię w tej koszulce!
+
+                        Nowy krój w naszym sklepie, czyli RINGER z czarnym wykończeniem lubi, kiedy o niego dbasz.
+
+                        - modelka ma na sobie rozmiar S
+
+                        - prać w 30 stopniach lub ręcznie
+
+                        - prasować na lewej stronie
+
+                        - 100% bawełna z certyfikatem Oeko-Tex 100 klasa I</p>
                 </div>
             </div>
         </div>
@@ -180,18 +223,4 @@
     </div>
 </div><!-- END OF U NAS ZAWSZE -->
 
-<script>
-    $("#minus").click(function () {
-        var ilosc = $('#ilosc').val();
-        if(ilosc>1)
-        {
-            ilosc--;
-            $("#ilosc").val(ilosc);
-        }
-    });
-    $("#plus").click(function () {
-        var ilosc = $('#ilosc').val();
-        ilosc++;
-        $("#ilosc").val(ilosc);
-    });
-</script>
+<script type="text/javascript" src="<?= base_url().'assetss/js/ilosc.js'?>"></script>

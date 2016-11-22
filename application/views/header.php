@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl"> 
+<html lang="pl" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,51 +22,41 @@
     <![endif]-->
   </head>
   <body>
-    <div class="container-fluid first_container">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <a class="navbar-left" href="#"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg" width="150"></a>
-          </div>
-          <div class="col-md-offset-5 col-md-4">
-            <a class="social-links" href="http://facebook.com/streetwoodpl"><i class="icon-facebook-official" style="font-size: 20px;"></i></a>
-            <a class="social-links" href="http://instagram.com/street_wood"><i class="icon-instagram" style="font-size: 20px;"></i></a>
-            <a class="social-links" href="#"><i class="icon-snapchat-ghost" style="font-size: 20px;"></i></a>
-            <a class="social-links" href="<?php echo base_url().'uzytkownik/zaloguj'; ?>">ZALOGUJ SIĘ</a> | 
-            <a class="social-links" href="<?php echo base_url().'uzytkownik/rejestracja'; ?>">ZAREJESTRUJ SIĘ</a>
-            <a class="social-links" href="#"><i class="icon-basket" style="font-size: 20px;"></i></a>
-          </div>
-        </div>
+  <nav class="navbar navbar-inverse navbar-custom navbar-fixed-top" role="navigation" style="padding-top: 10px;">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Rozwiń nawigację</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-left" href="#"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg" width="150"></a>
+      </div><!--Zamknięcie headera-->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bransoletki<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Sznureczek</a></li>
+              <li><a href="#">Koraliki</a></li>
+              <li><a href="#">Kotwica</a></li>
+              <li><a href="#">Guzik</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Case</a></li>
+          <li><a href="#">Odzież</a></li>
+          <li><a href="#">BackPack</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right fejsy">
+            <li><a class="social-links" href="http://facebook.com/streetwoodpl"><i class="icon-facebook-official" style="font-size: 20px;"></i></a></li>
+            <li><a class="social-links" href="http://instagram.com/street_wood"><i class="icon-instagram" style="font-size: 20px;"></i></a></li>
+            <li><a class="social-links" href="#"><i class="icon-snapchat-ghost" style="font-size: 20px;"></i></a></li>
+            <li><a class="social-links" href="<?php echo base_url().'uzytkownik/zaloguj'; ?>">ZALOGUJ SIĘ</a> </li>
+            <li><a class="social-links" href="<?php echo base_url().'uzytkownik/rejestracja'; ?>">ZAREJESTRUJ SIĘ</a></li>
+            <li><a class="social-links" href="#"><i class="icon-basket" style="font-size: 20px;"></i></a></li>
+          </ul>
+        </ul>
       </div>
     </div>
-
-    <!--MENU -->
-    <nav class="navbar navbar-default" role="navigation" style="padding-top: 10px;">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Rozwiń nawigację</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-left" href="#"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg" width="150"></a>
-        </div><!--Zamknięcie headera-->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bransoletki<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Sznureczek</a></li>
-                <li><a href="#">Koraliki</a></li>
-                <li><a href="#">Kotwica</a></li>
-                <li><a href="#">Guzik</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Case</a></li>
-            <li><a href="#">Odzież</a></li>
-            <li><a href="#">BackPack</a></li>            
-          </ul>
-        </div>
-      </div>
-    </nav> <!-- Koniec menu nav -->
+  </nav> <!-- Koniec menu nav -->

@@ -46,7 +46,7 @@
               $zdjecie=$zdj->nazwa_zdjecia;
               $thumb= substr($zdjecie, 0, -4);
               $thumb=$thumb.'_thumb.jpg';
-              echo '<img src="'.base_url().'assetss/img/products/'.$key->nazwa_kategorii.'/thumbs/'.$thumb.'">';
+              echo '<img src="'.base_url().'assetss/img/products/'.str_replace(' ','_', strtolower($key->nazwa_kategorii)).'/thumbs/'.$thumb.'">';
           }
        ?>
         <?php
