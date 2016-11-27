@@ -9,7 +9,10 @@
                   <label for="nazwa">Nazwa</label>
                   <input type="text" class="form-control" id="nazwa_kategorii" name="nazwa_kategorii" value="<?php echo $key->nazwa_kategorii; ?>">
                 </div>
-            <?php } ?>
+            <?php
+            $parent=$key->parent;
+                echo $parent;
+            } ?>
           <div class="form-group">
               <button type="submit" class="btn btn-danger">Edytuj</button>
           </div>
@@ -29,13 +32,30 @@
                   Czy na pewno chcesz usunąć przedmiot ?
                 </div>
                 <div class="modal-footer">
-                <?php echo form_open('administrator/usun-kategorie'); ?>
-                <input type="hidden" name="id_kategorii" value="<?php echo $key->id_kategorii; ?>" />
-                <input type="hidden" name="nazwa_kategorii" value="<?php echo $key->nazwa_kategorii; ?>" />
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+                    <?php
+                        if($parent==null)
+                        {
+                           echo form_open('administrator/usun-pod-kategorie'); ?>
+                            <input type="hidden" name="id_kategorii" value="<?php echo $key->id_kategorii; ?>" />
+                            <input type="hidden" name="nazwa_kategorii" value="<?php echo $key->nazwa_kategorii; ?>" />
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
 
-                  <input type="submit" name="usun" class="btn btn-danger" value="Usuń" />
-                </form>
+                            <input type="submit" name="usun" class="btn btn-danger" value="Usuń" />
+                            </form>
+                    <?php
+                        }
+                        else
+                        {
+                            echo form_open('administrator/usun-kategorie'); ?>
+                            <input type="hidden" name="id_kategorii" value="<?php echo $key->id_kategorii; ?>" />
+                            <input type="hidden" name="nazwa_kategorii" value="<?php echo $key->nazwa_kategorii; ?>" />
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+
+                            <input type="submit" name="usun" class="btn btn-danger" value="Usuń" />
+                            </form>
+                    <?php
+                        }
+                    ?>
                 </div>
               </div>
             </div>

@@ -2,13 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="667e6558-35a5-4a5d-8e2d-d1e160c01ef8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case/3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case/4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case/thumbs/3_thumb.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case/thumbs/4_thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/Przedmiot.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case_iphone_6/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case_iphone_6/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case_iphone_6/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case_iphone_6/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case_iphone_6/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case_iphone_6/thumbs/1_thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case_iphone_6/thumbs/2_thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case_iphone_6/thumbs/3_thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case_iphone_6/thumbs/4_thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assetss/img/products/case_iphone_6/thumbs/5_thumb.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Administrator.php" afterPath="$PROJECT_DIR$/application/controllers/Administrator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_przedmiot.php" afterPath="$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_przedmiot.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Model_m.php" afterPath="$PROJECT_DIR$/application/models/Model_m.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_kategorie.php" afterPath="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_kategorie.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_przedmiot.php" afterPath="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_przedmiot.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_kategorie.php" afterPath="$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_kategorie.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/administrator/przedmiot/wyswietl_kategorie.php" afterPath="$PROJECT_DIR$/application/views/administrator/przedmiot/wyswietl_kategorie.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header.php" afterPath="$PROJECT_DIR$/application/views/header.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/przedmioty/tshirt.php" afterPath="$PROJECT_DIR$/application/views/przedmioty/tshirt.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assetss/css/style.css" afterPath="$PROJECT_DIR$/assetss/css/style.css" />
@@ -33,37 +44,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/header.php">
+      <file leaf-file-name="dodaj_kategorie.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_kategorie.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+            <state relative-caret-position="340">
+              <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assetss/css/style.css">
+      <file leaf-file-name="Administrator.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Administrator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tshirt.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/przedmioty/tshirt.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="171" column="18" selection-start-line="171" selection-start-column="18" selection-end-line="171" selection-end-column="18" />
+            <state relative-caret-position="336">
+              <caret line="523" column="253" selection-start-line="523" selection-start-column="253" selection-end-line="523" selection-end-column="253" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#hr#0;n#div#6;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <marker date="1480258460177" expanded="true" signature="1110:1167" placeholder="select nazwa... kategorie" />
+                <marker date="1480258460177" expanded="true" signature="5365:5418" placeholder="SELECT nazwa... zdjecia" />
+                <marker date="1480258460177" expanded="true" signature="13593:13722" placeholder="select p.id_... produkty" />
+                <marker date="1480258460177" expanded="true" signature="14538:14700" placeholder="select p.id_... produkty" />
+                <marker date="1480258460177" expanded="true" signature="14836:14880" placeholder="select * fro... zdjecia" />
+                <marker date="1480258460177" expanded="true" signature="17018:17188" placeholder="select p.id_... produkty" />
+                <marker date="1480258460177" expanded="true" signature="18846:19013" placeholder="SELECT t1.na... kategorie" />
+                <marker date="1480258460177" expanded="true" signature="18846:19031" placeholder="SELECT t1.na... kategorie" />
+                <marker date="1480258460177" expanded="true" signature="20019:20075" placeholder="select nazwa... zdjecia" />
+                <marker date="1480258460177" expanded="true" signature="23382:23613" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="23739:24008" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="24110:24381" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="24483:24756" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="25168:25298" placeholder="select a.mia... adresy" />
+                <marker date="1480258460177" expanded="true" signature="25362:25501" placeholder="select u.imi... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="25562:25725" placeholder="select p.naz... produkty" />
+                <marker date="1480258460177" expanded="true" signature="25830:25935" placeholder="select z.czy... zamowienia" />
+                <marker date="1480258460177" expanded="true" signature="26379:26632" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="26745:27036" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="27138:27431" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="27533:27828" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="28272:28523" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="28649:28906" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="29008:29267" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="29369:29630" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="30072:30345" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="30471:30782" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="30884:31197" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="31299:31614" placeholder="select z.id_... uzytkownicy" />
+                <marker date="1480258460177" expanded="true" signature="33205:33322" placeholder="SELECT SUM(c... zamowienia" />
+                <marker date="1480258460177" expanded="true" signature="33370:33489" placeholder="SELECT SUM(c... zamowienia" />
+                <marker date="1480258460177" expanded="true" signature="33537:33658" placeholder="SELECT SUM(c... zamowienia" />
+                <marker date="1480258460177" expanded="true" signature="33702:33821" placeholder="SELECT SUM(c... zamowienia" />
+                <marker date="1480258460177" expanded="true" signature="33960:34069" placeholder="SELECT SUM(c... zamowienia" />
+                <marker date="1480258460177" expanded="true" signature="34248:34350" placeholder="SELECT SUM(c... zamowienia" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Model_m.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Model_m.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="179" column="131" selection-start-line="179" selection-start-column="131" selection-end-line="179" selection-end-column="131" />
+              <folding>
+                <marker date="1480258095912" expanded="true" signature="2982:3062" placeholder="select k.id_... kategorie" />
+                <marker date="1480258095912" expanded="true" signature="3187:3250" placeholder="select k.naz... kategorie" />
+                <marker date="1480258095912" expanded="true" signature="3376:3571" placeholder="SELECT t1.na... kategorie" />
               </folding>
             </state>
           </provider>
@@ -90,21 +135,31 @@
         <option value="$PROJECT_DIR$/application/views/przedmiot.php" />
         <option value="$PROJECT_DIR$/application/controllers/T_shirt.php" />
         <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/wyswietl_przedmioty.php" />
-        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_przedmiot.php" />
-        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_podobny.php" />
         <option value="$PROJECT_DIR$/application/controllers/Przedmiot.php" />
         <option value="$PROJECT_DIR$/application/views/body.php" />
         <option value="$PROJECT_DIR$/assetss/css/dashboard.css" />
-        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_kategorie.php" />
-        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/wyswietl_kategorie.php" />
-        <option value="$PROJECT_DIR$/application/models/Model_m.php" />
         <option value="$PROJECT_DIR$/application/controllers/O.php" />
         <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_przedmiot.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Administrator.php" />
         <option value="$PROJECT_DIR$/assetss/js/ilosc.js" />
-        <option value="$PROJECT_DIR$/assetss/css/style.css" />
+        <option value="$PROJECT_DIR$/application/controllers/Bransoletki.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Plecak.php" />
+        <option value="$PROJECT_DIR$/application/views/przedmioty/case.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Case.php" />
         <option value="$PROJECT_DIR$/application/views/header.php" />
+        <option value="$PROJECT_DIR$/application/views/category.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Case_iphone.php" />
+        <option value="$PROJECT_DIR$/application/views/przedmioty/category.php" />
+        <option value="$PROJECT_DIR$/assetss/css/style.css" />
+        <option value="$PROJECT_DIR$/application/controllers/Odziez.php" />
         <option value="$PROJECT_DIR$/application/views/przedmioty/tshirt.php" />
+        <option value="$PROJECT_DIR$/application/views/przedmioty/case_iphone.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_kategorie.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_kategorie.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/wyswietl_kategorie.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_podobny.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_przedmiot.php" />
+        <option value="$PROJECT_DIR$/application/models/Model_m.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Administrator.php" />
       </list>
     </option>
   </component>
@@ -168,8 +223,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -270,7 +323,33 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="przedmioty" />
+              <option name="myItemId" value="administrator" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetwood" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetwood" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="administrator" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="przedmiot" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -312,6 +391,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -322,6 +403,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../php/php.exe" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\streetwood\application\views\przedmioty" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\streetwood\assetss\css" />
       <recent name="C:\xampp\htdocs\streetwood\application\views" />
@@ -389,11 +473,13 @@
       <workItem from="1479761962630" duration="4707000" />
       <workItem from="1479816921674" duration="23000" />
       <workItem from="1479825329539" duration="5528000" />
+      <workItem from="1479989228916" duration="4680000" />
+      <workItem from="1480240126917" duration="15261000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49858000" />
+    <option name="totallyTimeSpent" value="69799000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -436,6 +522,30 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assetss/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/tshirt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -564,13 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_podobny.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -592,20 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/wyswietl_kategorie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="91" selection-start-line="2" selection-start-column="91" selection-end-line="2" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_kategorie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/O.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -613,31 +702,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Administrator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2767">
-          <caret line="598" column="109" selection-start-line="598" selection-start-column="109" selection-end-line="598" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Uzytkownik.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="34" column="84" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Model_m.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2567">
-          <caret line="163" column="5" selection-start-line="163" selection-start-column="5" selection-end-line="163" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_przedmiot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="23" column="78" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="78" />
         </state>
       </provider>
     </entry>
@@ -655,13 +723,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Przedmiot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Przedmiot.php" />
     <entry file="file://$PROJECT_DIR$/assetss/css/style_kopia.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -673,39 +735,179 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding>
-            <element signature="e#401#443#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Bransoletki.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Case_iphone.php" />
+    <entry file="file://$PROJECT_DIR$/application/controllers/Plecak.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Case_iphone.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assetss/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="461">
+          <caret line="290" column="18" selection-start-line="290" selection-start-column="18" selection-end-line="290" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/header.php">
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+        <state relative-caret-position="221">
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Odziez.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/case_iphone.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/przedmioty/tshirt.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="171" column="18" selection-start-line="171" selection-start-column="18" selection-end-line="171" selection-end-column="18" />
+        <state relative-caret-position="374">
+          <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="81" selection-start-line="9" selection-start-column="81" selection-end-line="9" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/wyswietl_kategorie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_kategorie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_podobny.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#6;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <marker date="1479663117167" expanded="true" signature="310:639" placeholder="..." />
+            <marker date="1479663117167" expanded="true" signature="383:626" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Model_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="179" column="131" selection-start-line="179" selection-start-column="131" selection-end-line="179" selection-end-column="131" />
+          <folding>
+            <marker date="1480258095912" expanded="true" signature="2982:3062" placeholder="select k.id_... kategorie" />
+            <marker date="1480258095912" expanded="true" signature="3187:3250" placeholder="select k.naz... kategorie" />
+            <marker date="1480258095912" expanded="true" signature="3376:3571" placeholder="SELECT t1.na... kategorie" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_przedmiot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="45" column="93" selection-start-line="45" selection-start-column="93" selection-end-line="45" selection-end-column="93" />
+          <folding>
+            <marker date="1480258065334" expanded="true" signature="329:658" placeholder="..." />
+            <marker date="1480258065334" expanded="true" signature="402:645" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Administrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="523" column="253" selection-start-line="523" selection-start-column="253" selection-end-line="523" selection-end-column="253" />
+          <folding>
+            <marker date="1480258460177" expanded="true" signature="1110:1167" placeholder="select nazwa... kategorie" />
+            <marker date="1480258460177" expanded="true" signature="5365:5418" placeholder="SELECT nazwa... zdjecia" />
+            <marker date="1480258460177" expanded="true" signature="13593:13722" placeholder="select p.id_... produkty" />
+            <marker date="1480258460177" expanded="true" signature="14538:14700" placeholder="select p.id_... produkty" />
+            <marker date="1480258460177" expanded="true" signature="14836:14880" placeholder="select * fro... zdjecia" />
+            <marker date="1480258460177" expanded="true" signature="17018:17188" placeholder="select p.id_... produkty" />
+            <marker date="1480258460177" expanded="true" signature="18846:19013" placeholder="SELECT t1.na... kategorie" />
+            <marker date="1480258460177" expanded="true" signature="18846:19031" placeholder="SELECT t1.na... kategorie" />
+            <marker date="1480258460177" expanded="true" signature="20019:20075" placeholder="select nazwa... zdjecia" />
+            <marker date="1480258460177" expanded="true" signature="23382:23613" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="23739:24008" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="24110:24381" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="24483:24756" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="25168:25298" placeholder="select a.mia... adresy" />
+            <marker date="1480258460177" expanded="true" signature="25362:25501" placeholder="select u.imi... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="25562:25725" placeholder="select p.naz... produkty" />
+            <marker date="1480258460177" expanded="true" signature="25830:25935" placeholder="select z.czy... zamowienia" />
+            <marker date="1480258460177" expanded="true" signature="26379:26632" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="26745:27036" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="27138:27431" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="27533:27828" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="28272:28523" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="28649:28906" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="29008:29267" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="29369:29630" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="30072:30345" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="30471:30782" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="30884:31197" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="31299:31614" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1480258460177" expanded="true" signature="33205:33322" placeholder="SELECT SUM(c... zamowienia" />
+            <marker date="1480258460177" expanded="true" signature="33370:33489" placeholder="SELECT SUM(c... zamowienia" />
+            <marker date="1480258460177" expanded="true" signature="33537:33658" placeholder="SELECT SUM(c... zamowienia" />
+            <marker date="1480258460177" expanded="true" signature="33702:33821" placeholder="SELECT SUM(c... zamowienia" />
+            <marker date="1480258460177" expanded="true" signature="33960:34069" placeholder="SELECT SUM(c... zamowienia" />
+            <marker date="1480258460177" expanded="true" signature="34248:34350" placeholder="SELECT SUM(c... zamowienia" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_kategorie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

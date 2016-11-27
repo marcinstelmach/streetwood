@@ -43,7 +43,7 @@
                 <div class="col-sm-5">
                   <select name="id_kategorii" class="form-control" id="kategoria">
                     <?php foreach ($rekordy as $key) {
-                    echo "<option value=".$key->id_kategorii.">".$key->nazwa_kategorii."</option>";
+                    echo "<option value=".$key->id_kategorii.">".$key->lev1.' > '.$key->lev2;"</option>";
                     } ?>
                   </select>
                 </div>

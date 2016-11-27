@@ -34,9 +34,8 @@ class Administrator extends CI_Controller
 			header('location: '.base_url());
 				die(); 
 		}
-		$data = array('error' => ' ',
-				'rekordy'=>$this->Model_m->get('kategorie')
-				);
+		$data['error']='';
+        $data['rekordy']=$this->Model_m->pobierz_liste_kategorii();
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/przedmiot/dodaj_przedmiot', $data);
 		$this->load->view('administrator/footer'); 
@@ -247,23 +246,60 @@ class Administrator extends CI_Controller
                         //$this->load->view('index');
 				die();
 		}
+		$kategorie['glowna']=$this->Model_m->pobierz_kategorie();
 		$this->form_validation->set_rules('nazwa', 'Nazwa', 'required|min_length[2]|callback_category_check');
 		$this->form_validation->set_message('required', 'Pole %s jest wymagane');
 		$this->form_validation->set_message('min_length', 'Pole %s jest za krótkie');
 		if ($this->form_validation->run() == FALSE)
 		{
 			$this->load->view('administrator/header');
-			$this->load->view('administrator/przedmiot/dodaj_kategorie');
+			$this->load->view('administrator/przedmiot/dodaj_kategorie', $kategorie);
 			$this->load->view('administrator/footer'); 
 		}
 		else
 		{
-			
-			$data['nazwa_kategorii']=ucwords($this->input->post('nazwa'));		
+			$data['nazwa_kategorii']=ucwords($this->input->post('nazwa'));
+			$data['parent']=NULL;
 			$this->Model_m->dodaj('kategorie', $data);
 			//$this->load->view('formsuccess', $data);
-			mkdir('./assetss/img/products/'.str_replace(' ', '_', strtolower($data['nazwa_kategorii'])), 0700);
-			mkdir('./assetss/img/products/'.str_replace(' ', '_', strtolower($data['nazwa_kategorii'])).'/thumbs', 0700);
+			mkdir('./assetss/img/products/'.str_replace(' ', '_', strtolower($data['nazwa_kategorii'])), 0777);
+			//mkdir('./assetss/img/products/'.str_replace(' ', '_', strtolower($data['nazwa_kategorii'])).'/thumbs', 0777);
+			header('location: '.base_url().'administrator/dodaj-kategorie');
+		}
+	}
+
+	public function dodaj_pod_kategorie()
+	{
+		if(($this->session->userdata('administrator')==FALSE))
+		{
+			header('location: '.base_url());
+			//$this->load->view('index');
+			die();
+		}
+		$kategorie['glowna']=$this->Model_m->pobierz_kategorie();
+		$this->form_validation->set_rules('nazwa', 'Nazwa', 'required|min_length[2]|callback_category_check');
+		$this->form_validation->set_rules('glowna', 'Główna kategoria', 'required');
+		$this->form_validation->set_message('required', 'Pole %s jest wymagane');
+		$this->form_validation->set_message('min_length', 'Pole %s jest za krótkie');
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('administrator/header');
+			$this->load->view('administrator/przedmiot/dodaj_kategorie', $kategorie);
+			$this->load->view('administrator/footer');
+		}
+		else
+		{
+			$glowna=$this->Model_m->pobierz_nazwe_kategorii($this->input->post('glowna'));
+			foreach ($glowna as $key)
+			{
+				$nazwa_glowna=$key->nazwa_kategorii;
+			}
+			$data['nazwa_kategorii']=ucwords($this->input->post('nazwa'));
+			$data['parent']=$this->input->post('glowna');
+			$this->Model_m->dodaj('kategorie', $data);
+			//$this->load->view('formsuccess', $data);
+			mkdir('./assetss/img/products/'.str_replace(' ', '_', strtolower($nazwa_glowna)).'/'.str_replace(' ', '_', strtolower($data['nazwa_kategorii'])), 0777);
+			mkdir('./assetss/img/products/'.str_replace(' ', '_', strtolower($nazwa_glowna)).'/'.str_replace(' ', '_', strtolower($data['nazwa_kategorii'])).'/thumbs', 0777);
 			header('location: '.base_url().'administrator/dodaj-kategorie');
 		}
 	}
@@ -485,7 +521,7 @@ class Administrator extends CI_Controller
 
 		if (empty($args))
 			{
-				$data['kategorie']=$this->Model_m->get('kategorie');
+				$data['kategorie']=$this->Model_m->query('SELECT t1.nazwa_kategorii AS lev1, t2.nazwa_kategorii as lev2, t2.id_kategorii as id_kategorii FROM kategorie AS t1 JOIN kategorie AS t2 ON t2.parent = t1.id_kategorii order by t1.nazwa_kategorii');
 				$this->load->view('administrator/header');
 				$this->load->view('administrator/przedmiot/wyswietl_kategorie', $data);
 				$this->load->view('administrator/footer');
@@ -557,6 +593,21 @@ class Administrator extends CI_Controller
 		$this->Model_m->delete($id, 'id_kategorii', 'kategorie');
 		array_map('unlink', glob('./assetss/img/products/'.$nazwa_kategorii.'/*.*'));
 		rmdir('./assetss/img/products/'.$nazwa_kategorii);
+		header('Location: '.base_url().'administrator/modyfikacja_kategorii');
+	}
+
+	public function usun_pod_kategorie()
+	{
+		$nazwa_kategorii=str_replace(' ', '_', strtolower($this->input->post('nazwa_kategorii')));
+		$id=$this->input->post('id_kategorii');
+		$glowna=$this->Model_m->pobierz_nazwe_kategorii($id);
+		foreach ($glowna as $key)
+		{
+			$nazwa_glowna=$key->nazwa_kategorii;
+		};
+		$this->Model_m->delete($id, 'id_kategorii', 'kategorie');
+		array_map('unlink', glob('./assetss/img/products/'.str_replace(' ', '_', strtolower($nazwa_glowna)).'/'.$nazwa_kategorii.'/*.*'));
+		rmdir('./assetss/img/products/'.str_replace(' ', '_', strtolower($nazwa_glowna)).'/'.$nazwa_kategorii);
 		header('Location: '.base_url().'administrator/modyfikacja_kategorii');
 	}
 

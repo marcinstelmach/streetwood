@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Street Wood</title> 
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+   <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Sarala" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/bootstrap.min.css" media="screen" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/style.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/style.css?v=<?=time();?>" media="screen" type="text/css" />
     <link rel="stylesheet" href="http://localhost/streetwood/assetss/css/fontello.css" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assetss/img/favicon.png">
 

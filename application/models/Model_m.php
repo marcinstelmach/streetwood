@@ -162,4 +162,22 @@ class Model_m extends CI_Model
 		$this->db->where('id_produktu', $id_produktu);
 		$this->db->delete('zdjecia');
 	}
+
+	public function pobierz_kategorie()
+	{
+		$kategorie=$this->db->query('select k.id_kategorii, k.nazwa_kategorii from kategorie k where k.parent is null');
+		return $kategorie->result();
+	}
+
+	public function pobierz_nazwe_kategorii($id_kategorii)
+	{
+		$nazwa=$this->db->query('select k.nazwa_kategorii from kategorie k where k.id_kategorii='.$id_kategorii);
+		return $nazwa->result();
+	}
+
+	public function pobierz_liste_kategorii()
+	{
+		$kategorie=$this->db->query('SELECT t1.nazwa_kategorii AS lev1, t2.nazwa_kategorii as lev2, t2.id_kategorii as id_kategorii FROM kategorie AS t1 JOIN kategorie AS t2 ON t2.parent = t1.id_kategorii ORDER by t1.nazwa_kategorii');
+		return $kategorie->result();
+	}
 }
