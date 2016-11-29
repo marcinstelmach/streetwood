@@ -17,7 +17,7 @@
                   <tr>
                     <td><?php echo $i; $i++; ?></td>
                     <td><?php echo $key->nazwa; ?></td> 
-                    <td><?php echo $key->nazwa_kategorii; ?></td>
+                    <td><?php echo $key->nazwa_kategorii.' > '.$key->nazwa_pod_kategorii; ?></td>
                     <td><?php echo $key->cena; ?></td>
                     <td><?php echo $key->stan; ?></td>
                     <!--<td><a class="btn btn-default" href="<?php echo base_url().'administrator/modyfikacja-przedmiotu/'.$key->id_produktu;?>" role="button">Edytuj</a></td>-->

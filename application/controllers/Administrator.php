@@ -49,13 +49,22 @@ class Administrator extends CI_Controller
 			header('location: '.base_url());
 				die();
 		}
-		$kategoria=$this->Model_m->query('select nazwa_kategorii from kategorie where id_kategorii='.$this->input->post('id_kategorii'));
-		foreach ($kategoria as $key) 
+		$obie_kategorie=$this->input->post('id_kategorii');
+		$obie_kategorie_explode = explode('|', $obie_kategorie);
+		$a=$obie_kategorie_explode[0];
+		$b=$obie_kategorie_explode[1];
+		$pod_kategoria=$this->Model_m->query('SELECT k.nazwa_kategorii FROM kategorie k WHERE k.id_kategorii ='.$a);
+		$kategoria=$this->Model_m->query('SELECT k.nazwa_kategorii FROM kategorie k WHERE k.id_kategorii ='.$b);
+		foreach ($pod_kategoria as $key)
+		{
+			$nazwa_podkategorii=str_replace(' ', '_', strtolower($key->nazwa_kategorii));
+		}
+		foreach ($kategoria as $key)
 		{
 			$nazwa_kategorii=str_replace(' ', '_', strtolower($key->nazwa_kategorii));
 		}
 		/* utworzenie zmiennych */
-			$folder_upload='./assetss/img/products/'.$nazwa_kategorii;
+			$folder_upload='./assetss/img/products/'.$nazwa_kategorii.'/'.$nazwa_podkategorii;
 			if (isset($_FILES['my_file']))
             {
                 $myFile = $_FILES['my_file'];
@@ -96,7 +105,7 @@ class Administrator extends CI_Controller
                         exit("Nie udało się przenieść pliku.");
                     }
                     //wysłano pomyślnie
-                    $this->thumb($myFile['name'][$i], $nazwa_kategorii);
+                    $this->thumb($myFile['name'][$i], $nazwa_kategorii, $nazwa_podkategorii);
                 }
             }
 				
@@ -120,7 +129,7 @@ class Administrator extends CI_Controller
 			{
 					$data['nazwa']=ucwords($this->input->post('nazwa'));
 					$data['cena']=$this->input->post('cena');
-					$data['id_kategorii']=$this->input->post('id_kategorii');
+					$data['id_kategorii']=$a;
 					$data['stan']=$this->input->post('stan');	
 					$data['opis']=$this->input->post('opis');	
 
@@ -143,14 +152,14 @@ class Administrator extends CI_Controller
 			
 
 	}
-    public function zmien_zdjecie($id_produktu, $nazwa_kategorii)
+    public function zmien_zdjecie($id_produktu, $nazwa_kategorii, $nazwa_pod_kategorii)
     {
         if(($this->session->userdata('administrator')==FALSE))
         {
             header('location: '.base_url());
             die();
         }
-        $folder_upload='./assetss/img/products/'.$nazwa_kategorii;
+        $folder_upload='./assetss/img/products/'.$nazwa_kategorii.'/'.$nazwa_pod_kategorii;
         if (isset($_FILES['my_file']))
         {
             $zdjecia=$this->Model_m->query('SELECT nazwa_zdjecia from zdjecia where id_produktu ='.$id_produktu);
@@ -159,8 +168,8 @@ class Administrator extends CI_Controller
                 $zdjecie=$key->nazwa_zdjecia;
                 $thumb= substr($zdjecie, 0, -4);
                 $thumb=$thumb.'_thumb.jpg';
-                $this->usun_zdjecie($zdjecie, $nazwa_kategorii);// usuniecie zdjec z dysku
-                $this->usun_thumb($thumb, $nazwa_kategorii);
+                $this->usun_zdjecie($zdjecie, $nazwa_kategorii, $nazwa_pod_kategorii);// usuniecie zdjec z dysku
+                $this->usun_thumb($thumb, $nazwa_kategorii, $nazwa_pod_kategorii);
             }
             $this->Model_m->delete_zdjecie($id_produktu); // usunięcie zdjęc z bazy dancyh
             $myFile = $_FILES['my_file'];
@@ -206,7 +215,7 @@ class Administrator extends CI_Controller
                     exit("Nie udało się przenieść pliku.");
                 }
                 //wysłano pomyślnie
-                $this->thumb($myFile['name'][$i], $nazwa_kategorii);  //utworzenie miniaturki
+                $this->thumb($myFile['name'][$i], $nazwa_kategorii, $nazwa_pod_kategorii);  //utworzenie miniaturki
             }
         }
         /* nie było błędów */
@@ -220,12 +229,12 @@ class Administrator extends CI_Controller
         header('location: '.base_url().'administrator/modyfikacja_przedmiotu/'.$id_produktu);
     }
 
-    private function thumb($nazwa_zdjecia, $nazwa_kategorii)
+    private function thumb($nazwa_zdjecia, $nazwa_kategorii, $nazwa_podkategorii)
     {
         $config['image_library'] = 'gd2';
-        $config['source_image']	= './assetss/img/products/'.$nazwa_kategorii.'/'.$nazwa_zdjecia;
+        $config['source_image']	= './assetss/img/products/'.$nazwa_kategorii.'/'.$nazwa_podkategorii.'/'.$nazwa_zdjecia;
         $config['create_thumb'] = TRUE;
-        $config['new_image'] = './assetss/img/products/'.$nazwa_kategorii.'/thumbs';
+        $config['new_image'] = './assetss/img/products/'.$nazwa_kategorii.'/'.$nazwa_podkategorii.'/thumbs';
         $config['maintain_ratio'] = TRUE;
         $config['width']= 100;
         $config['height']= 100;
@@ -377,7 +386,7 @@ class Administrator extends CI_Controller
 
 		if (empty($args))
 			{
-				$data['produkty']=$this->Model_m->query('select p.id_produktu, p.nazwa, p.cena, p.stan, k.nazwa_kategorii from produkty p, kategorie k where k.id_kategorii=p.id_kategorii');
+				$data['produkty']=$this->Model_m->query('select p.id_produktu, p.nazwa, p.cena, p.stan, t1.nazwa_kategorii as nazwa_kategorii, t2.nazwa_kategorii as nazwa_pod_kategorii from produkty p JOIN kategorie as t2 on t2.id_kategorii=p.id_kategorii LEFT JOIN kategorie as t1 on t1.id_kategorii=t2.parent');
 				$this->load->view('administrator/header');
 				$this->load->view('administrator/przedmiot/wyswietl_przedmioty', $data);
 				$this->load->view('administrator/footer');
@@ -393,8 +402,8 @@ class Administrator extends CI_Controller
 				$this->form_validation->set_message('required', 'Pole %s jest wymagane !');
 				if ($this->form_validation->run() == FALSE)
 				{
-					$data['produkty']=$this->Model_m->query('select p.id_produktu, p.nazwa, p.cena, p.stan, k.nazwa_kategorii, k.id_kategorii from produkty p, kategorie k where k.id_kategorii=p.id_kategorii and id_produktu='.$par);
-					$data['kategorie']=$this->Model_m->get('kategorie');
+					$data['produkty']=$this->Model_m->pobierz_przedmiot($par);
+					$data['kategorie']=$this->Model_m->pobierz_liste_kategorii();
 					$data['error']='';
 					$data['zdjecia']=$this->Model_m->query('select * from zdjecia z where z.id_produktu='.$par);
 					$this->load->view('administrator/header');
@@ -546,7 +555,7 @@ class Administrator extends CI_Controller
 		
 	}
 
-	public function usun_produkt($id_produktu, $nazwa_kategorii)
+	public function usun_produkt($id_produktu, $nazwa_kategorii, $nazwa_pod_kategorii)
 	{
         $zdjecia=$this->Model_m->query('select nazwa_zdjecia from zdjecia z WHERE z.id_produktu='.$id_produktu);
         foreach($zdjecia as $key)
@@ -554,17 +563,17 @@ class Administrator extends CI_Controller
             $zdjecie=$key->nazwa_zdjecia;
             $thumb= substr($zdjecie, 0, -4);
             $thumb=$thumb.'_thumb.jpg';
-            $this->usun_zdjecie($zdjecie, $nazwa_kategorii);
-            $this->usun_thumb($thumb, $nazwa_kategorii);
+            $this->usun_zdjecie($zdjecie, $nazwa_kategorii, $nazwa_pod_kategorii);
+            $this->usun_thumb($thumb, $nazwa_kategorii, $nazwa_pod_kategorii);
         }
 		
 		$this->Model_m->delete($id_produktu, 'id_produktu', 'produkty');
 		header('Location: '.base_url().'administrator/modyfikacja_przedmiotu');
 	}
 
-    private function usun_zdjecie($file_name, $nazwa_kategorii)
+    private function usun_zdjecie($file_name, $nazwa_kategorii, $nazwa_pod_kategorii)
     {
-        if(! unlink('./assetss/img/products/'.$nazwa_kategorii.'/'.$file_name))
+        if(! unlink('./assetss/img/products/'.$nazwa_kategorii.'/'.$nazwa_pod_kategorii.'/'.$file_name))
         {
             echo "bład";
         }
@@ -574,9 +583,9 @@ class Administrator extends CI_Controller
         }
     }
 
-    private function usun_thumb($file_name, $nazwa_kategorii)
+    private function usun_thumb($file_name, $nazwa_kategorii, $nazwa_pod_kategorii)
     {
-        if(! unlink('./assetss/img/products/'.$nazwa_kategorii.'/thumbs/'.$file_name))
+        if(! unlink('./assetss/img/products/'.$nazwa_kategorii.'/'.$nazwa_pod_kategorii.'/thumbs/'.$file_name))
         {
             echo "bład";
         }

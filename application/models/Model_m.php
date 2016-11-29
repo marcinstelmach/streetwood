@@ -177,7 +177,13 @@ class Model_m extends CI_Model
 
 	public function pobierz_liste_kategorii()
 	{
-		$kategorie=$this->db->query('SELECT t1.nazwa_kategorii AS lev1, t2.nazwa_kategorii as lev2, t2.id_kategorii as id_kategorii FROM kategorie AS t1 JOIN kategorie AS t2 ON t2.parent = t1.id_kategorii ORDER by t1.nazwa_kategorii');
+		$kategorie=$this->db->query('SELECT t1.nazwa_kategorii AS lev1, t2.nazwa_kategorii as lev2, t2.id_kategorii as id_kategorii, t1.id_kategorii AS id_kategorii_1 FROM kategorie AS t1 JOIN kategorie AS t2 ON t2.parent = t1.id_kategorii ORDER by t1.nazwa_kategorii');
 		return $kategorie->result();
+	}
+
+	public function pobierz_przedmiot($id_przedmiotu)
+	{
+		$przedmioty=$this->db->query('select p.id_produktu, p.nazwa, p.cena, p.stan, k.nazwa_kategorii, k.id_kategorii as id_kategorii, t1.id_kategorii as id_pod_kategorii, t1.nazwa_kategorii as nazwa_pod_kategorii from produkty p, kategorie k LEFT JOIN kategorie AS t1 ON t1.parent = k.id_kategorii where t1.id_kategorii=p.id_kategorii and p.id_produktu='.$id_przedmiotu);
+		return $przedmioty->result();
 	}
 }

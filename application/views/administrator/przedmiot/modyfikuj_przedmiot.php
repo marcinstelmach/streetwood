@@ -16,10 +16,10 @@
                 <div class="form-group">
                 <label for="kategoria">Kategoria</label>
                   <select name="id_kategorii" id="kategoria" class="form-control">
-                    <option value="<?=$key->id_kategorii?>" selected="selected"><?=$key->nazwa_kategorii?></option>
-                    <?php foreach ($kategorie as $keyy) {
-                    echo '<option value="'.$keyy->id_kategorii.'">'.$keyy->nazwa_kategorii.'</option>';
-                    } ?>
+                    <option value="<?=$key->id_pod_kategorii?>/<?=$key->id_kategorii?>" selected="selected"><?=$key->nazwa_kategorii?>/<?=$key->nazwa_pod_kategorii?></option>
+                      <?php foreach ($kategorie as $keyy) {
+                          echo '<option value="'.$keyy->id_kategorii.'|'.$keyy->id_kategorii_1.'">'.$keyy->lev1.' > '.$keyy->lev2.'</option>';
+                      } ?>
                   </select>
                 </div>
                 <div class="form-group">
@@ -46,12 +46,12 @@
               $zdjecie=$zdj->nazwa_zdjecia;
               $thumb= substr($zdjecie, 0, -4);
               $thumb=$thumb.'_thumb.jpg';
-              echo '<img src="'.base_url().'assetss/img/products/'.str_replace(' ','_', strtolower($key->nazwa_kategorii)).'/thumbs/'.$thumb.'">';
+              echo '<img src="'.base_url().'assetss/img/products/'.str_replace(' ','_', strtolower($key->nazwa_kategorii.'/'.$key->nazwa_pod_kategorii)).'/thumbs/'.$thumb.'">';
           }
        ?>
         <?php
         $attributes = array('class' => 'form-horizontal');
-          echo form_open_multipart('administrator/zmien-zdjecie/'.$key->id_produktu.'/'.str_replace(' ','_', strtolower($key->nazwa_kategorii)), $attributes);
+          echo form_open_multipart('administrator/zmien-zdjecie/'.$key->id_produktu.'/'.str_replace(' ','_', strtolower($key->nazwa_kategorii.'/'.$key->nazwa_pod_kategorii)), $attributes);
         ?>
               <div class="form-group">
                 <div class="col-sm-8">
@@ -85,7 +85,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
-                  <a class="btn btn-danger" href="<?php echo base_url().'administrator/usun-produkt/'.$key->id_produktu.'/'.str_replace(' ', '_', strtolower($key->nazwa_kategorii)); ?>" role="button">Usuń</a>
+                  <a class="btn btn-danger" href="<?php echo base_url().'administrator/usun-produkt/'.$key->id_produktu.'/'.str_replace(' ', '_', strtolower($key->nazwa_kategorii.'/'.$key->nazwa_pod_kategorii)); ?>" role="button">Usuń</a>
                 </div>
               </div>
             </div>

@@ -43,11 +43,12 @@
                 <div class="col-sm-5">
                   <select name="id_kategorii" class="form-control" id="kategoria">
                     <?php foreach ($rekordy as $key) {
-                    echo "<option value=".$key->id_kategorii.">".$key->lev1.' > '.$key->lev2;"</option>";
+                    echo '<option value="'.$key->id_kategorii.'|'.$key->id_kategorii_1.'">'.$key->lev1.' > '.$key->lev2.'</option>';
                     } ?>
                   </select>
                 </div>
               </div>
+
               <div class="form-group">
                 <label for="ilosc" class="col-sm-3 control-label">Stan</label>
                 <div class="col-sm-5">
@@ -72,6 +73,7 @@
                 </div>
               </div>
             </form>
+            <button id="test">TEST</button>
         </div>
           </div>
         </div>
