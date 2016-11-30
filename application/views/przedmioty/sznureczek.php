@@ -1,7 +1,17 @@
 <script type="text/javascript" src="<?=base_url()?>assetss/js/jquery-1.9.1.min.js"></script>
 <div class="col-md-5">
-        <img src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/6.png" width="500"/>
-        <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/01.png" style="position: absolute; top: 400px; left: 110px;"/>
+    <h1 class="nazwa-przedmiotu visible-xs">Case iPhone</h1>
+    <p class="cena-przedmiotu visible-xs"><span id="cena">55.00</span> </p>
+    <div style="position: relative">
+        <!-- Brans -->
+        <img src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/6.png"  id="brans"/>
+        <!-- Lewa zawieszka -->
+        <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7" class="img-responsive" id="lewa-zawieszka"/>
+        <!-- prawa zawieszka -->
+        <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7" class="img-responsive" id="prawa-zawieszka" />
+        <!-- Środkowa zawieszka -->
+        <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/01.png?v=7" class="img-responsive" id="srodkowa-zawieszka" />
+    </div>
 
 </div>
 
@@ -14,14 +24,18 @@
         </div>
     </div>
     <div class="row" style="margin-top: 20px;">
-
         <div class="col-md-5">
-            <p>Model</p>
+            <p>Kolor sznureczka</p>
             <select name="size">
-                <option value="5">iPhone 5/5s</option>
-                <option value="6">iPhone 6/6s</option>
-                <option value="7">iPhone 7</option>
+                <option value="5">Czarny</option>
+                <option value="6">Czerwony</option>
+                <option value="7">Różowy</option>
             </select>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+        <div class="col-md-7">
+            <button class="wybierz-zawieszke" data-toggle="modal" data-target="#wybierz-zawieszke">Wybierz zawieszke</button>
         </div>
     </div>
     <div class="row" style="padding-top: 20px">
@@ -95,5 +109,101 @@
         </div>
     </div>
 </div><!-- END OF U NAS ZAWSZE -->
+
+<!-- Modal -->
+<div class="modal fade" id="wybierz-zawieszke" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Wybierz Zawieszkę</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Kategoria 1
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Kategoria 2
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Kategoria 3
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript" src="<?= base_url().'assetss/js/ilosc.js'?>"></script>

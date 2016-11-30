@@ -290,3 +290,53 @@ ul > li > ul > li:hover
 {
     color:#888999;
 }
+
+#brans
+{
+    position: relative;
+    left: -50px;
+}
+
+#lewa-zawieszka
+{
+    position: absolute;
+    top: 175px;
+    left: 30px;
+    transform: rotate(90deg);
+}
+
+#prawa-zawieszka
+{
+    position: absolute;
+    top: 175px;
+    left: 312px;
+    transform: rotate(270deg);
+}
+
+#srodkowa-zawieszka
+{
+    position: absolute;
+    top: 358px;
+    left: 170px;
+}
+
+.wybierz-zawieszke
+{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.modal-content {
+    position: relative;
+    top: 10px;
+    right: 10px;
+    z-index: 10040;
+    overflow: auto;
+    overflow-y: auto;
+}
