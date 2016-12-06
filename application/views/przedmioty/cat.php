@@ -11,30 +11,30 @@
             <ul>
                 <li><span class="bold">Bransoletki</span>
                     <ul>
-                        <li><?= anchor('bransoletki/sznureczek', 'Sznureczek')?></li>
-                        <li><?= anchor('bransoletki/koraliki', 'Koraliki')?></li>
-                        <li><?= anchor('bransoletki/kotwica', 'Kotwica')?></li>
-                        <li><?= anchor('bransoletki/Guzik', 'Guzik')?></li>
+                        <li>Sznureczek</li>
+                        <li>Koraliki</li>
+                        <li>Kotwica</li>
+                        <li>Guzik</li>
                     </ul>
                 </li>
                 <br />
                 <li><span class="bold">Case</span>
                     <ul>
-                        <li><?= anchor('case/iphone', 'iPhone')?></li>
-                        <li><?= anchor('case/inna-marka', 'Inna marka')?></li>
+                        <li>iPhone</li>
+                        <li>Inna Marka</li>
                     </ul>
                 </li>
                 <br />
                 <li><span class="bold">Odzież</span>
                     <ul>
-                        <li><?= anchor('odziez/czapki', 'Czapki')?></li>
-                        <li><?= anchor('odziez/t-shirt', 'T-shirts')?></li>
+                        <li>Czapki</li>
+                        <li>T-shirty</li>
                     </ul>
                 </li>
                 <br />
                 <li><span class="bold">Plecak</span>
                     <ul>
-                        <li><?= anchor('plecak/backpack', 'BackPack')?></li>
+                        <li>BackPack</li>
                     </ul>
                 </li>
             </ul>

@@ -943,12 +943,11 @@ class Administrator extends CI_Controller
 
     public function przytnij_zdjecie()
     {
-        echo '<img src="'.base_url().'assetss/img/przyklad/7.png" />';
-        $config['image_library'] = 'ImageMagick';
-        $config['library_path'] = 'C:\\Program Files\\ImageMagick';
+        $config['image_library'] = 'gd2';
+        //$config['library_path'] = '/usr/X11R6/bin/';
         $config['source_image']	= './assetss/img/przyklad/7.png';
         $config['x_axis'] = '100';
-        $config['y_axis'] = '300';
+        $config['y_axis'] = '60';
         $this->load->library('image_lib', $config);
         $this->image_lib->initialize($config);
 

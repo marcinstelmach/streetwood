@@ -23,7 +23,7 @@
                 $thumb=$thumb.'_thumb.png';
                 ?>
                 <img src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/thumbs/<?=$thumb?>" onclick="zmien('<?=$key->nazwa_zdjecia?>','<?=$key->nazwa_przedmiotu?>')" style="cursor: pointer"/>
-            <?php
+                <?php
             }
             ?>
         </div>

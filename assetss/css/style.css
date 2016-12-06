@@ -2,8 +2,9 @@ body
 {
   background-color: white;
   color: #161617;
-  /*font-family: 'Ubuntu', sans-serif;*/
-    font-family: 'Sarala', sans-serif;
+  /*font-family: 'Ubuntu', sans-serif;
+    font-family: 'Sarala', sans-serif;*/
+    font-family: 'Roboto Condensed', sans-serif;
   padding-top: 70px;
 }
 
@@ -149,6 +150,7 @@ hr.style-sugestie:after {
     background-color:#000000;
     color:#ffffff;
     border-radius:0;
+    text-transform: uppercase;
 }
 
 .navbar-custom .navbar-nav > li > a {
@@ -291,10 +293,23 @@ ul > li > ul > li:hover
     color:#888999;
 }
 
+ul > li > ul > li > a:hover
+{
+    color:#888999;
+    text-decoration: none;
+}
+
+ul > li > ul > li > a
+{
+    color:#161617;
+    text-decoration: none;
+}
+
 #brans
 {
     position: relative;
     left: -50px;
+    width:500px;
 }
 
 #lewa-zawieszka
@@ -319,7 +334,7 @@ ul > li > ul > li:hover
     top: 358px;
     left: 170px;
 }
-
+/* przycisk */
 .wybierz-zawieszke
 {
     background-color: #4CAF50;
@@ -332,11 +347,9 @@ ul > li > ul > li:hover
     font-size: 15px;
 }
 
-.modal-content {
-    position: relative;
-    top: 10px;
+#wybierz-zawieszke
+{
+    position: fixed;
+    left: auto; /* <-- Reset the default left value */
     right: 10px;
-    z-index: 10040;
-    overflow: auto;
-    overflow-y: auto;
 }

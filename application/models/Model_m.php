@@ -186,4 +186,16 @@ class Model_m extends CI_Model
 		$przedmioty=$this->db->query('select p.id_produktu, p.nazwa, p.cena, p.stan, k.nazwa_kategorii, k.id_kategorii as id_kategorii, t1.id_kategorii as id_pod_kategorii, t1.nazwa_kategorii as nazwa_pod_kategorii from produkty p, kategorie k LEFT JOIN kategorie AS t1 ON t1.parent = k.id_kategorii where t1.id_kategorii=p.id_kategorii and p.id_produktu='.$id_przedmiotu);
 		return $przedmioty->result();
 	}
+
+    public function pobierz_sznureczki()
+    {
+        $sznureczki=$this->db->query('SELECT p.nazwa as nazwa_przedmiotu, z.nazwa_zdjecia as nazwa_zdjecia from produkty p, zdjecia z, kategorie k WHERE p.id_produktu=z.id_produktu AND p.id_kategorii=k.id_kategorii AND k.nazwa_kategorii="Sznureczek"');
+        return $sznureczki->result();
+    }
+
+    public function pobierz_drzewko_kategorii()
+    {
+        $drzewko = $this->db->query('select t1.nazwa_kategorii as nazwa_kategorii, t2.nazwa_kategorii as nazwa_pod_kategorii from kategorie as t1 join kategorie as t2 on t1.id_kategorii=t2.parent ORDER by t1.nazwa_kategorii');
+        return $drzewko->result();
+    }
 }
