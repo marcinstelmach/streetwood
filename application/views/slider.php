@@ -4,7 +4,7 @@
 
     <div class="carousel-inner">
         <div class="item active">
-            <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/2.jpg" alt="Zdjęcie 1" /></a>
+            <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/5.jpg" alt="Zdjęcie 1" /></a>
         </div>
         <div class="item">
             <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/1.jpg" alt="Zdjęcie 2" /></a>

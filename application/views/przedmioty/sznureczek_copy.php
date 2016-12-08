@@ -2,17 +2,17 @@
 <div class="col-md-5">
     <h1 class="nazwa-przedmiotu visible-xs">Case iPhone</h1>
     <p class="cena-przedmiotu visible-xs"><span id="cena">55.00</span> </p>
-    <div style="position: relative">
+    <div style="position: relative; height: 520px">
         <!-- Brans -->
         <img src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/brzoskwinia.png"  id="brans"/>
         <!-- Lewa zawieszka -->
-        <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7" class="img-responsive" id="lewa-zawieszka"/>
+        <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2" class="img-responsive" id="lewa-zawieszka"/>
         <!-- prawa zawieszka -->
-        <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7" class="img-responsive" id="prawa-zawieszka" />
+        <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2" class="img-responsive" id="prawa-zawieszka" />
         <!-- Środkowa zawieszka -->
-        <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/01.png?v=7" class="img-responsive" id="srodkowa-zawieszka" />
+        <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/01.png?v=2" class="img-responsive" id="srodkowa-zawieszka" />
     </div>
-    <div class="row">
+    <div class="row" >
         <div class="center-block container-fluid">
             <h4>Wybierz kolor sznureczka</h4>
             <?php
@@ -36,18 +36,8 @@
 <div class="col-md-5" style="padding-left: 50px;">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="nazwa-przedmiotu">Case iPhone</h1>
+            <h1 class="nazwa-przedmiotu">Sznureczek</h1>
             <p class="cena-przedmiotu"><span id="cena">55.00</span> </p>
-        </div>
-    </div>
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-md-5">
-            <p>Kolor sznureczka</p>
-            <select name="size">
-                <option value="5">Czarny</option>
-                <option value="6">Czerwony</option>
-                <option value="7">Różowy</option>
-            </select>
         </div>
     </div>
     <div class="row" style="margin-top: 20px">
@@ -109,90 +99,164 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Wybierz Zawieszkę</h4>
+                <h3 class="modal-title" id="myModalLabel" style="text-transform: uppercase;">Wybierz Zawieszki</h3>
             </div>
             <div class="modal-body">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingOne">
-                            <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h4 class="panel-title" style="display: block;">
                                     Kategoria 1
-                                </a>
-                            </h4>
+                                </h4>
+                            </a>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
 
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingTwo">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h4 class="panel-title">
                                     Kategoria 2
-                                </a>
-                            </h4>
+                                </h4>
+                            </a>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                             <div class="panel-body">
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2" style="width: 70px"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2" style="width: 70px"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2" style="width: 70px"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2" style="width: 70px"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2" style="width: 70px"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2" style="width: 70px"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2" style="width: 70px"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2" style="width: 70px"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2" style="width: 70px"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2" style="width: 70px"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2" style="width: 70px"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2" style="width: 70px"/>
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingThree">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <h4 class="panel-title">
                                     Kategoria 3
-                                </a>
-                            </h4>
+                                </h4>
+                            </a>
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                             <div class="panel-body">
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
-                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=7"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <h4 class="panel-title">
+                                    Kategoria 3
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFive">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFIve">
+                                <h4 class="panel-title">
+                                    Kategoria 5
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                            <div class="panel-body">
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/02.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
+                                <img src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/03.png?v=2"/>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Zawieś</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Zamknij</button>
             </div>
         </div>
     </div>
@@ -201,7 +265,7 @@
 <script type="text/javascript" src="<?= base_url().'assetss/js/ilosc.js'?>"></script>
 <script type="text/javascript">
     function zmien($nazwa_zdjecia, $nazwa_produktu) {
-        $('#brans').attr('src','<?= base_url()?>assetss/img/products/bransoletki/sznureczek/'+$nazwa_zdjecia);
+        $('#brans').attr('src','<?= base_url()?>assetss/img/products/bransoletki/sznureczek/'+$nazwa_zdjecia+'?v=4');
         $('#kolor_sznurka').val($nazwa_produktu);
     }
 </script>

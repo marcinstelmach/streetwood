@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns="http://www.w3.org/1999/html">
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/bootstrap.min.css" media="screen" type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/style.css?v=<?=time();?>" media="screen" type="text/css" />
-    <link rel="stylesheet" href="http://localhost/streetwood/assetss/css/fontello.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost/streetwood/assetss/css/fontello.css">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assetss/img/favicon.png">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -33,13 +33,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-left" href="#"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg" width="150"></a>
+        <a class="navbar-left" href="#"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg" width="150" alt="Logo"></a>
       </div><!--Zamknięcie headera-->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bransoletki<span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
+            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Bransoletki<span class="caret"></span></a>-->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bransoletki <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu" style="z-index: 10000">
               <li><a href="#">Sznureczek</a></li>
               <li><a href="#">Koraliki</a></li>
               <li><a href="#">Kotwica</a></li>
@@ -49,7 +50,16 @@
           <li><a href="#">Case</a></li>
           <li><a href="#">Odzież</a></li>
           <li><a href="#">BackPack</a></li>
-          </ul>
+
+            <?php
+                /*$name_kat='';
+                foreach ($drzewko as $cat)
+                {
+                    echo '';
+                }*/
+            ?>
+
+        </ul>
           <ul class="nav navbar-nav navbar-right fejsy">
             <li><a class="social-links" href="http://facebook.com/streetwoodpl"><i class="icon-facebook-official" style="font-size: 20px;"></i></a></li>
             <li><a class="social-links" href="http://instagram.com/street_wood"><i class="icon-instagram" style="font-size: 20px;"></i></a></li>

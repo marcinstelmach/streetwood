@@ -9,33 +9,21 @@
             <h2 style="font-weight: bold">Kategorie</h2>
             <hr />
             <ul>
-                <li><span class="bold">Bransoletki</span>
-                    <ul>
-                        <li><?= anchor('bransoletki/sznureczek', 'Sznureczek')?></li>
-                        <li><?= anchor('bransoletki/koraliki', 'Koraliki')?></li>
-                        <li><?= anchor('bransoletki/kotwica', 'Kotwica')?></li>
-                        <li><?= anchor('bransoletki/Guzik', 'Guzik')?></li>
-                    </ul>
-                </li>
-                <br />
-                <li><span class="bold">Case</span>
-                    <ul>
-                        <li><?= anchor('case/iphone', 'iPhone')?></li>
-                        <li><?= anchor('case/inna-marka', 'Inna marka')?></li>
-                    </ul>
-                </li>
-                <br />
-                <li><span class="bold">Odzież</span>
-                    <ul>
-                        <li><?= anchor('odziez/czapki', 'Czapki')?></li>
-                        <li><?= anchor('odziez/t-shirt', 'T-shirts')?></li>
-                    </ul>
-                </li>
-                <br />
-                <li><span class="bold">Plecak</span>
-                    <ul>
-                        <li><?= anchor('plecak/backpack', 'BackPack')?></li>
-                    </ul>
-                </li>
+                <?php
+                $name_kat='';
+                foreach ($drzewko as $cat)
+                {
+                    if($cat->nazwa_kategorii!=$name_kat)
+                    {
+                        echo '<li><span class="bold">' . $cat->nazwa_kategorii . '</span><ul>';
+                        foreach ($drzewko as $kat) {
+                            if ($kat->nazwa_kategorii == $cat->nazwa_kategorii)
+                                echo '<li>' . anchor('bransoletki/'.strtolower(str_replace(' ', '-',$kat->nazwa_pod_kategorii)), $kat->nazwa_pod_kategorii) . '</li>';
+                        }
+                        echo '</ul></li><br />';
+                    }
+                    $name_kat=$cat->nazwa_kategorii;
+                }
+                ?>
             </ul>
         </div>

@@ -308,31 +308,38 @@ ul > li > ul > li > a
 #brans
 {
     position: relative;
-    left: -50px;
-    width:500px;
+    top: -110px;
+    left: -100px;
+    width:600px;
 }
 
-#lewa-zawieszka
+#div1 /*lewa brans*/
 {
     position: absolute;
-    top: 175px;
-    left: 30px;
-    transform: rotate(90deg);
+    top: 300px;
+    left: 40px;
+    transform: rotate(45deg);
+    width: 60px;
+    cursor: pointer;
 }
 
-#prawa-zawieszka
+#div2 /*srodkowa brans*/
 {
     position: absolute;
-    top: 175px;
-    left: 312px;
-    transform: rotate(270deg);
+    top: 350px;
+    left: 150px;
+    width: 60px;
+    cursor: pointer;
 }
 
-#srodkowa-zawieszka
+#div3 /*prawa brans*/
 {
     position: absolute;
-    top: 358px;
-    left: 170px;
+    top: 320px;
+    left: 290px;
+    transform: rotate(315deg);
+    width: 60px;
+    cursor: pointer;
 }
 /* przycisk */
 .wybierz-zawieszke
@@ -352,4 +359,19 @@ ul > li > ul > li > a
     position: fixed;
     left: auto; /* <-- Reset the default left value */
     right: 10px;
+}
+
+.panel-body img
+{
+    width: 70px;
+}
+
+.modal .modal-body {
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+.dropdown-menu
+{
+    z-index: 10;
 }
