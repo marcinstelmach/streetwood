@@ -364,7 +364,6 @@ ul > li > ul > li > a
 .panel-body img
 {
     width: 70px;
-    cursor: pointer;
 }
 
 .modal .modal-body {
@@ -376,4 +375,3 @@ ul > li > ul > li > a
 {
     z-index: 10;
 }
-

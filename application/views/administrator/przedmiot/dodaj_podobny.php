@@ -44,8 +44,8 @@
                     <div class="col-sm-6">
                         <select name="id_kategorii" class="form-control" id="kategoria">
                             <option value="<?=$key->id_kategorii?>" selected="selected"><?=$key->nazwa_kategorii?></option>
-                            <?php foreach ($kategorie as $keyy) {
-                                echo '<option value="'.$keyy->id_kategorii.'|'.$keyy->id_kategorii_1.'">'.$keyy->lev1.' > '.$keyy->lev2.'</option>';
+                            <?php foreach (kategorie as $keyy) {
+                                echo "<option value=".$keyy->id_kategorii.">".$keyy->nazwa_kategorii."</option>";
                             } ?>
                         </select>
                     </div>
@@ -70,7 +70,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-danger">Dodaj przedmiot</button>
+                    <button type="submit" class="btn btn-danger" onclick="wyslijPlik()">Dodaj przedmiot</button>
                 </div>
             </div>
             <?php }?>

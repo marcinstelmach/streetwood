@@ -198,16 +198,4 @@ class Model_m extends CI_Model
         $drzewko = $this->db->query('select t1.nazwa_kategorii as nazwa_kategorii, t2.nazwa_kategorii as nazwa_pod_kategorii from kategorie as t1 join kategorie as t2 on t1.id_kategorii=t2.parent ORDER by t1.nazwa_kategorii');
         return $drzewko->result();
     }
-
-    public function pobierz_kategorii_zawieszek()
-    {
-        $kategorie_zawieszek=$this->db->query('SELECT kz.nazwa_kategorii_zawieszek, kz.id_kategorii_zawieszek from kategorie_zawieszek kz');
-        return $kategorie_zawieszek->result();
-    }
-
-    public function pobierz_zawieszki()
-    {
-        $sznureczki=$this->db->query('SELECT p.nazwa as nazwa_zawieszki, kz.nazwa_kategorii_zawieszek as nazwa_kategorii_zawieszek, z.nazwa_zdjecia as nazwa_zdjecia from produkty p, kategorie_zawieszek kz, zdjecia z where p.id_kategorii_zawieszek=kz.id_kategorii_zawieszek and p.id_produktu=z.id_produktu ORDER by kz.nazwa_kategorii_zawieszek');
-        return $sznureczki->result();
-    }
 }

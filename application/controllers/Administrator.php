@@ -35,8 +35,7 @@ class Administrator extends CI_Controller
 				die(); 
 		}
 		$data['error']='';
-        $data['kategorie']=$this->Model_m->pobierz_liste_kategorii();
-        $data['kategorie_zawieszek']=$this->Model_m->pobierz_kategorii_zawieszek();
+        $data['rekordy']=$this->Model_m->pobierz_liste_kategorii();
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/przedmiot/dodaj_przedmiot', $data);
 		$this->load->view('administrator/footer'); 
@@ -59,7 +58,6 @@ class Administrator extends CI_Controller
 		foreach ($pod_kategoria as $key)
 		{
 			$nazwa_podkategorii=str_replace(' ', '_', strtolower($key->nazwa_kategorii));
-            $org_nazwa_podkategorii=$key->nazwa_kategorii;
 		}
 		foreach ($kategoria as $key)
 		{
@@ -107,9 +105,7 @@ class Administrator extends CI_Controller
                         exit("Nie udało się przenieść pliku.");
                     }
                     //wysłano pomyślnie
-                    if($org_nazwa_podkategorii!='Zawieszki') {
-                        $this->thumb($myFile['name'][$i], $nazwa_kategorii, $nazwa_podkategorii);
-                    }
+                    $this->thumb($myFile['name'][$i], $nazwa_kategorii, $nazwa_podkategorii);
                     //$this->photo_resize($nazwa_kategorii, $nazwa_podkategorii, $myFile['name'][$i], 500, 500);
                 }
 
@@ -117,7 +113,7 @@ class Administrator extends CI_Controller
                 {
                     for ($i = 0; $i < $fileCount; $i++)
                     {
-                        $this->photo_resize($nazwa_kategorii, $nazwa_podkategorii, $myFile['name'][$i], 600, 600);
+                        $this->photo_resize($nazwa_kategorii, $nazwa_podkategorii, $myFile['name'][$i], 500, 500);
                     }
                 }
             }
@@ -144,40 +140,8 @@ class Administrator extends CI_Controller
 					$data['cena']=$this->input->post('cena');
 					$data['id_kategorii']=$a;
 					$data['stan']=$this->input->post('stan');	
-					$data['opis']=$this->input->post('opis');
-                    if($this->input->post('id_kategorii_zawieszek'))
-                    {
-                        $data['id_kategorii_zawieszek'] = $this->input->post('id_kategorii_zawieszek');
-                    }
-                    if($this->input->post('zapamietaj')=="tak")
-                    {
-                        $zapamietaj=array(
-                            'nazwa'=>$data['nazwa'],
-                            'cena'=>$data['cena'],
-                            'stan'=>data['stan'],
-                            'opis'=>$data['opis'],
-                            'id_kategorii'=>$data['id_kategorii'],
-                            'zapamietaj'=>'tak'
-                        );
-                        if($this->input->post('id_kategorii_zawieszek'))
-                        {
-                            $zapamietaj['id_kategorii_zawieszek']=$data['id_kategorii_zawieszek'];
-                        }
-                        $this->session->set_userdata($zapamietaj);
-                    }
-                    else
-                    {
-                        $zapamietaj=array(
-                            'nazwa',
-                            'cena',
-                            'stan',
-                            'opis',
-                            'id_kategorii',
-                            'zapamietaj',
-                            'id_kategorii_zawieszek'
-                        );
-                        $this->session->unset_userdata($zapamietaj);
-                    }
+					$data['opis']=$this->input->post('opis');	
+
 					
 					$this->Model_m->dodaj('produkty', $data);
 					$newdata = array(
@@ -198,7 +162,7 @@ class Administrator extends CI_Controller
 
     public function test()
     {
-        echo $this->session->userdata('id_kategorii_zawieszek');
+        $this->photo_resize('bransoletki', 'sznureczek', 'fiolet.png', 500, 500);
     }
 
     private function photo_resize($nazwa_kategorii, $nazwa_pod_kategorii, $nazwa_zdjecia, $width, $height)
@@ -236,7 +200,7 @@ class Administrator extends CI_Controller
             {
                 $zdjecie=$key->nazwa_zdjecia;
                 $thumb= substr($zdjecie, 0, -4);
-                $thumb=$thumb.'_thumb.png';
+                $thumb=$thumb.'_thumb.jpg';
                 $this->usun_zdjecie($zdjecie, $nazwa_kategorii, $nazwa_pod_kategorii);// usuniecie zdjec z dysku
                 $this->usun_thumb($thumb, $nazwa_kategorii, $nazwa_pod_kategorii);
             }
@@ -339,7 +303,9 @@ class Administrator extends CI_Controller
 			$data['nazwa_kategorii']=ucwords($this->input->post('nazwa'));
 			$data['parent']=NULL;
 			$this->Model_m->dodaj('kategorie', $data);
+			//$this->load->view('formsuccess', $data);
 			mkdir('./assetss/img/products/'.str_replace(' ', '_', strtolower($data['nazwa_kategorii'])), 0777);
+			//mkdir('./assetss/img/products/'.str_replace(' ', '_', strtolower($data['nazwa_kategorii'])).'/thumbs', 0777);
 			header('location: '.base_url().'administrator/dodaj-kategorie');
 		}
 	}
@@ -379,31 +345,6 @@ class Administrator extends CI_Controller
 			header('location: '.base_url().'administrator/dodaj-kategorie');
 		}
 	}
-    
-    public function dodaj_kategorie_zawieszek()
-    {
-        if(($this->session->userdata('administrator')==FALSE))
-        {
-            header('location: '.base_url());
-            die();
-        }
-        $kategorie['glowna']=$this->Model_m->pobierz_kategorie();
-        $this->form_validation->set_rules('nazwa_kategorii_zawieszek', 'Nazwa', 'required|min_length[2]|callback_category_check');
-        $this->form_validation->set_message('required', 'Pole %s jest wymagane');
-        $this->form_validation->set_message('min_length', 'Pole %s jest za krótkie');
-        if ($this->form_validation->run() == FALSE)
-        {
-            $this->load->view('administrator/header');
-            $this->load->view('administrator/przedmiot/dodaj_kategorie', $kategorie);
-            $this->load->view('administrator/footer');
-        }
-        else
-        {
-            $data['nazwa_kategorii_zawieszek']=ucwords($this->input->post('nazwa_kategorii_zawieszek'));
-            $this->Model_m->dodaj('kategorie_zawieszek', $data);
-            header('location: '.base_url().'administrator/dodaj-kategorie');
-        }
-    }
 
 	public function zaloguj()
 	{
@@ -654,7 +595,7 @@ class Administrator extends CI_Controller
         {
             $zdjecie=$key->nazwa_zdjecia;
             $thumb= substr($zdjecie, 0, -4);
-            $thumb=$thumb.'_thumb.png';
+            $thumb=$thumb.'_thumb.jpg';
             $this->usun_zdjecie($zdjecie, $nazwa_kategorii, $nazwa_pod_kategorii);
             $this->usun_thumb($thumb, $nazwa_kategorii, $nazwa_pod_kategorii);
         }

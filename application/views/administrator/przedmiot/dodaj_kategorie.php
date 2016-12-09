@@ -5,7 +5,7 @@
                 <h2>Kategorie główna</h2>
               <?php
                 $attributes = array('class' => 'form');
-                echo form_open('administrator/dodaj-kategorie', $attributes);
+                echo form_open('', $attributes);
                 ?>
                     <div class="form-group">
                       <label for="nazwa" class="col-sm-3 control-label">Nazwa</label>
@@ -44,23 +44,6 @@
                     </div>
                     </form>
                 </div>
-              <div class="col-md-6" >
-                  <h2>Kategoria zawieszek</h2>
-                  <?php
-                  $attributes = array('class' => 'form');
-                  echo form_open('administrator/dodaj-kategorie-zawieszek', $attributes);
-                  ?>
-                  <div class="form-group">
-                      <label for="nazwa_kategorii_zawieszek" class="col-sm-3 control-label">Nazwa</label>
-                      <input type="text" class="form-control" id="nazwa_kategorii_zawieszek" placeholder="Nazwa" name="nazwa_kategorii_zawieszek">
-                      <?php echo "<div class='bladwalidacji'>".form_error('nazwa_zategorii_zawieszek')."</div>"; ?>
-                  </div>
-                  <div class="form-group">
-                      <button type="submit" class="btn btn-danger">Dodaj kategorie</button>
-                  </div>
-                  </form>
-              </div>
             </div>
       </div>
     </div>
-        
