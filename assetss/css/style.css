@@ -120,13 +120,16 @@ hr.style-sugestie:after {
 
 .ilosc
 {
-    width:30px;
+    width:40px;
     padding-top: 5px;
     padding-right: 5px;
     padding-left: 5px;
     padding-bottom: 5px;
     text-align: center;
-    border-radius: 5px;
+    /*padding: 4px 9px;*/
+    margin: 2px 0;
+    box-sizing: border-box;
+    border-radius: 0px;
 }
 
 .increment {
@@ -256,7 +259,7 @@ hr.style-sugestie:after {
     font-size: 12px;
 }
 
-ul {
+#category ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -374,6 +377,9 @@ ul > li > ul > li > a
 
 .dropdown-menu
 {
-    z-index: 10;
+    margin-top:3px;
 }
 
+.carousel-inner img {
+    margin: auto;
+}

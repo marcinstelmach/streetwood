@@ -145,7 +145,7 @@ class Administrator extends CI_Controller
 					$data['id_kategorii']=$a;
 					$data['stan']=$this->input->post('stan');	
 					$data['opis']=$this->input->post('opis');
-                    if($this->input->post('id_kategorii_zawieszek'))
+                    if($nazwa_podkategorii=='Zawieszki')
                     {
                         $data['id_kategorii_zawieszek'] = $this->input->post('id_kategorii_zawieszek');
                     }
@@ -235,10 +235,8 @@ class Administrator extends CI_Controller
             foreach ($zdjecia as $key)
             {
                 $zdjecie=$key->nazwa_zdjecia;
-                $thumb= substr($zdjecie, 0, -4);
-                $thumb=$thumb.'_thumb.png';
                 $this->usun_zdjecie($zdjecie, $nazwa_kategorii, $nazwa_pod_kategorii);// usuniecie zdjec z dysku
-                $this->usun_thumb($thumb, $nazwa_kategorii, $nazwa_pod_kategorii);
+                $this->usun_thumb($zdjecie, $nazwa_kategorii, $nazwa_pod_kategorii);
             }
             $this->Model_m->delete_zdjecie($id_produktu); // usunięcie zdjęc z bazy dancyh
             $myFile = $_FILES['my_file'];
@@ -305,6 +303,7 @@ class Administrator extends CI_Controller
         $config['create_thumb'] = TRUE;
         $config['new_image'] = './assetss/img/products/'.$nazwa_kategorii.'/'.$nazwa_podkategorii.'/thumbs';
         $config['maintain_ratio'] = TRUE;
+        $config['thumb_marker']=false;
         $config['width']= 100;
         $config['height']= 100;
 
@@ -653,10 +652,8 @@ class Administrator extends CI_Controller
         foreach($zdjecia as $key)
         {
             $zdjecie=$key->nazwa_zdjecia;
-            $thumb= substr($zdjecie, 0, -4);
-            $thumb=$thumb.'_thumb.png';
             $this->usun_zdjecie($zdjecie, $nazwa_kategorii, $nazwa_pod_kategorii);
-            $this->usun_thumb($thumb, $nazwa_kategorii, $nazwa_pod_kategorii);
+            $this->usun_thumb($zdjecie, $nazwa_kategorii, $nazwa_pod_kategorii);
         }
 		
 		$this->Model_m->delete($id_produktu, 'id_produktu', 'produkty');

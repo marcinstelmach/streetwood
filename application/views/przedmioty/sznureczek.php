@@ -14,20 +14,15 @@
         <!-- Środkowy divek -->
         <div id="div3" class="column" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
 
-
-
-
-    <div class="row" style="margin-top: -30px;">
+    <div class="row" style="margin-top: -60px;">
         <div class="center-block container-fluid">
             <h4>Wybierz kolor sznureczka</h4>
             <?php
             foreach($sznureczki as $key)
             {
                 $zdjecie=$key->nazwa_zdjecia;
-                $thumb= substr($zdjecie, 0, -4);
-                $thumb=$thumb.'_thumb.png';
                 ?>
-                <img src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/thumbs/<?=$thumb?>" onclick="zmien('<?=$key->nazwa_zdjecia?>','<?=$key->nazwa_przedmiotu?>')" style="cursor: pointer"/>
+                <img draggable="false" src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/thumbs/<?=$zdjecie?>" onclick="zmien('<?=$key->nazwa_zdjecia?>','<?=$key->nazwa_przedmiotu?>')" style="cursor: pointer"/>
             <?php
             }
             ?>
@@ -38,7 +33,7 @@
 
 
 
-<div class="col-md-5" style="padding-left: 50px;">
+<div class="col-md-5" style="padding-left: 80px;">
     <div class="row">
         <div class="col-md-12">
             <h1 class="nazwa-przedmiotu">Sznureczek</h1>
@@ -74,9 +69,7 @@
         </div>
     </div>
     <div class="row">
-        <hr style="border-width: 2px; border-color:#0f1f0f />
-                <div class="col-md-7">
-
+        <hr />
         <h2>Szczegóły</h2>
         <p>Wyjdź z przekazem! Najlepiej do siebie przed lustro :)
 

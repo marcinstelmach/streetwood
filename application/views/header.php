@@ -33,32 +33,34 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-left" href="#"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg" width="150" alt="Logo"></a>
+        <a class="navbar-left" href="http://streetwood.pl"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg" width="150" alt="Logo"></a>
       </div><!--Zamknięcie headera-->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Bransoletki<span class="caret"></span></a>-->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bransoletki <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu" style="z-index: 10000">
-              <li><a href="#">Sznureczek</a></li>
-              <li><a href="#">Koraliki</a></li>
-              <li><a href="#">Kotwica</a></li>
-              <li><a href="#">Guzik</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Case</a></li>
-          <li><a href="#">Odzież</a></li>
-          <li><a href="#">BackPack</a></li>
 
             <?php
-                /*$name_kat='';
+                $name_kat='';
                 foreach ($drzewko as $cat)
                 {
-                    echo '';
-                }*/
-            ?>
+                    if ($cat->nazwa_kategorii != $name_kat)
+                    {
+                        echo ' <li class="dropdown">
+                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$cat->nazwa_kategorii.' <span class="caret"></span></a>
+                          <ul class="dropdown-menu" role="menu" style="margin-top:3px">';
 
+                        foreach ($drzewko as $kat)
+                        {
+                            if ($kat->nazwa_kategorii == $cat->nazwa_kategorii)
+                            {
+                                echo '<li>' . anchor(strtolower(str_replace(' ', '-', $cat->nazwa_kategorii.'/'.$kat->nazwa_pod_kategorii)), $kat->nazwa_pod_kategorii) . '</li>';
+                            }
+                        }
+                        echo ' </ul>
+          </li>';
+                    }
+                    $name_kat=$cat->nazwa_kategorii;
+                }
+            ?>
         </ul>
           <ul class="nav navbar-nav navbar-right fejsy">
             <li><a class="social-links" href="http://facebook.com/streetwoodpl"><i class="icon-facebook-official" style="font-size: 20px;"></i></a></li>

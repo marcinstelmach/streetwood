@@ -4,13 +4,13 @@
 
     <div class="carousel-inner">
         <div class="item active">
-            <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/5.jpg" alt="Zdjęcie 1" /></a>
+            <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/1.jpg?v=2" alt="Zdjęcie 1" /></a>
         </div>
         <div class="item">
-            <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/1.jpg" alt="Zdjęcie 2" /></a>
+            <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/2.jpg?v=2" alt="Zdjęcie 2" /></a>
         </div>
         <div class="item">
-            <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/3.jpg" alt="Zdjęcie 3" /></a>
+            <a href="#"><img src="<?php echo base_url(); ?>assetss/img/slider/3.jpg?v=2" alt="Zdjęcie 3" /></a>
         </div>
     </div>
 

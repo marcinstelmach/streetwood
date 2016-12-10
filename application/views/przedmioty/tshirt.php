@@ -10,30 +10,15 @@
 
         <!-- Slides Container -->
         <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 700px; height: 700px; overflow: hidden;">
-            <div>
-                <img u="image" src="<?=base_url()?>assetss/img/products/case_iphone_6/1.jpg" />
-                <img u="thumb" src="<?=base_url()?>assetss/img/products/case_iphone_6/thumbs/1_thumb.jpg" />
-            </div>
-            <div>
-                <img u="image" src="<?=base_url()?>assetss/img/products/case_iphone_6/2.jpg" />
-                <img u="thumb" src="<?=base_url()?>assetss/img/products/case_iphone_6/thumbs/2_thumb.jpg" />
-            </div>
-            <div>
-                <img u="image" src="<?=base_url()?>assetss/img/products/case_iphone_6/3.jpg" />
-                <img u="thumb" src="<?=base_url()?>assetss/img/products/case_iphone_6/thumbs/3_thumb.jpg" />
-            </div>
-            <div>
-                <img u="image" src="<?=base_url()?>assetss/img/alila/04.jpg" />
-                <img u="thumb" src="<?=base_url()?>assetss/img/alila/thumb-04.jpg" />
-            </div>
-            <div>
-                <img u="image" src="<?=base_url()?>assetss/img/alila/05.jpg" />
-                <img u="thumb" src="<?=base_url()?>assetss/img/alila/thumb-05.jpg" />
-            </div>
-            <div>
-                <img u="image" src="<?=base_url()?>assetss/img/alila/06.jpg" />
-                <img u="thumb" src="<?=base_url()?>assetss/img/alila/thumb-06.jpg" />
-            </div>
+            <?php
+            foreach ($zdjecia as $zdj)
+            {
+                echo '<div>
+                            <img u="image" src="'.base_url().'assetss/img/products/odziez/t-shirt/'.$zdj->nazwa_zdjecia.'" />
+                            <img u="thumb" src="'.base_url().'assetss/img/products/odziez/t-shirt/thumbs/'.$zdj->nazwa_zdjecia.'" />
+                        </div>';
+            }
+            ?>
 
         </div>
         <!-- thumbnail navigator container -->
@@ -50,12 +35,14 @@
     <!-- Jssor Slider End -->
 </div>
 
-
+<?php
+foreach ($produkt as $pro) {
+?>
 <div class="col-md-5" style="padding-left: 50px;">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="nazwa-przedmiotu">Case iPhone</h1>
-            <p class="cena-przedmiotu"><span id="cena">55.00</span> </p>
+            <h1 class="nazwa-przedmiotu"><?=$pro->nazwa?></h1>
+            <p class="cena-przedmiotu"><span id="cena"><?=$pro->cena?>.00</span></p>
         </div>
     </div>
     <div class="row" style="margin-top: 20px;">
@@ -102,50 +89,14 @@
                 <div class="col-md-7">
 
         <h2>Szczegóły</h2>
-        <p>Wyjdź z przekazem! Najlepiej do siebie przed lustro :)
-
-            No chyba, że chciałabyś komuś jeszcze powiedzieć „I just want to say you look great today”.
-
-            Na pewno nikt się nie obrazi zobaczyć Cię w tej koszulce!
-
-            Nowy krój w naszym sklepie, czyli RINGER z czarnym wykończeniem lubi, kiedy o niego dbasz.
-
-            - modelka ma na sobie rozmiar S
-
-            - prać w 30 stopniach lub ręcznie
-
-            - prasować na lewej stronie
-
-            - 100% bawełna z certyfikatem Oeko-Tex 100 klasa I</p>
+        <p><?=$pro->opis?></p>
     </div>
+    <?php
+    }
+    ?>
 </div>
 </div>
 </div>
 
-
-
-
-<div class="container bestsellers ">
-    <div clss="row">
-        <hr class="style-u-nas">
-    </div>
-    <div class="row" style="padding-top: 20px;">
-        <div class="col-xs-6 col-md-4">
-            <a href="#" class="thumbnail">
-                <img src="<?php echo base_url(); ?>assetss/img/footer/footer1.jpg" alt="Zdjęcie">
-            </a>
-        </div>
-        <div class="col-xs-6 col-md-4">
-            <a href="#" class="thumbnail">
-                <img src="<?php echo base_url(); ?>assetss/img/footer/footer2.jpg" alt="Zdjęcie">
-            </a>
-        </div>
-        <div class="col-xs-6 col-md-4 hidden-xs">
-            <a href="#" class="thumbnail">
-                <img src="<?php echo base_url(); ?>assetss/img/footer/footer3.jpg" alt="Zdjęcie">
-            </a>
-        </div>
-    </div>
-</div><!-- END OF U NAS ZAWSZE -->
 
 <script type="text/javascript" src="<?= base_url().'assetss/js/ilosc.js'?>"></script>

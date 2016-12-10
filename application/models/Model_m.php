@@ -210,4 +210,22 @@ class Model_m extends CI_Model
         $sznureczki=$this->db->query('SELECT p.nazwa as nazwa_zawieszki, kz.nazwa_kategorii_zawieszek as nazwa_kategorii_zawieszek, z.nazwa_zdjecia as nazwa_zdjecia from produkty p, kategorie_zawieszek kz, zdjecia z where p.id_kategorii_zawieszek=kz.id_kategorii_zawieszek and p.id_produktu=z.id_produktu ORDER by kz.nazwa_kategorii_zawieszek');
         return $sznureczki->result();
     }
+
+    public function pobierz_wszystkie_produkty_kategorii($kategoria)
+    {
+        $czapki=$this->db->query('SELECT p.nazwa as nazwa_produktu, z.nazwa_zdjecia as nazwa_zdjecia, p.cena as cena, p.id_produktu as id_produktu from produkty p, zdjecia z, kategorie k WHERE p.id_produktu=z.id_produktu AND p.id_kategorii=k.id_kategorii AND k.nazwa_kategorii="'.$kategoria.'" ORDER BY p.nazwa');
+        return $czapki->result();
+    }
+
+    public function pobierz_dane_produktu($par)
+    {
+        $produkt=$this->db->query('SELECT p.nazwa as nazwa, p.cena as cena, p.id_produktu as id_produktu, p.opis as opis from produkty p WHERE p.id_produktu='.$par);
+        return $produkt->result();
+    }
+
+    public function pobierz_zdjecia_produktu($par)
+    {
+        $zdjecia=$this->db->query('SELECT z.nazwa_zdjecia from zdjecia z, produkty p where p.id_produktu=z.id_produktu and p.id_produktu='.$par);
+        return $zdjecia->result();
+    }
 }

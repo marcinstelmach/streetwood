@@ -44,9 +44,7 @@
           foreach ($zdjecia as $zdj)
           {
               $zdjecie=$zdj->nazwa_zdjecia;
-              $thumb= substr($zdjecie, 0, -4);
-              $thumb=$thumb.'_thumb.png';
-              echo '<img src="'.base_url().'assetss/img/products/'.str_replace(' ','_', strtolower($key->nazwa_kategorii.'/'.$key->nazwa_pod_kategorii)).'/thumbs/'.$thumb.'">';
+              echo '<img src="'.base_url().'assetss/img/products/'.str_replace(' ','_', strtolower($key->nazwa_kategorii.'/'.$key->nazwa_pod_kategorii)).'/thumbs/'.$zdjecie.'">';
           }
        ?>
         <?php
