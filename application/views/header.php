@@ -45,7 +45,7 @@
                     if ($cat->nazwa_kategorii != $name_kat)
                     {
                         echo ' <li class="dropdown">
-                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$cat->nazwa_kategorii.' <span class="caret"></span></a>
+                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.str_replace('_', '', $cat->nazwa_kategorii).' <span class="caret"></span></a>
                           <ul class="dropdown-menu" role="menu" style="margin-top:3px">';
 
                         foreach ($drzewko as $kat)
@@ -65,7 +65,7 @@
           <ul class="nav navbar-nav navbar-right fejsy">
             <li><a class="social-links" href="http://facebook.com/streetwoodpl"><i class="icon-facebook-official" style="font-size: 20px;"></i></a></li>
             <li><a class="social-links" href="http://instagram.com/street_wood"><i class="icon-instagram" style="font-size: 20px;"></i></a></li>
-            <li><a class="social-links" href="#"><i class="icon-snapchat-ghost" style="font-size: 20px;"></i></a></li>
+            <li><a class="social-links" href="#"><i class="icon-snapchat-ghost" style="font-size: 20px;" data-toggle="modal" data-target=".snapcode"></i></a></li>
             <li><a class="social-links" href="<?php echo base_url().'uzytkownik/zaloguj'; ?>">ZALOGUJ SIĘ</a> </li>
             <li><a class="social-links" href="<?php echo base_url().'uzytkownik/rejestracja'; ?>">ZAREJESTRUJ SIĘ</a></li>
             <li><a class="social-links" href="#"><i class="icon-basket" style="font-size: 20px;"></i></a></li>
@@ -74,3 +74,11 @@
       </div>
     </div>
   </nav> <!-- Koniec menu nav -->
+  <!-- Modal -->
+  <div class="modal fade snapcode" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <img src="<?=base_url()?>assetss/img/snapcode.jpg" alt="SnapCode" style="width: 300px;">
+          </div>
+      </div>
+  </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 10 Gru 2016, 00:36
+-- Czas generowania: 13 Gru 2016, 12:53
 -- Wersja serwera: 10.1.16-MariaDB
 -- Wersja PHP: 7.0.9
 
@@ -190,7 +190,18 @@ INSERT INTO `produkty` (`id_produktu`, `nazwa`, `cena`, `id_kategorii`, `stan`, 
 (125, 'D', 1, 15, 1, 'Zawieszka', 3),
 (126, 'E', 1, 15, 1, 'Zawieszka', 3),
 (127, 'F', 1, 15, 1, 'Zawieszka', 3),
-(128, 'G', 1, 15, 1, 'Zawieszka', 3);
+(128, 'G', 1, 15, 1, 'Zawieszka', 3),
+(129, 'Guzik Zielony', 35, 7, 1, 'Bleeeeeeeee', NULL),
+(130, 'Niebieski W Ciapki', 35, 7, 1, 'Bleeeeeeeee', NULL),
+(131, 'Zółty W Ciapki', 35, 7, 1, 'Bleeeeeeeee', NULL),
+(132, 'Czarny', 35, 7, 1, 'Bleeeeeeeee', NULL),
+(133, 'Beanie Biała', 35, 12, 1, 'Bleeeeeeeee', NULL),
+(134, 'Beanie Butelkowa', 35, 12, 1, 'Bleeeeeeeee', NULL),
+(135, 'Beanie Czarna', 35, 12, 1, 'Bleeeeeeeee', NULL),
+(136, 'Beanie Czerwona', 35, 12, 1, 'Bleeeeeeeee', NULL),
+(137, 'Beanie Oliwka', 35, 12, 1, 'Bleeeeeeeee', NULL),
+(138, 'Beanie Szara', 35, 12, 1, 'Bleeeeeeeee', NULL),
+(139, 'Koszulka Biała', 35, 13, 1, 'Bleeeeeeeee', NULL);
 
 -- --------------------------------------------------------
 
@@ -396,7 +407,26 @@ INSERT INTO `zdjecia` (`id_zdjecia`, `nazwa_zdjecia`, `id_produktu`) VALUES
 (135, 'D_alfabet---puzzle kopia.png', 125),
 (136, 'E_alfabet---puzzle kopia.png', 126),
 (137, 'F_alfabet---puzzle kopia.png', 127),
-(138, 'G_alfabet---puzzle kopia.png', 128);
+(138, 'G_alfabet---puzzle kopia.png', 128),
+(139, '_P3B1506_.jpg', 129),
+(140, '_P3B1527_.jpg', 129),
+(141, '_P3B1507_.jpg', 130),
+(142, '_P3B1532_.jpg', 130),
+(143, '_P3B1512_.jpg', 131),
+(144, '_P3B1536_.jpg', 131),
+(145, '_P3B1509_.jpg', 132),
+(146, '_P3B1539_.jpg', 132),
+(147, 'biala.jpg', 133),
+(148, 'butelkowa.jpg', 134),
+(149, 'czarna.jpg', 135),
+(150, 'czerwona.jpg', 136),
+(151, 'oliwka.jpg', 137),
+(152, 'szara.jpg', 138),
+(154, 'biała jednorozec.jpg', 139),
+(155, 'biała sw.jpg', 139),
+(156, 'biała tył.jpg', 139),
+(157, 'biała wrotki.jpg', 139),
+(158, 'czarna sw.jpg', 139);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -473,7 +503,7 @@ ALTER TABLE `kategorie_zawieszek`
 -- AUTO_INCREMENT dla tabeli `produkty`
 --
 ALTER TABLE `produkty`
-  MODIFY `id_produktu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+  MODIFY `id_produktu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 --
 -- AUTO_INCREMENT dla tabeli `uzytkownicy`
 --
@@ -493,7 +523,7 @@ ALTER TABLE `zam_tow`
 -- AUTO_INCREMENT dla tabeli `zdjecia`
 --
 ALTER TABLE `zdjecia`
-  MODIFY `id_zdjecia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `id_zdjecia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -2,9 +2,16 @@
     <div class="row" style="margin-top: 20px;">
         <div class="col-md-2 hidden-sm hidden-xs">
             <p class="wykaz-kategorii">
-                sklep &gt;
-                case &gt;
-                Case rolki
+                <?php
+                $str=uri_string();
+                $last=substr($str, -1);
+                if(is_numeric($last))
+                {
+                    $n=strrpos($str, '/');
+                    $str=substr($str, 0, $n);
+                }
+                echo ucwords(str_replace('/', ' > ', str_replace('_','',$str)));
+                ?>
             </p>
             <div id="category">
                 <h2 style="font-weight: bold">Kategorie</h2>

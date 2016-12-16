@@ -1,35 +1,35 @@
 <?php 
 
 class Koszyk extends CI_Controller
-{ 
-	
+{
+    private $kategorie='';
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Model_m');
+        $this->kategorie['drzewko']=$this->Model_m->pobierz_drzewko_kategorii();
 	}
 	
-	public function dodaj($id)
+	public function dodaj()
 	{
-		$wyniki=$this->Model_m->pobierzgdzie('id_produktu', $id, 'produkty');
-		foreach($wyniki as $key)
-		{
-			$data = array(
-               'id'      => $key->id_produktu,
-               'qty'     => 1,
-               'price'   => $key->cena,
-               'name'    => $key->nazwa,
-               //'options' => array('Size' => 'L', 'Color' => 'Red')
+
+        $data = array(
+               'id'      => $this->input->post('id_produktu'),
+               'qty'     => $this->input->post('ilosc'),
+               'price'   => $this->input->post('cena'),
+               'name'    => $this->input->post('nazwa'),
+               //'options' => array('Size' => $this->input->post('size'))
             );
-		}
+        //'options' => array('Size' => $this->input->post('size'), 'Color' => 'Red')
 		$this->cart->insert($data);
-		header('Location: '.base_url().'sklep/');
+		header('Location: '.$this->input->post('actual_adress'));
 	}
 
 	public function wyswietl()
 	{
 		$this->session->set_userdata('krok_zaloguj', TRUE);
-		$this->load->view('header');
+        $this->load->view('header', $this->kategorie);
+        $this->load->view('przedmioty/category', $this->kategorie);
 		$this->load->view('koszyk/koszyk');
 		$this->load->view('footer');
 	}
@@ -91,6 +91,13 @@ class Koszyk extends CI_Controller
 		header('Location: '.base_url().'koszyk/wyswietl/');
 	}
 
-			
+	public function test()
+    {
+        echo $this->input->post('id_produktu').'<br />';
+        echo $this->input->post('ilosc').'<br />';
+        echo $this->input->post('cena').'<br />';
+        echo $this->input->post('nazwa').'<br />';
+        echo $this->input->post('size').'<br />';
+    }
 			
 }

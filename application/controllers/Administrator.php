@@ -771,17 +771,17 @@ class Administrator extends CI_Controller
 		{
 			if($par=='dzisiaj')
 			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and DAY(z.data_zamowienia)=DAY(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
+				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and DAY(z.data_zamowienia)=DAY(NOW()) and MONTH(z.data_zamowienia)=MONTH(NOW()) and YEAR(z.data_zamowienia)=YEAR(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
 				goto end;
 			}
 			elseif($par=='tydzien')
 			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and WEEK(z.data_zamowienia)=WEEK(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
+				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and WEEK(z.data_zamowienia)=WEEK(NOW()) and YEAR(z.data_zamowienia)=YEAR(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
 				goto end;
 			}
 			elseif($par=='miesiac')
 			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and MONTH(z.data_zamowienia)=MONTH(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
+				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and MONTH(z.data_zamowienia)=MONTH(NOW()) and YEAR(z.data_zamowienia)=YEAR(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
 				goto end;
 			}
 		}

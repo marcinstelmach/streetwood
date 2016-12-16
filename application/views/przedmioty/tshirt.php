@@ -1,7 +1,37 @@
-
 <script type="text/javascript" src="<?=base_url()?>assetss/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="<?=base_url()?>assetss/js/jssor.slider.mini.js"></script>
 <script type="text/javascript" src="<?=base_url()?>assetss/js/galeria.js"></script>
+<script>
+    //responsive code begin
+    //you can remove responsive code if you don't want the slider scales while window resizes
+    function ScaleSlider() {
+        var windowWidth = $(window).width();
+
+        if (windowWidth) {
+            var windowHeight = $(window).height();
+            var originalWidth = jssor_slider1.$OriginalWidth();
+            var originalHeight = jssor_slider1.$OriginalHeight();
+
+            var scaleWidth = windowWidth;
+            if (originalWidth / windowWidth < originalHeight / windowHeight) {
+                scaleWidth = Math.ceil(windowHeight / originalHeight * originalWidth);
+            }
+
+            jssor_slider1.$ScaleWidth(scaleWidth);
+        }
+        else
+            window.setTimeout(ScaleSlider, 30);
+    }
+
+    ScaleSlider();
+
+    $(window).bind("load", ScaleSlider);
+    $(window).bind("resize", ScaleSlider);
+    $(window).bind("orientationchange", ScaleSlider);
+    //responsive code end
+
+    });
+</script>
 <div class="col-md-5">
     <!-- Jssor Slider Begin -->
     <!-- To move inline styles to css file/block, please specify a class name for each element. -->
@@ -38,7 +68,7 @@
 <?php
 foreach ($produkt as $pro) {
 ?>
-<div class="col-md-5" style="padding-left: 50px;">
+<div class="col-md-5" style="padding-left: 50px; padding-bottom: 50px">
     <div class="row">
         <div class="col-md-12">
             <h1 class="nazwa-przedmiotu"><?=$pro->nazwa?></h1>
