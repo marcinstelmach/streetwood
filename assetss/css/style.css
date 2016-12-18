@@ -1,0 +1,392 @@
+body
+{
+  background-color: white;
+  color: #161617;
+  /*font-family: 'Ubuntu', sans-serif;
+    font-family: 'Sarala', sans-serif;*/
+    font-family: 'Roboto Condensed', sans-serif;
+  padding-top: 70px;
+}
+
+.first_container
+{
+
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #000000;
+  color:white;
+
+}
+
+a.social-links:link {color:#ffffff;}
+a.social-links:visited {color:#ffffff;}
+a.social-links:hover
+{
+  color:#ffffff;
+  text-decoration: none;
+}
+
+hr.style-bestsellers {
+    padding-top: 0;
+    border: none;
+    border-top: solid #A9AAAB;
+    color: #333;
+    text-align: center;
+}
+hr.style-bestsellers:after {
+    content: "BEST SELLERS";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    background: white;
+}
+
+.bestsellers
+{
+  padding-top: 20px;
+}
+
+hr.style-u-nas {
+    padding-top: 0;
+    border: none;
+    border-top: solid #A9AAAB;
+    color: #333;
+    text-align: center;
+}
+hr.style-u-nas:after {
+    content: "U NAS ZAWSZE";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    background: white;
+}
+
+hr.style-sugestie {
+    padding-top: 0;
+    border: none;
+    border-top: solid #A9AAAB;
+    color: #333;
+    text-align: center;
+}
+hr.style-sugestie:after {
+    content: "SUGEROWANE PRODUKTY";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    background: white;
+}
+
+.footer
+{
+  background-color: #000000;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+}
+
+.footer-line
+{
+  font-size: 10px;
+  border-left-style: solid;
+  border-left-color: #A9AAAB;
+  padding-left: 10px;
+}
+
+.bladwalidacji
+{
+  color:red;
+  padding-left: 10px;
+}
+
+.modyfikacja-uzytkownika
+{
+  padding-top: 60px;
+  margin-top: 50px;
+}
+
+.przemiot_container
+{
+  padding-top: 200px;
+}
+
+.ilosc
+{
+    width:40px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    /*padding: 4px 9px;*/
+    margin: 2px 0;
+    box-sizing: border-box;
+    border-radius: 0px;
+}
+
+.increment {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.ilosc {
+    padding: 4px 9px;
+    margin: 2px 0;
+    box-sizing: border-box;
+    border-radius: 0px;
+}
+
+.navbar-custom {
+    background-color:#000000;
+    color:#ffffff;
+    border-radius:0;
+    text-transform: uppercase;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #33aa33;
+}
+
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+    background-color:#0f0f0f;
+}
+.navbar-custom .icon-bar {
+    background-color:#33aa33;
+}
+.jssort01 {
+    position: absolute;
+    /* size of thumbnail navigator container */
+    width: 600px;
+    height: 100px;
+    bottom: 50px;
+}
+.jssort01 .p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 72px;
+    height: 72px;
+}
+.jssort01 .t {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: #000 0px solid;
+}
+.jssort01 .w {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.jssort01 .c {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 68px;
+    height: 68px;
+    border: #fff 2px solid;
+    box-sizing: content-box;
+    _background: none;
+}
+.jssort01 .pav .c {
+    top: 2px;
+    _top: 0px;
+    left: 2px;
+    _left: 0px;
+    width: 68px;
+    height: 68px;
+    border: #000 0px solid;
+    _border: #000 2px solid;
+    background-position: 50% 50%;
+}
+.jssort01 .p:hover .c {
+    top: 0px;
+    left: 0px;
+    width: 70px;
+    height: 70px;
+    border: #000 1px solid;
+    background-position: 50% 50%;
+}
+.jssort01 .p.pdn .c {
+    background-position: 50% 50%;
+    width: 68px;
+    height: 68px;
+    border: #000 2px solid;
+}
+.nazwa-przedmiotu
+{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.cena-przedmiotu
+{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.wykaz-kategorii
+{
+    color:lightgray;
+    font-size: 12px;
+}
+
+#category ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.bold
+{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+select
+{
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 0px;
+}
+
+.dodaj-do-koszyka
+{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+ul > li > ul > li:hover
+{
+    color:#888999;
+}
+
+ul > li > ul > li > a:hover
+{
+    color:#888999;
+    text-decoration: none;
+}
+
+ul > li > ul > li > a
+{
+    color:#161617;
+    text-decoration: none;
+}
+
+#brans
+{
+    position: relative;
+    top: -110px;
+    left: -100px;
+    width:600px;
+}
+
+#div1 /*lewa brans*/
+{
+    position: absolute;
+    top: 300px;
+    left: 40px;
+    transform: rotate(45deg);
+    width: 60px;
+    cursor: pointer;
+}
+
+#div2 /*srodkowa brans*/
+{
+    position: absolute;
+    top: 350px;
+    left: 150px;
+    width: 60px;
+    cursor: pointer;
+}
+
+#div3 /*prawa brans*/
+{
+    position: absolute;
+    top: 320px;
+    left: 290px;
+    transform: rotate(315deg);
+    width: 60px;
+    cursor: pointer;
+}
+/* przycisk */
+.wybierz-zawieszke
+{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#wybierz-zawieszke
+{
+    position: fixed;
+    left: auto; /* <-- Reset the default left value */
+    right: 10px;
+}
+
+.panel-body img
+{
+    width: 70px;
+    cursor: pointer;
+}
+
+.modal .modal-body {
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+.dropdown-menu
+{
+    margin-top:3px;
+}
+
+.carousel-inner img {
+    margin: auto;
+}
+
+.modal {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
