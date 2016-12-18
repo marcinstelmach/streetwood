@@ -1013,4 +1013,60 @@ class Administrator extends CI_Controller
             echo $this->image_lib->display_errors();
         }
     }
+
+    public function stale_ceny()
+    {
+
+        $this->form_validation->set_rules('z1', 'Brans z 1', 'numeric');
+        if ($this->form_validation->run() == FALSE)
+        {
+            $stale_ceny=$this->pobierz_stale_ceny();
+            $sz= array(
+                'brans1' => $stale_ceny->{'brans1'},
+                'brans2' => $stale_ceny->{'brans2'},
+                'brans3' => $stale_ceny->{'brans3'}
+            );
+            $this->load->view('administrator/header');
+            $this->load->view('administrator/przedmiot/stale_ceny', $sz);
+            $this->load->view('administrator/footer');
+        }
+        else
+        {
+            if($this->input->post('z1')!='')
+            {
+                $z1=$this->input->post('z1');
+            }
+            if($this->input->post('z2')!='')
+            {
+                $z2=$this->input->post('z2');
+            }
+            if($this->input->post('z3')!='')
+            {
+                $z3=$this->input->post('z3');
+            }
+
+            $json = '{"brans1":'.$z1.',"brans2":'.$z2.',"brans3":'.$z3.'}';
+
+            $fp = fopen('results.json', 'w');
+            if(!fwrite($fp, json_encode($json)))
+                echo "blad";
+            fclose($fp);
+            $stale_ceny=$this->pobierz_stale_ceny();
+            $sz= array(
+                'brans1' => $stale_ceny->{'brans1'},
+                'brans2' => $stale_ceny->{'brans2'},
+                'brans3' => $stale_ceny->{'brans3'}
+            );
+            $this->session->set_flashdata('stale_ceny');
+            $this->load->view('administrator/header');
+            $this->load->view('administrator/przedmiot/stale_ceny', $sz);
+            $this->load->view('administrator/footer');
+        }
+    }
+
+    private function pobierz_stale_ceny()
+    {
+        $json = json_decode(json_decode(file_get_contents('results.json')));
+        return $json;
+    }
 }

@@ -66,9 +66,9 @@
             <li><a class="social-links" href="http://facebook.com/streetwoodpl"><i class="icon-facebook-official" style="font-size: 20px;"></i></a></li>
             <li><a class="social-links" href="http://instagram.com/street_wood"><i class="icon-instagram" style="font-size: 20px;"></i></a></li>
             <li><a class="social-links" href="#"><i class="icon-snapchat-ghost" style="font-size: 20px;" data-toggle="modal" data-target=".snapcode"></i></a></li>
-            <li><a class="social-links" href="<?php echo base_url().'uzytkownik/zaloguj'; ?>">ZALOGUJ SIĘ</a> </li>
-            <li><a class="social-links" href="<?php echo base_url().'uzytkownik/rejestracja'; ?>">ZAREJESTRUJ SIĘ</a></li>
-            <li><a class="social-links" href="#"><i class="icon-basket" style="font-size: 20px;"></i></a></li>
+            <li><a class="social-links" href="<?=base_url().'uzytkownik/zaloguj' ?>">ZALOGUJ SIĘ</a> </li>
+            <li><a class="social-links" href="<?=base_url().'uzytkownik/rejestracja' ?>">ZAREJESTRUJ SIĘ</a></li>
+            <li><a class="social-links" href="<?=base_url().'koszyk/wyswietl' ?>"><i class="icon-basket" style="font-size: 20px;"></i><span class="badge"><?=$this->cart->total_items()?></span></a></li>
           </ul>
         </ul>
       </div>

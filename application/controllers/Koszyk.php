@@ -12,13 +12,16 @@ class Koszyk extends CI_Controller
 	
 	public function dodaj()
 	{
-
+        if($this->input->post('size'))
+            $size=$this->input->post('size');
+        else
+            $size='n/d';
         $data = array(
                'id'      => $this->input->post('id_produktu'),
                'qty'     => $this->input->post('ilosc'),
                'price'   => $this->input->post('cena'),
                'name'    => $this->input->post('nazwa'),
-               //'options' => array('Size' => $this->input->post('size'))
+               'options' => array('Size' => $size)
             );
         //'options' => array('Size' => $this->input->post('size'), 'Color' => 'Red')
 		$this->cart->insert($data);

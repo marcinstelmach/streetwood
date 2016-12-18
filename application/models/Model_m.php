@@ -189,7 +189,7 @@ class Model_m extends CI_Model
 
     public function pobierz_sznureczki()
     {
-        $sznureczki=$this->db->query('SELECT p.nazwa as nazwa_przedmiotu, z.nazwa_zdjecia as nazwa_zdjecia from produkty p, zdjecia z, kategorie k WHERE p.id_produktu=z.id_produktu AND p.id_kategorii=k.id_kategorii AND k.nazwa_kategorii="Sznureczek"');
+        $sznureczki=$this->db->query('SELECT p.nazwa as nazwa_przedmiotu, z.nazwa_zdjecia as nazwa_zdjecia, p.opis as opis from produkty p, zdjecia z, kategorie k WHERE p.id_produktu=z.id_produktu AND p.id_kategorii=k.id_kategorii AND k.nazwa_kategorii="Sznureczek"');
         return $sznureczki->result();
     }
 
@@ -227,5 +227,11 @@ class Model_m extends CI_Model
     {
         $zdjecia=$this->db->query('SELECT z.nazwa_zdjecia from zdjecia z, produkty p where p.id_produktu=z.id_produktu and p.id_produktu='.$par);
         return $zdjecia->result();
+    }
+
+    public function pobierz_stale_brans()
+    {
+        $stale=$this->db->query('SELECT * FROM stale_ceny where id_stalej_ceny=1');
+        return $stale->result();
     }
 }

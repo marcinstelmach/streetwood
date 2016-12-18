@@ -10,9 +10,12 @@
         <div id="div1" class="column" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
         <!-- Prawy divek -->
         <div id="div2" class="column" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
+        <div id="div3" class="column" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
+
     </div>
         <!-- Środkowy divek -->
-        <div id="div3" class="column" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
+
+
 
     <div class="row" style="margin-top: -60px;">
         <div class="center-block container-fluid">
@@ -37,7 +40,12 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="nazwa-przedmiotu">Sznureczek</h1>
-            <p class="cena-przedmiotu"><span id="cena">55.00</span> </p>
+            <?php
+                foreach ($stale_info as $key) {
+                    ?>
+                    <p class="cena-przedmiotu" id="cena1"><span id="cena"><?= $key->brans1 ?>.00</span></p>
+                    <p class="cena-przedmiotu" id="cena2"><span id="cena"><?= $key->brans2 ?>.00</span></p>
+                    <p class="cena-przedmiotu" id="cena3"><span id="cena"><?= $key->brans3 ?>.00</span></p>
         </div>
     </div>
     <div class="row" style="margin-top: 20px">
@@ -61,8 +69,10 @@
             <p>Suma: <span id="suma"></span>.00</p>
         </div>
     </div>
-    <input type="hidden" name="kolor_sznurka" id="kolor_sznurka" />
-    <input type="hidden" name="lewa_brans" id="kolor_sznurka" />
+    <input type="hidden" name="kolor_sznurka" id="kolor_sznurka" value="" />
+    <input type="hidden" name="lewa_brans" id="lewa_brans" value=""/>
+    <input type="hidden" name="prawa_brans" id="prawa_brans" value=""/>
+    <input type="hidden" name="srodkowa_brans" id="srodkowa_brans" value=""/>
     <div class="row" style="margin-top: 20px">
         <div class="center-block">
             <input class="dodaj-do-koszyka" type="submit" value="Dodaj do koszyka">
@@ -71,25 +81,15 @@
     <div class="row">
         <hr />
         <h2>Szczegóły</h2>
-        <p>Wyjdź z przekazem! Najlepiej do siebie przed lustro :)
+        <?php echo '<p>'.$key->opis.'</p>';
+        }
+        ?>
 
-            No chyba, że chciałabyś komuś jeszcze powiedzieć „I just want to say you look great today”.
-
-            Na pewno nikt się nie obrazi zobaczyć Cię w tej koszulce!
-
-            Nowy krój w naszym sklepie, czyli RINGER z czarnym wykończeniem lubi, kiedy o niego dbasz.
-
-            - modelka ma na sobie rozmiar S
-
-            - prać w 30 stopniach lub ręcznie
-
-            - prasować na lewej stronie
-
-            - 100% bawełna z certyfikatem Oeko-Tex 100 klasa I</p>
     </div>
 </div>
 </div>
 </div>
+
 
 
 <!-- Modal -->
@@ -224,7 +224,7 @@
             dialogg();
     }
 
-    $("#pokaz").click(function()
+    /*$("#pokaz").click(function()
     {
         $("#p1").text($("#div1").html());
         $("#p2").text($("#div2").html());
@@ -234,7 +234,20 @@
         $("#p6").val(nazwa_zdjecia($("#div1").html()));
         $("#chetny").text('chetny div to: '+chetny_div);
 
+    });*/
+
+    $('#div1').bind("DOMSubtreeModified",function(){
+        $("#lewa_brans").val(nazwa_zdjecia($("#div1").html()));
     });
+
+    $('#div2').bind("DOMSubtreeModified",function(){
+        $("#prawa_brans").val(nazwa_zdjecia($("#div2").html()));
+    });
+
+    $('#div3').bind("DOMSubtreeModified",function(){
+        $("#srodkowa_brans").val(nazwa_zdjecia($("#div3").html()));
+    });
+
 
     function wyczysc($div)
     {

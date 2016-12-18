@@ -23,7 +23,7 @@
                     {
                         if($cat->nazwa_kategorii!=$name_kat)
                         {
-                            echo '<li><span class="bold">' . $cat->nazwa_kategorii . '</span><ul>';
+                            echo '<li><span class="bold">' . str_replace('_', '', $cat->nazwa_kategorii) . '</span><ul>';
                             foreach ($drzewko as $kat) {
                                 if ($kat->nazwa_kategorii == $cat->nazwa_kategorii)
                                     echo '<li>' . anchor(strtolower(str_replace(' ', '-', $cat->nazwa_kategorii.'/'.$kat->nazwa_pod_kategorii)), $kat->nazwa_pod_kategorii) . '</li>';

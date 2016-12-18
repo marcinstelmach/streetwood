@@ -14,6 +14,7 @@ class Bransoletki extends CI_Controller
 
     public function sznureczek()
     {
+        $dane['stale_info']=$this->Model_m->pobierz_stale_brans();
         $dane['sznureczki']=$this->Model_m->pobierz_sznureczki();
         $dane['zawieszki']=$this->Model_m->pobierz_zawieszki();
         $this->load->view('header', $this->kategorie);
@@ -31,4 +32,5 @@ class Bransoletki extends CI_Controller
         $this->load->view('przedmioty/sznureczek', $dane);
         $this->load->view('footer');
     }
+    
 }

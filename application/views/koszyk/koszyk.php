@@ -2,7 +2,7 @@
 <?php 
 		if ($this->session->userdata('updated')==true)
 		{
-			echo '<div class="col-md-8 col-md-offset-2">
+			echo '<div class="col-md-8">
 				<div class="alert alert-success alert-dismissible" role="alert">
 				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				  <p class="text-center">Zawartość koszyka została zaaktualizowana</p>
@@ -13,7 +13,7 @@
 
 		if ($this->session->userdata('deleted')==true)
 		{
-			echo '<div class="col-md-8 col-md-offset-2">
+			echo '<div class="col-md-8">
 				<div class="alert alert-success alert-dismissible" role="alert">
 				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				  <p class="text-center">Produkt został usunięty</p>
@@ -24,7 +24,7 @@
 
 		if ($this->session->userdata('destroyed')==true)
 		{
-			echo '<div class="col-md-8 col-md-offset-2">
+			echo '<div class="col-md-8">
 				<div class="alert alert-success alert-dismissible" role="alert">
 				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				  <p class="text-center">Zawartość koszyka została wymazana</p>
@@ -36,7 +36,7 @@
  ?>
 
 	<div class="col-md-8">
-	<h1>Koszyk</h1>
+        <h1 style="font-weight: bold">Koszyk</h1>
 	<?php if ($this->cart->total_items()>0){ ?>
 	<div class="table-responsive">
 		<table class="table">
@@ -52,13 +52,22 @@
 		$i = 1; 
 		foreach ($this->cart->contents() as $items):
 		echo form_hidden($i.'[rowid]', $items['rowid']);  ?>
-
-
         <tr>
         		<td><?php  echo $i?></td>
-                <td><?php echo form_input(array('name' => $i.'[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
+                <td><?php echo form_input(array('name' => $i.'[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5', 'style'=>'text-align:center;')); ?></td>
                 <td>
                         <?php echo $items['name']; ?>
+                    <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
+
+                        <p>
+                            <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
+
+                                <strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
+
+                            <?php endforeach; ?>
+                        </p>
+
+                    <?php endif; ?>
                 </td>
                 <td><?php echo $this->cart->format_number($items['price']).' zł'; ?></td>
                 <td><?php echo $this->cart->format_number($items['subtotal']).' zł'; ?></td>
@@ -77,15 +86,15 @@
 </tr>
 
 </table>
-	<input type="submit" class="btn btn-danger"  name="update_cart" value="Aktualizuj" />
-	<a href="<?php echo base_url().'koszyk/destroy'; ?>" class="btn btn-danger">Wyczyść koszyk</a>
+	<input type="submit" class="btn btn-danger koszyk-buttons"  name="update_cart" value="Aktualizuj" />
+	<a href="<?php echo base_url().'koszyk/destroy'; ?>" class="btn btn-danger koszyk-buttons">Wyczyść koszyk</a>
 	
 	</div>
 
 
 </div>
 </div>
-<p class="text-right" style=" position: relative; right: 50px; bottom: 0px"><a href="<?php echo base_url().'zamowienie/krok-1'; ?>" class="btn btn-primary btn-lg">Przejdz dalej</a></p>
+<p class="text-right"><a href="<?php echo base_url().'zamowienie/krok-1'; ?>" class="btn przejdz-dalej">Przejdz dalej</a></p>
 <?php 
 	}
 	else
@@ -93,4 +102,5 @@
 		echo "<h1>Brak produktów w koszyku</h1></div>";
 	}
 	?>
+</div>
 </div>

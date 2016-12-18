@@ -49,9 +49,9 @@
                 <div class="col-md-5">
                     <p>Model</p>
                     <select name="size">
-                        <option value="5">iPhone 5/5s</option>
-                        <option value="6">iPhone 6/6s</option>
-                        <option value="7">iPhone 7</option>
+                        <option value="iPhone 5/5s">iPhone 5/5s</option>
+                        <option value="iPhone 6/6s">iPhone 6/6s</option>
+                        <option value="iPhone 7">iPhone 7</option>
                     </select>
                 </div>
             </div>
