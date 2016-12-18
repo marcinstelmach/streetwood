@@ -317,34 +317,6 @@ ul > li > ul > li > a
     width:600px;
 }
 
-#div1 /*lewa brans*/
-{
-    position: absolute;
-    top: 300px;
-    left: 40px;
-    transform: rotate(45deg);
-    width: 60px;
-    cursor: pointer;
-}
-
-#div2 /*srodkowa brans*/
-{
-    position: absolute;
-    top: 350px;
-    left: 150px;
-    width: 60px;
-    cursor: pointer;
-}
-
-#div3 /*prawa brans*/
-{
-    position: absolute;
-    top: 320px;
-    left: 290px;
-    transform: rotate(315deg);
-    width: 60px;
-    cursor: pointer;
-}
 /* przycisk */
 .wybierz-zawieszke
 {
@@ -356,6 +328,14 @@ ul > li > ul > li > a
     margin: 4px 2px;
     cursor: pointer;
     font-size: 15px;
+}
+@media (max-width: 500px) {
+    #wybierz-zawieszke
+    {
+        position: fixed;
+        left: auto; /* <-- Reset the default left value */
+        right: auto;
+    }
 }
 
 #wybierz-zawieszke
@@ -427,4 +407,73 @@ ul > li > ul > li > a
 .koszyk-buttons
 {
     border-radius: 0;
+}
+
+.sz1 /*lewa brans*/
+{
+    position: absolute;
+    top: 300px;
+    left: 40px;
+    transform: rotate(45deg);
+    width: 60px;
+    cursor: pointer;
+}
+
+.sz2 /*srodkowa brans*/
+{
+    position: absolute;
+    top: 350px;
+    left: 150px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.sz3 /*prawa brans*/
+{
+    position: absolute;
+    top: 320px;
+    left: 290px;
+    transform: rotate(315deg);
+    width: 60px;
+    cursor: pointer;
+}
+
+.gb1 /*lewa brans*/
+{
+    position: absolute;
+    top: 400px;
+    left: 40px;
+    transform: rotate(45deg);
+    width: 60px;
+    cursor: pointer;
+}
+
+.gb2 /*srodkowa brans*/
+{
+    position: absolute;
+    top: 400px;
+    left: 150px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.gb3 /*prawa brans*/
+{
+    position: absolute;
+    top: 400px;
+    left: 290px;
+    transform: rotate(315deg);
+    width: 60px;
+    cursor: pointer;
+}
+
+#guzik
+{
+    position: relative;
+    top: -50px;
+}
+
+input
+{
+    border-radius: 0px !important;
 }

@@ -2,11 +2,12 @@
 
 class Zamowienie extends CI_Controller
 {
-	
+    private $kategorie='';
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Model_m');
+        $this->kategorie['drzewko']=$this->Model_m->pobierz_drzewko_kategorii();
 	}
 
 	public function krok_1()
@@ -15,13 +16,15 @@ class Zamowienie extends CI_Controller
 		if($this->session->userdata('zalogowany')==TRUE || $this->session->userdata('bez_rejestracji')==TRUE)
 		{
 			$this->session->set_userdata('krok_1', TRUE);
-			$this->load->view('header');
+			$this->load->view('header', $this->kategorie);
+			$this->load->view('przedmioty/category', $this->kategorie);
 			$this->load->view('zamowienie/krok_1');
 			$this->load->view('footer');
 		}
 		else
 		{
-			$this->load->view('header');
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
 			$this->load->view('zamowienie/zdecyduj');
 			$this->load->view('footer');
 		}
@@ -45,7 +48,8 @@ class Zamowienie extends CI_Controller
 		$this->form_validation->set_message('required', 'Pole %s jest wymagane');
 		if ($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('header');
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
 			$this->load->view('zamowienie/krok_2');
 			$this->load->view('footer'); 
 		}
@@ -70,7 +74,8 @@ class Zamowienie extends CI_Controller
 		{
 			$data['dane']=$this->Model_m->pobierzgdzie('id_uzytkownika', $this->session->userdata('id_nowego'), 'uzytkownicy');
 			$this->session->set_userdata('krok_3', TRUE);
-			$this->load->view('header');
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
 			$this->load->view('zamowienie/krok_3', $data);
 			$this->load->view('footer');
 		}
@@ -78,7 +83,8 @@ class Zamowienie extends CI_Controller
 		{
 			$data['dane']=$this->Model_m->pobierzgdzie('id_uzytkownika', $this->session->userdata('id_uzytkownika'), 'uzytkownicy');
 			$this->session->set_userdata('krok_3', TRUE);
-			$this->load->view('header');
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
 			$this->load->view('zamowienie/krok_3', $data);
 			$this->load->view('footer');
 		}
@@ -120,18 +126,19 @@ class Zamowienie extends CI_Controller
 			$zam_tow['id_produktu']=$items['id'];
 			$zam_tow['ilosc']=$items['qty'];
 
-			$mail['string']+='<tr><td>'.$id_zamowienia.'</td><td>'.$items['id'].'</td><td>'.$items['qty'].'</td></tr>';
+			$mail['string'].='<tr><td>'.$id_zamowienia.'</td><td>'.$items['id'].'</td><td>'.$items['qty'].'</td></tr>';
 
 			$this->Model_m->dodaj('zam_tow', $zam_tow);
 		}
-		$mail['string']+='</table>';
+		$mail['string'].="</table>";
 
 		$this->cart->destroy();
 		$this->session->sess_destroy();
 		$this->load->view('emails/email_test', $mail);
 
 		/*
-		$this->load->view('header');
+		$this->load->view('header', $this->kategorie);
+		$this->load->view('przedmioty/category', $this->kategorie);
 		$this->load->view('zamowienie/potwierdzenie');
 		$this->load->view('footer');*/
 
@@ -151,7 +158,8 @@ class Zamowienie extends CI_Controller
 		$this->form_validation->set_message('matches', 'Hasła nie nie są identyczne');
 		if ($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('header');
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
 			$this->load->view('zamowienie/zdecyduj');
 			$this->load->view('footer'); 
 		}
@@ -222,5 +230,15 @@ class Zamowienie extends CI_Controller
 
 		echo $this->email->print_debugger();
 	}
+
+    public function test()
+    {
+        if ($this->session->has_userdata('bez_rejestracji'))
+            echo $this->session->userdata('miasto');
+        else
+            echo 'niema';
+
+        echo $this->session->userdata('miasto');
+    }
 			
 }

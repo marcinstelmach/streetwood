@@ -5,7 +5,7 @@
             <!-- Jssor Slider Begin -->
             <!-- To move inline styles to css file/block, please specify a class name for each element. -->
             <div id="slider1_container" style="position: relative; top: 20px; left: 0px; width: 700px;
-            height: 800px; background: #FFFFFF; overflow: hidden;">
+            height: 800px; background: #FFFFFF; overflow: hidden; z-index: -10;"
 
                 <!-- Slides Container -->
                 <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 700px; height: 700px; overflow: hidden;">

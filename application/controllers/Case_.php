@@ -39,11 +39,11 @@ class Case_ extends CI_Controller
         }
     }
 
-    public function case_other()
+    public function inne_modele()
     {
         $this->load->view('header', $this->kategorie);
         $this->load->view('przedmioty/category', $this->kategorie);
-        $this->load->view('przedmioty/case_other');
+        $this->load->view('przedmioty/inne_modele');
         $this->load->view('footer');
     }
 

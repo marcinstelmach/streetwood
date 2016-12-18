@@ -4,16 +4,14 @@
     <p class="cena-przedmiotu visible-xs"><span id="cena">55.00</span> </p>
     <div style="position: relative; height: 520px">
         <!-- Brans -->
-        <img src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/brzoskwinia.png"  id="brans" draggable="false" style="z-index: -10;"/>
-
-        <!-- Lewy divek -->
-        <div id="div1" class="column sz1" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
-        <!-- Prawy divek -->
-        <div id="div2" class="column sz2" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
-        <div id="div3" class="column sz3" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
-
+        <img src="<?=base_url()?>assetss/img/products/bransoletki/guzik/_P3B1506_.jpg"  id="guzik" draggable="false" style="z-index: -10; width: 500px;" class="img-responsive"/>
+            <!-- Lewy divek -->
+            <div id="div1" class="column gb1" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();"></div>
+            <!-- Prawy divek -->
+            <div id="div2" class="column gb2" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
+            <div id="div3" class="column gb3" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
     </div>
-        <!-- Środkowy divek -->
+    <!-- Środkowy divek -->
 
 
 
@@ -21,12 +19,12 @@
         <div class="center-block container-fluid">
             <h4>Wybierz kolor sznureczka</h4>
             <?php
-            foreach($sznureczki as $key)
+            foreach($guziki as $key)
             {
                 $zdjecie=$key->nazwa_zdjecia;
                 ?>
-                <img draggable="false" src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/thumbs/<?=$zdjecie?>" onclick="zmien('<?=$key->nazwa_zdjecia?>','<?=$key->nazwa_przedmiotu?>')" style="cursor: pointer"/>
-            <?php
+                <img draggable="false" src="<?=base_url()?>assetss/img/products/bransoletki/guzik/thumbs/<?=$zdjecie?>" onclick="zmien('<?=$key->nazwa_zdjecia?>','<?=$key->nazwa_przedmiotu?>')" style="cursor: pointer"/>
+                <?php
             }
             ?>
         </div>
@@ -41,11 +39,11 @@
         <div class="col-md-12">
             <h1 class="nazwa-przedmiotu">Sznureczek</h1>
             <?php
-                foreach ($stale_info as $key) {
-                    ?>
-                    <p class="cena-przedmiotu" id="cena1"><span id="cena"><?= $key->brans1 ?>.00</span></p>
-                    <p class="cena-przedmiotu" id="cena2"><span id="cena"><?= $key->brans2 ?>.00</span></p>
-                    <p class="cena-przedmiotu" id="cena3"><span id="cena"><?= $key->brans3 ?>.00</span></p>
+            foreach ($stale_info as $key) {
+            ?>
+            <p class="cena-przedmiotu" id="cena1"><span id="cena"><?= $key->brans1 ?>.00</span></p>
+            <p class="cena-przedmiotu" id="cena2"><span id="cena"><?= $key->brans2 ?>.00</span></p>
+            <p class="cena-przedmiotu" id="cena3"><span id="cena"><?= $key->brans3 ?>.00</span></p>
         </div>
     </div>
     <div class="row" style="margin-top: 20px">
@@ -54,7 +52,7 @@
         </div>
     </div>
     <div class="row" style="padding-top: 20px">
-        <div class="col-md-12">
+        <div class="col-xs-12">
             <button id="minus" class="increment" style="background-color: #555555; border: none">
                 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
             </button>
@@ -150,7 +148,7 @@
 <script type="text/javascript" src="<?= base_url().'assetss/js/ilosc.js'?>"></script>
 <script type="text/javascript">
     function zmien($nazwa_zdjecia, $nazwa_produktu) {
-        $('#brans').attr('src','<?= base_url()?>assetss/img/products/bransoletki/sznureczek/'+$nazwa_zdjecia+'?v=4');
+        $('#guzik').attr('src','<?= base_url()?>assetss/img/products/bransoletki/guzik/'+$nazwa_zdjecia+'?v=4');
         $('#kolor_sznurka').val($nazwa_produktu);
     }
 </script>
@@ -185,11 +183,11 @@
 
     <?php
     $i=1;
-        foreach($zawieszki as $key)
-        {
-            echo 'document.getElementById("zdj'.$i.'").onclick=function(){dodaj_zawieszke(wolny_div(), "'.$key->nazwa_zdjecia.'");};';
-            $i++;
-        }
+    foreach($zawieszki as $key)
+    {
+        echo 'document.getElementById("zdj'.$i.'").onclick=function(){dodaj_zawieszke(wolny_div(), "'.$key->nazwa_zdjecia.'");};';
+        $i++;
+    }
     ?>
 
 </script>
@@ -225,16 +223,16 @@
     }
 
     /*$("#pokaz").click(function()
-    {
-        $("#p1").text($("#div1").html());
-        $("#p2").text($("#div2").html());
-        $("#p3").text($("#div3").html());
-        $("#p4").val(nazwa_zdjecia($("#div3").html()));
-        $("#p5").val(nazwa_zdjecia($("#div2").html()));
-        $("#p6").val(nazwa_zdjecia($("#div1").html()));
-        $("#chetny").text('chetny div to: '+chetny_div);
+     {
+     $("#p1").text($("#div1").html());
+     $("#p2").text($("#div2").html());
+     $("#p3").text($("#div3").html());
+     $("#p4").val(nazwa_zdjecia($("#div3").html()));
+     $("#p5").val(nazwa_zdjecia($("#div2").html()));
+     $("#p6").val(nazwa_zdjecia($("#div1").html()));
+     $("#chetny").text('chetny div to: '+chetny_div);
 
-    });*/
+     });*/
 
     $('#div1').bind("DOMSubtreeModified",function(){
         $("#lewa_brans").val(nazwa_zdjecia($("#div1").html()));

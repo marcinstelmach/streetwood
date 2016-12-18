@@ -39,3 +39,4 @@
 </div>
 <p class="text-right" style=" position: relative; right: 50px; bottom: 0px"><a href="<?php echo base_url().'zamowienie/krok-2'; ?>" class="btn btn-primary btn-lg">Przejdz dalej</a></p>
 </div>
+</div>

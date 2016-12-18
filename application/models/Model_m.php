@@ -189,13 +189,13 @@ class Model_m extends CI_Model
 
     public function pobierz_sznureczki()
     {
-        $sznureczki=$this->db->query('SELECT p.nazwa as nazwa_przedmiotu, z.nazwa_zdjecia as nazwa_zdjecia, p.opis as opis from produkty p, zdjecia z, kategorie k WHERE p.id_produktu=z.id_produktu AND p.id_kategorii=k.id_kategorii AND k.nazwa_kategorii="Sznureczek"');
+        $sznureczki=$this->db->query('SELECT p.nazwa as nazwa_przedmiotu, z.nazwa_zdjecia as nazwa_zdjecia from produkty p, zdjecia z, kategorie k WHERE p.id_produktu=z.id_produktu AND p.id_kategorii=k.id_kategorii AND k.nazwa_kategorii="Sznureczek"');
         return $sznureczki->result();
     }
 
     public function pobierz_drzewko_kategorii()
     {
-        $drzewko = $this->db->query('select t1.nazwa_kategorii as nazwa_kategorii, t2.nazwa_kategorii as nazwa_pod_kategorii from kategorie as t1 join kategorie as t2 on t1.id_kategorii=t2.parent ORDER by t1.nazwa_kategorii');
+        $drzewko = $this->db->query('select t1.nazwa_kategorii as nazwa_kategorii, t2.nazwa_kategorii as nazwa_pod_kategorii from kategorie as t1 join kategorie as t2 on t1.id_kategorii=t2.parent where t2.nazwa_kategorii != "zawieszki" ORDER by t1.nazwa_kategorii, t2.nazwa_kategorii');
         return $drzewko->result();
     }
 
@@ -233,5 +233,11 @@ class Model_m extends CI_Model
     {
         $stale=$this->db->query('SELECT * FROM stale_ceny where id_stalej_ceny=1');
         return $stale->result();
+    }
+
+    public function pobierz_guziki()
+    {
+        $sznureczki=$this->db->query('SELECT p.nazwa as nazwa_przedmiotu, z.nazwa_zdjecia as nazwa_zdjecia from produkty p, zdjecia z, kategorie k WHERE p.id_produktu=z.id_produktu AND p.id_kategorii=k.id_kategorii AND k.nazwa_kategorii="Guzik"');
+        return $sznureczki->result();
     }
 }

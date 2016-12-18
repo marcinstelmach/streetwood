@@ -11,10 +11,10 @@
       <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/bootstrap.min.css" media="screen" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/style.css?v=<?=time();?>" media="screen" type="text/css" />
+    <link rel="stylesheet" href="<?=base_url()?>assetss/css/bootstrap.min.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="<?=base_url()?>assetss/css/style.css?v=<?=time();?>" media="screen" type="text/css" />
     <link rel="stylesheet" href="http://localhost/streetwood/assetss/css/fontello.css">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assetss/img/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assetss/img/favicon.png">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,7 +33,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-left" href="http://streetwood.pl"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg" width="150" alt="Logo"></a>
+        <a class="navbar-left" href="<?=base_url()?>"><img src="<?=base_url()?>assetss/img/logo.jpg" width="150" alt="Logo"></a>
       </div><!--Zamknięcie headera-->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">

@@ -25,11 +25,12 @@ class Bransoletki extends CI_Controller
 
     public function guzik()
     {
-        $dane['sznureczki']=$this->Model_m->pobierz_sznureczki();
+        $dane['stale_info']=$this->Model_m->pobierz_stale_brans();
+        $dane['guziki']=$this->Model_m->pobierz_guziki();
         $dane['zawieszki']=$this->Model_m->pobierz_zawieszki();
         $this->load->view('header', $this->kategorie);
         $this->load->view('przedmioty/category', $this->kategorie);
-        $this->load->view('przedmioty/sznureczek', $dane);
+        $this->load->view('przedmioty/guzik', $dane);
         $this->load->view('footer');
     }
     

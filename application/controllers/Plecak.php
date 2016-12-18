@@ -2,11 +2,12 @@
 
 class Plecak extends CI_Controller
 {
-
+    private $kategorie='';
     function __construct()
     {
         parent::__construct();
         $this->load->model('Model_m');
+        $this->kategorie['drzewko']=$this->Model_m->pobierz_drzewko_kategorii();
     }
 
     public function backpack()
