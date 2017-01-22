@@ -9,13 +9,7 @@ class Case_ extends CI_Controller
         $this->load->model('Model_m');
         $this->kategorie['drzewko']=$this->Model_m->pobierz_drzewko_kategorii();
     }
-    public function index()
-    {
-        $this->load->view('header', $this->kategorie);
-        $this->load->view('przedmioty/case');
-        $this->load->view('footer');
-    }
-
+    
     public function iphone()
     {
         $args = func_get_args();
@@ -30,6 +24,7 @@ class Case_ extends CI_Controller
         }
         foreach ($args as $par)
         {
+            $par=substr($par, 0, strpos($par, '-'));
             $dane['produkt']=$this->Model_m->pobierz_dane_produktu($par);
             $dane['zdjecia']=$this->Model_m->pobierz_zdjecia_produktu($par);
             $this->load->view('header', $this->kategorie);
@@ -46,12 +41,5 @@ class Case_ extends CI_Controller
         $this->load->view('przedmioty/inne_modele');
         $this->load->view('footer');
     }
-
-    public function test()
-    {
-        $str=uri_string();
-        $n=strpos($str, '/');
-        $str=substr($str, 0, $n);
-        echo str_replace('/', '>', str_replace('_','',$str));
-    }
+    
 }

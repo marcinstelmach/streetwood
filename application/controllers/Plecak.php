@@ -24,6 +24,7 @@ class Plecak extends CI_Controller
         }
         foreach ($args as $par)
         {
+            $par=substr($par, 0, strpos($par, '-'));
             $dane['produkt']=$this->Model_m->pobierz_dane_produktu($par);
             $dane['zdjecia']=$this->Model_m->pobierz_zdjecia_produktu($par);
             $this->load->view('header', $this->kategorie);

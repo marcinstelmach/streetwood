@@ -7,9 +7,12 @@
         <img src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/brzoskwinia.png"  id="brans" draggable="false" style="z-index: -10;"/>
 
         <!-- Lewy divek -->
+        <button onclick="wyczysc('div1')" id="div1delsz" class="buttondel" style="display: none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <div id="div1" class="column sz1" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
         <!-- Prawy divek -->
+        <button onclick="wyczysc('div2')" id="div2delsz" class="buttondel" style="display: none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <div id="div2" class="column sz2" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
+        <button onclick="wyczysc('div3')" id="div3delsz" class="buttondel" style="display: none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <div id="div3" class="column sz3" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
 
     </div>
@@ -43,9 +46,9 @@
             <?php
                 foreach ($stale_info as $key) {
                     ?>
-                    <p class="cena-przedmiotu" id="cena1"><span id="cena"><?= $key->brans1 ?>.00</span></p>
-                    <p class="cena-przedmiotu" id="cena2"><span id="cena"><?= $key->brans2 ?>.00</span></p>
-                    <p class="cena-przedmiotu" id="cena3"><span id="cena"><?= $key->brans3 ?>.00</span></p>
+                    <p class="cena-przedmiotu" id="cena1"><span id="cena"><?= number_format($key->zawieszka1, 2) ?> zł</span></p>
+                    <p class="cena-przedmiotu" id="cena2" style="display: none;"><span id="cena"><?= number_format($key->zawieszka2, 2) ?> zł</span></p>
+                    <p class="cena-przedmiotu" id="cena3" style="display: none"><span id="cena"><?= number_format($key->zawieszka3, 2) ?> zł</span></p>
         </div>
     </div>
     <div class="row" style="margin-top: 20px">
@@ -70,9 +73,9 @@
         </div>
     </div>
     <input type="hidden" name="kolor_sznurka" id="kolor_sznurka" value="" />
-    <input type="hidden" name="lewa_brans" id="lewa_brans" value=""/>
-    <input type="hidden" name="prawa_brans" id="prawa_brans" value=""/>
-    <input type="hidden" name="srodkowa_brans" id="srodkowa_brans" value=""/>
+    <input type="hidden" name="zawieszka1" id="zawieszka1" value=""/>
+    <input type="hidden" name="zawieszka2" id="zawieszka2" value=""/>
+    <input type="hidden" name="zawieszka3" id="zawieszka3" value=""/>
     <div class="row" style="margin-top: 20px">
         <div class="center-block">
             <input class="dodaj-do-koszyka" type="submit" value="Dodaj do koszyka">
@@ -195,6 +198,7 @@
 </script>
 <script src="<?= base_url().'assetss/js/drag_and_over.js'?>" type="text/javascript"></script>
 <script type="text/javascript">
+    var ilosc_zawieszek=0;
     function dialogg(){
         $( function() {
             $( "#dialog-message" ).dialog({
@@ -217,41 +221,61 @@
 
     function dodaj_zawieszke($div, $nazwa_zdjecia)
     {
-        if($div!='brak')
-            $("#"+$div).prepend('<img style="width:70px;" src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/'+$nazwa_zdjecia+'">');
+        if($div!='brak') {
+            $("#" + $div).prepend('<img style="width:70px;" src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/' + $nazwa_zdjecia + '">');
+            wybierz_cene();
+            $("#" + $div + "delsz").css("display", "inline");
+
+        }
         else
         //alert("Nie mozna wybrać więcej niż trzech zawieszek");
             dialogg();
     }
 
-    /*$("#pokaz").click(function()
-    {
-        $("#p1").text($("#div1").html());
-        $("#p2").text($("#div2").html());
-        $("#p3").text($("#div3").html());
-        $("#p4").val(nazwa_zdjecia($("#div3").html()));
-        $("#p5").val(nazwa_zdjecia($("#div2").html()));
-        $("#p6").val(nazwa_zdjecia($("#div1").html()));
-        $("#chetny").text('chetny div to: '+chetny_div);
+    function wybierz_cene() {
+        ilosc_zawieszek++;
 
-    });*/
+        switch (ilosc_zawieszek)
+        {
+            case 1 :
+                $("#cena1").css("display", "inline");
+                $("#cena2").css("display", "none");
+                $("#cena3").css("display", "none");
+                break;
+            case 2 :
+                $("#cena1").css("display", "none");
+                $("#cena2").css("display", "inline");
+                $("#cena3").css("display", "none");
+                break;
+            case 3 :
+                $("#cena1").css("display", "none");
+                $("#cena2").css("display", "none");
+                $("#cena3").css("display", "inline");
+                break;
+            default :
+                return false;
+        }
+
+    }
+
 
     $('#div1').bind("DOMSubtreeModified",function(){
-        $("#lewa_brans").val(nazwa_zdjecia($("#div1").html()));
+        $("#zawieszka1").val(nazwa_zdjecia($("#div1").html()));
     });
 
     $('#div2').bind("DOMSubtreeModified",function(){
-        $("#prawa_brans").val(nazwa_zdjecia($("#div2").html()));
+        $("#zawieszka2").val(nazwa_zdjecia($("#div2").html()));
     });
 
     $('#div3').bind("DOMSubtreeModified",function(){
-        $("#srodkowa_brans").val(nazwa_zdjecia($("#div3").html()));
+        $("#zawieszka3").val(nazwa_zdjecia($("#div3").html()));
     });
 
 
     function wyczysc($div)
     {
         $("#"+$div).empty();
+        $("#" + $div + "delsz").css("display", "none");
         if($div=='div1')
             div1=0;
         else if($div=='div2')

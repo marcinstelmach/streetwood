@@ -5,37 +5,24 @@
         <!-- Brans -->
         <?php
         foreach ($zdjecia as $key) {
-            if ($key->glowne!=1)
-            {
-                echo '<img src="'.base_url().'assetss/img/products/bransoletki/guzik/'.$key->nazwa_zdjecia.'"  id="guzik" draggable="false" style="z-index: -10; width: 500px;" class="img-responsive"/>';
-            }
+                echo '<img src="'.base_url().'assetss/img/products/bransoletki/kotwica/'.$key->nazwa_zdjecia.'"  id="guzik" draggable="false" style="z-index: -10; width: 500px;" class="img-responsive"/>';
         }
         ?>
 
-            <!-- Lewy divek -->
+        <!-- Lewy divek -->
         <button onclick="wyczysc('div1')" id="div1del" class="buttondel" style="display: none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            <div id="div1" class="column gb1" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();"></div>
-            <!-- Prawy divek -->
+        <div id="div1" class="column gb1" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();"></div>
+        <!-- Prawy divek -->
         <button onclick="wyczysc('div2')" id="div2del" class="buttondel" style="display: none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            <div id="div2" class="column gb2" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
+        <div id="div2" class="column gb2" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
         <button onclick="wyczysc('div3')" id="div3del" class="buttondel" style="display: none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            <div id="div3" class="column gb3" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
+        <div id="div3" class="column gb3" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
         <button onclick="wyczysc('div4')" id="div4del" class="buttondel" style="display: none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            <div id="div4" class="column gb4" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
+        <div id="div4" class="column gb4" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
         <button onclick="wyczysc('div5')" id="div5del" class="buttondel" style="display: none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            <div id="div5" class="column gb5" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
+        <div id="div5" class="column gb5" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
     </div>
     <!-- Środkowy divek -->
-
-    <?php
-    foreach ($zdjecia as $key) {
-        if ($key->glowne==1)
-        {
-            echo '<img src="'.base_url().'assetss/img/products/bransoletki/guzik/'.$key->nazwa_zdjecia.'"  id="guzik" draggable="false" style="z-index: -10; width: 500px;" class="img-responsive"/>';
-        }
-    }
-    ?>
-
 
 </div>
 

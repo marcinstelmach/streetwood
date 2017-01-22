@@ -188,6 +188,15 @@ class Administrator extends CI_Controller
 					{
 						$zdjecia['nazwa_zdjecia']=$myFile['name'][$i];
 						$zdjecia['id_produktu']=$id_produktu;
+                        if($i==0)
+                        {
+                            $zdjecia['glowne']=true;
+                        }
+                        else
+                        {
+                            $zdjecia['glowne']=false;
+                        }
+
 						$this->Model_m->dodaj('zdjecia', $zdjecia);
 
 					}
@@ -404,67 +413,67 @@ class Administrator extends CI_Controller
         }
     }
 
-	public function zaloguj()
-	{
-		
-		if(($this->session->userdata('zalogowany')==TRUE))
-		{
-			header('location: '.base_url());
-				die();
-		}
-		if(($this->session->userdata('administrator')==TRUE))
-		{
-			header('location: '.base_url().'administrator/nowe-zamowienia');
-				die();
-		}
+    public function zaloguj()
+    {
 
-		$this->form_validation->set_rules('haslo', 'Hasło', 'required');
-		$this->form_validation->set_rules('login', 'Login', 'required');
-		$this->form_validation->set_message('required', 'Pole %s jest wymagane');
-		if ($this->form_validation->run() == FALSE)
-		{
-			$this->load->view('administrator/header');
-			$this->load->view('administrator/zaloguj');
-			$this->load->view('administrator/footer');
-		}
-		else
-		{
-			$data['login']=strtolower($this->input->post('login'));			
-			$data['haslo']=$this->input->post('haslo');
-			
-			$odp=$this->Model_m->logadmin($data['login'], $data['haslo'], 'uzytkownicy');
-			if($odp==2) //zalogowano
-			{
-				$id=$this->Model_m->pobierzID($data['login']);
-				$newdata = array(                       //dodanie do sesji info o zalogowaniu
-                   'administrator' => TRUE,
-			  );
+        if(($this->session->userdata('zalogowany')==TRUE))
+        {
+            header('location: '.base_url());
+            die();
+        }
+        if(($this->session->userdata('administrator')==TRUE))
+        {
+            header('location: '.base_url().'administrator/nowe-zamowienia');
+            die();
+        }
 
-				$this->session->set_userdata($newdata);
-				header('location: '.base_url().'administrator/nowe-zamowienia');
-			}
-			elseif ($odp==3)
-			{
-				$dane['komunikat']="Nieprawidlowe haslo";
-				$this->load->view('administrator/header');
-				$this->load->view('administrator/zaloguj', $dane);
-				$this->load->view('administrator/footer');
-		
-			}
-			elseif ($odp==0)
-			{
-				$dane['komunikat']="Nie istnieje użytkownik o takim loginie";
+        $this->form_validation->set_rules('haslo', 'Hasło', 'required');
+        $this->form_validation->set_rules('login', 'Login', 'required');
+        $this->form_validation->set_message('required', 'Pole %s jest wymagane');
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->load->view('administrator/header');
+            $this->load->view('administrator/zaloguj');
+            $this->load->view('administrator/footer');
+        }
+        else
+        {
+            $data['login']=strtolower($this->input->post('login'));
+            $data['haslo']=$this->input->post('haslo');
 
-				$this->load->view('administrator/header');
-				$this->load->view('administrator/zaloguj', $dane);
-				$this->load->view('administrator/footer');
-			}
-			else
-			{
-				echo "Grubszy bład... ;///";
-			}
-		}
-	}
+            $odp=$this->Model_m->logadmin($data['login'], $data['haslo'], 'uzytkownicy');
+            if($odp==2) //zalogowano
+            {
+                $id=$this->Model_m->pobierzID($data['login']);
+                $newdata = array(                       //dodanie do sesji info o zalogowaniu
+                    'administrator' => TRUE,
+                );
+
+                $this->session->set_userdata($newdata);
+                header('location: '.base_url().'administrator/nowe-zamowienia');
+            }
+            elseif ($odp==3)
+            {
+                $dane['komunikat']="Nieprawidlowe haslo";
+                $this->load->view('administrator/header');
+                $this->load->view('administrator/zaloguj', $dane);
+                $this->load->view('administrator/footer');
+
+            }
+            elseif ($odp==0)
+            {
+                $dane['komunikat']="Nie istnieje użytkownik o takim loginie";
+
+                $this->load->view('administrator/header');
+                $this->load->view('administrator/zaloguj', $dane);
+                $this->load->view('administrator/footer');
+            }
+            else
+            {
+                echo "Grubszy bład... ;///";
+            }
+        }
+    }
 
 	public function modyfikacja_przedmiotu()
 	{
@@ -1020,53 +1029,29 @@ class Administrator extends CI_Controller
         $this->form_validation->set_rules('z1', 'Brans z 1', 'numeric');
         if ($this->form_validation->run() == FALSE)
         {
-            $stale_ceny=$this->pobierz_stale_ceny();
-            $sz= array(
-                'brans1' => $stale_ceny->{'brans1'},
-                'brans2' => $stale_ceny->{'brans2'},
-                'brans3' => $stale_ceny->{'brans3'}
-            );
+            $dane['ceny_brans']=$this->Model_m->pobierz_stale(1);
             $this->load->view('administrator/header');
-            $this->load->view('administrator/przedmiot/stale_ceny', $sz);
+            $this->load->view('administrator/przedmiot/stale_ceny', $dane);
             $this->load->view('administrator/footer');
         }
         else
         {
-            if($this->input->post('z1')!='')
-            {
-                $z1=$this->input->post('z1');
-            }
-            if($this->input->post('z2')!='')
-            {
-                $z2=$this->input->post('z2');
-            }
-            if($this->input->post('z3')!='')
-            {
-                $z3=$this->input->post('z3');
-            }
-
-            $json = '{"brans1":'.$z1.',"brans2":'.$z2.',"brans3":'.$z3.'}';
-
-            $fp = fopen('results.json', 'w');
-            if(!fwrite($fp, json_encode($json)))
-                echo "blad";
-            fclose($fp);
-            $stale_ceny=$this->pobierz_stale_ceny();
-            $sz= array(
-                'brans1' => $stale_ceny->{'brans1'},
-                'brans2' => $stale_ceny->{'brans2'},
-                'brans3' => $stale_ceny->{'brans3'}
-            );
+            $ceny_brans['zawieszka1']=$this->input->post('z1');
+            $ceny_brans['zawieszka2']=$this->input->post('z2');
+            $ceny_brans['zawieszka3']=$this->input->post('z3');
+            $ceny_brans['opis']=$this->input->post('opis');
+            $this->Model_m->update('stale_ceny', $ceny_brans, 'id_stalej_ceny', 1);
             $this->session->set_flashdata('stale_ceny');
+            $dane['ceny_brans']=$this->Model_m->pobierz_stale(1);
             $this->load->view('administrator/header');
-            $this->load->view('administrator/przedmiot/stale_ceny', $sz);
+            $this->load->view('administrator/przedmiot/stale_ceny', $dane);
             $this->load->view('administrator/footer');
         }
     }
-
-    private function pobierz_stale_ceny()
+    
+    public function setasdefault($id_zdjecia, $id_produktu)
     {
-        $json = json_decode(json_decode(file_get_contents('results.json')));
-        return $json;
+        $this->Model_m->SetMainPhoto($id_zdjecia, $id_produktu);
+        header('location: '.base_url().'administrator/modyfikacja-przedmiotu/'.$id_produktu);
     }
 }

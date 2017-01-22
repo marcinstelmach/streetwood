@@ -3,19 +3,8 @@
         <?php
         foreach ($czapki as $key)
         {
-           /*echo '<div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <a href="'.base_url().'odziez/czapki/'.$key->id_produktu.'"><img src="'.base_url().'assetss/img/products/odziez/czapki/thumbs/'.$key->nazwa_zdjecia.'" alt="Zdjęcie 1" style="width:120px; height:120px;"></a>
-                        <div class="caption">
-                            <h3>'.$key->nazwa_produktu.'</h3>
-                            <p>'.$key->cena.' zł</p>
-                            <p><a href="#" class="btn btn-default" role="button">Dodaj do koszyka</a></p>
-                        </div>
-                    </div>
-                </div>';*/
-
             echo '<div class="col-sm-6 col-md-4">
-                <a href="'.base_url().'odziez/czapki/'.$key->id_produktu.'">
+                <a href="'.base_url().'odziez/czapki/'.$key->id_produktu.'-'.str_replace(' ', '-', $key->nazwa_produktu).'">
                 <img class="thumbki" src="'.base_url().'assetss/img/products/odziez/czapki/'.$key->nazwa_zdjecia.'" alt="Zdj1"></a>
                 <p class="thumb-tytul">'.$key->nazwa_produktu.'</p>
                 <p class="thumb-cena">'.$key->cena.' zł</p>

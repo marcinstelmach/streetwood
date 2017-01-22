@@ -409,7 +409,7 @@ ul > li > ul > li > a
     border-radius: 0;
 }
 
-.sz1 /*lewa brans*/
+.sz1 /*lewa brans sznurkowa*/
 {
     position: absolute;
     top: 300px;
@@ -438,31 +438,66 @@ ul > li > ul > li > a
     cursor: pointer;
 }
 
-.gb1 /*lewa brans*/
+#div1delsz /* usuwanie zawieszek sznureczka */
+{
+    position: absolute;
+    top: 280px;
+    left: 70px;
+}
+
+#div2delsz
+{
+    position: absolute;
+    top: 330px;
+    left: 180px;
+}
+#div3delsz
+{
+    position: absolute;
+    top: 300px;
+    left: 320px;
+}
+
+.gb1 /*pierwsza brans guzikowa */
 {
     position: absolute;
     top: 400px;
     left: 40px;
-    transform: rotate(45deg);
     width: 60px;
     cursor: pointer;
 }
 
-.gb2 /*srodkowa brans*/
+.gb2 /*druga brans*/
 {
     position: absolute;
     top: 400px;
-    left: 150px;
+    left: 110px;
     width: 60px;
     cursor: pointer;
 }
 
-.gb3 /*prawa brans*/
+.gb3 /*trzecia brans*/
 {
     position: absolute;
     top: 400px;
-    left: 290px;
-    transform: rotate(315deg);
+    left: 180px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.gb4 /*czwarta brans*/
+{
+    position: absolute;
+    top: 400px;
+    left: 250px;
+    width: 60px;
+    cursor: pointer;
+}
+.gb5 /*piata brans*/
+{
+    position: absolute;
+    top: 400px;
+    left: 320px;
     width: 60px;
     cursor: pointer;
 }
@@ -477,3 +512,46 @@ input
 {
     border-radius: 0px !important;
 }
+
+#div1del /*usuwanie zawieszek guzika*/
+{
+    position: absolute;
+    top: 350px;
+    left: 60px;
+}
+
+#div2del
+{
+    position: absolute;
+    top: 350px;
+    left: 130px;
+}
+#div3del
+{
+    position: absolute;
+    top: 350px;
+    left: 200px;
+}
+#div4del
+{
+    position: absolute;
+    top: 350px;
+    left: 270px;
+}
+#div5del
+{
+    position: absolute;
+    top: 350px;
+    left: 340px;
+}
+
+.buttondel {
+    background-color: transparent;
+    border:0;
+    color: #5e5e5e;
+    padding: 4px 4px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+}
+
