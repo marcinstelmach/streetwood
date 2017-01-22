@@ -75,5 +75,31 @@ class Bransoletki extends CI_Controller
             $this->load->view('footer');
         }
     }
+
+    public function koraliki()
+    {
+        $args = func_get_args();
+
+        if (empty($args))
+        {
+            $dane['koraliki'] = $this->Model_m->pobierz_wszystkie_produkty_kategorii('Koraliki');
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
+            $this->load->view('przedmioty/koraliki', $dane);
+            $this->load->view('footer');
+        }
+        foreach ($args as $par)
+        {
+            $par=substr($par, 0, strpos($par, '-'));
+            $dane['stale_info']=$this->Model_m->pobierz_stale(4);
+            $dane['zawieszki']=$this->Model_m->pobierz_zawieszki();
+            $dane['produkt']=$this->Model_m->pobierz_dane_produktu($par);
+            $dane['zdjecia']=$this->Model_m->pobierz_zdjecia_produktu($par);
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
+            $this->load->view('przedmioty/koralikii', $dane);
+            $this->load->view('footer');
+        }
+    }
     
 }

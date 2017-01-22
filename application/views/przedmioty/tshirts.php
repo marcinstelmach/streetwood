@@ -10,6 +10,10 @@
                 <p class="thumb-cena">'.$key->cena.' zł</p>
             </div>';
     }
+    if($koraliki==null)
+    {
+        echo '<h1 class="text-center">Brak produktów w tej kategorii</h1>';
+    }
     ?>
 </div>
 </div>

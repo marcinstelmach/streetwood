@@ -32,7 +32,7 @@
 <div class="col-md-5" style="padding-left: 80px;">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="nazwa-przedmiotu">Guzik</h1>
+            <h1 class="nazwa-przedmiotu"></h1>
             <?php
             foreach ($stale_info as $key) {
             ?>
@@ -53,32 +53,44 @@
             <button class="wybierz-zawieszke" data-toggle="modal" data-target="#wybierz-zawieszke">Wybierz zawieszke</button>
         </div>
     </div>
-    <div class="row" style="padding-top: 20px">
-        <div class="col-xs-12">
-            <button id="minus" class="increment" style="background-color: #555555; border: none">
-                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-            </button>
-            <input type="text" value="1" id="ilosc" class="ilosc" />
-            <button id="plus" class="increment" style="background-color: #555555; border: none;">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            </button>
+    <?=form_open('koszyk/dodaj')?>
+    <?php
+    foreach ($produkt as $item) {
+        ?>
+        <div class="row" style="padding-top: 20px">
+            <div class="col-xs-12">
+                <button id="minus" class="increment" style="background-color: #555555; border: none" type="button">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                </button>
+                <input type="text" value="1" id="ilosc" class="ilosc" name="ilosc"/>
+                <button id="plus" class="increment" style="background-color: #555555; border: none;" type="button">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <p>Suma: <span id="suma"></span>.00</p>
+        <div class="row">
+            <div class="col-md-4">
+                <p>Suma: <span id="suma"></span>.00</p>
+            </div>
         </div>
-    </div>
-    <input type="hidden" name="zawieszka1" id="zawieszka1" value=""/>
-    <input type="hidden" name="zawieszka2" id="zawieszka2" value=""/>
-    <input type="hidden" name="zawieszka3" id="zawieszka3" value=""/>
-    <input type="hidden" name="zawieszka4" id="zawieszka4" value=""/>
-    <input type="hidden" name="zawieszka5" id="zawieszka5" value=""/>
-    <div class="row" style="margin-top: 20px">
-        <div class="center-block">
-            <input class="dodaj-do-koszyka" type="submit" value="Dodaj do koszyka">
+        <input type="hidden" name="zawieszka1" id="zawieszka1" value=""/>
+        <input type="hidden" name="zawieszka2" id="zawieszka2" value=""/>
+        <input type="hidden" name="zawieszka3" id="zawieszka3" value=""/>
+        <input type="hidden" name="zawieszka4" id="zawieszka4" value=""/>
+        <input type="hidden" name="zawieszka5" id="zawieszka5" value=""/>
+        <input type="hidden" name="cena" id="cena_glowna" value=""/>
+        <input type="hidden" name="nazwa" value="<?=$item->nazwa?>">
+        <input type="hidden" name="id_produktu" value="<?=$item->id_produktu?>">
+        <input type="hidden" name="actual_adress" value="<?=base_url(uri_string())?>">
+        <div class="row" style="margin-top: 20px">
+            <div class="center-block">
+                <input class="dodaj-do-koszyka" type="submit" value="Dodaj do koszyka">
+            </div>
         </div>
-    </div>
+        </form>
+        <?php
+    }
+    ?>
     <div class="row">
         <hr />
         <h2>Szczegóły</h2>
@@ -241,12 +253,17 @@
 
         switch (ilosc_zawieszek)
         {
+        <?php
+            foreach($stale_info as $item)
+            {
+            ?>
             case 1 :
                 $(".cena1").css("display", "inline");
                 $(".cena2").css("display", "none");
                 $(".cena3").css("display", "none");
                 $(".cena4").css("display", "none");
                 $(".cena5").css("display", "none");
+                $("#cena_glowna").val(<?=$item->zawieszka1?>);
                 break;
             case 2 :
                 $(".cena1").css("display", "none");
@@ -254,6 +271,7 @@
                 $(".cena3").css("display", "none");
                 $(".cena4").css("display", "none");
                 $(".cena5").css("display", "none");
+                $("#cena_glowna").val(<?=$item->zawieszka2?>);
                 break;
             case 3 :
                 $(".cena1").css("display", "none");
@@ -261,6 +279,7 @@
                 $(".cena3").css("display", "inline");
                 $(".cena4").css("display", "none");
                 $(".cena5").css("display", "none");
+                $("#cena_glowna").val(<?=$item->zawieszka3?>);
                 break;
             case 4 :
                 $(".cena1").css("display", "none");
@@ -268,6 +287,7 @@
                 $(".cena3").css("display", "none");
                 $(".cena4").css("display", "inline");
                 $(".cena5").css("display", "none");
+                $("#cena_glowna").val(<?=$item->zawieszka4?>);
                 break;
             case 5 :
                 $(".cena1").css("display", "none");
@@ -275,12 +295,22 @@
                 $(".cena3").css("display", "none");
                 $(".cena4").css("display", "none");
                 $(".cena5").css("display", "inline");
+                $("#cena_glowna").val(<?=$item->zawieszka5?>);
                 break;
             default :
                 return false;
+
+        <?php
+            }
+            ?>
         }
 
+
+
+
     }
+
+
 
     $('#div1').bind("DOMSubtreeModified",function(){
         $("#zawieszka1").val(nazwa_zdjecia($("#div1").html()));

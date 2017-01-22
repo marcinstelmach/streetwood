@@ -1,5 +1,5 @@
 var ilosc = $('#ilosc').val();
-var cena = parseInt($('#cena').text());
+var cena = parseInt($('#cena_glowna').text());
 var suma=cena;
 $('#suma').text(suma);
 $("#minus").click(function () {

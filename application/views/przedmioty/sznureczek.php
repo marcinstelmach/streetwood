@@ -1,7 +1,6 @@
 <script type="text/javascript" src="<?=base_url()?>assetss/js/jquery-1.9.1.min.js"></script>
 <div class="col-md-5">
-    <h1 class="nazwa-przedmiotu visible-xs">Case iPhone</h1>
-    <p class="cena-przedmiotu visible-xs"><span id="cena">55.00</span> </p>
+    <h1 class="nazwa-przedmiotu visible-xs">Sznureczek</h1>
     <div style="position: relative; height: 520px">
         <!-- Brans -->
         <img src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/brzoskwinia.png"  id="brans" draggable="false" style="z-index: -10;"/>
@@ -16,7 +15,7 @@
         <div id="div3" class="column sz3" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
 
     </div>
-        <!-- Środkowy divek -->
+    <!-- Środkowy divek -->
 
 
 
@@ -28,8 +27,8 @@
             {
                 $zdjecie=$key->nazwa_zdjecia;
                 ?>
-                <img draggable="false" src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/thumbs/<?=$zdjecie?>" onclick="zmien('<?=$key->nazwa_zdjecia?>','<?=$key->nazwa_przedmiotu?>')" style="cursor: pointer"/>
-            <?php
+                <img draggable="false" src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/thumbs/<?=$zdjecie?>" onclick="zmien('<?=$key->nazwa_zdjecia?>')" style="cursor: pointer"/>
+                <?php
             }
             ?>
         </div>
@@ -44,11 +43,11 @@
         <div class="col-md-12">
             <h1 class="nazwa-przedmiotu">Sznureczek</h1>
             <?php
-                foreach ($stale_info as $key) {
-                    ?>
-                    <p class="cena-przedmiotu" id="cena1"><span id="cena"><?= number_format($key->zawieszka1, 2) ?> zł</span></p>
-                    <p class="cena-przedmiotu" id="cena2" style="display: none;"><span id="cena"><?= number_format($key->zawieszka2, 2) ?> zł</span></p>
-                    <p class="cena-przedmiotu" id="cena3" style="display: none"><span id="cena"><?= number_format($key->zawieszka3, 2) ?> zł</span></p>
+            foreach ($stale_info as $key) {
+            ?>
+            <p class="cena-przedmiotu" id="cena1"><span id="cena"><?= number_format($key->zawieszka1, 2) ?> zł</span></p>
+            <p class="cena-przedmiotu" id="cena2" style="display: none;"><span id="cena"><?= number_format($key->zawieszka2, 2) ?> zł</span></p>
+            <p class="cena-przedmiotu" id="cena3" style="display: none"><span id="cena"><?= number_format($key->zawieszka3, 2) ?> zł</span></p>
         </div>
     </div>
     <div class="row" style="margin-top: 20px">
@@ -56,13 +55,16 @@
             <button class="wybierz-zawieszke" data-toggle="modal" data-target="#wybierz-zawieszke">Wybierz zawieszke</button>
         </div>
     </div>
+    <?php 
+    //$attributes = array('method'=>'get');
+    echo form_open('koszyk/dodaj');?>
     <div class="row" style="padding-top: 20px">
         <div class="col-md-12">
-            <button id="minus" class="increment" style="background-color: #555555; border: none">
+            <button id="minus" class="increment" style="background-color: #555555; border: none" type="button">
                 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
             </button>
-            <input type="text" value="1" id="ilosc" class="ilosc" />
-            <button id="plus" class="increment" style="background-color: #555555; border: none;">
+            <input type="text" value="1" id="ilosc" class="ilosc" name="ilosc" />
+            <button id="plus" class="increment" style="background-color: #555555; border: none;" type="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
         </div>
@@ -72,10 +74,15 @@
             <p>Suma: <span id="suma"></span>.00</p>
         </div>
     </div>
-    <input type="hidden" name="kolor_sznurka" id="kolor_sznurka" value="" />
     <input type="hidden" name="zawieszka1" id="zawieszka1" value=""/>
     <input type="hidden" name="zawieszka2" id="zawieszka2" value=""/>
     <input type="hidden" name="zawieszka3" id="zawieszka3" value=""/>
+    <input type="text" name="color" id="kolor_sznurka" value="" />
+    <input type="text" name="cena" id="cena_glowna" value=""/>
+    <input type="hidden" name="nazwa" value="Sznureczek">
+    <input type="hidden" name="id_produktu" value="1">
+    <input type="hidden" name="actual_adress" value="<?=base_url(uri_string())?>">
+
     <div class="row" style="margin-top: 20px">
         <div class="center-block">
             <input class="dodaj-do-koszyka" type="submit" value="Dodaj do koszyka">
@@ -120,7 +127,6 @@
                         </div></div>
                         <div id="collapse'.$i.'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading'.$i.'">
                             <div class="panel-body">';
-
                             foreach ($zawieszki as $keyy)
                             {
                                 if ($keyy->nazwa_kategorii_zawieszek == $key->nazwa_kategorii_zawieszek)
@@ -152,9 +158,9 @@
 <!--Koniec Dialogu -->
 <script type="text/javascript" src="<?= base_url().'assetss/js/ilosc.js'?>"></script>
 <script type="text/javascript">
-    function zmien($nazwa_zdjecia, $nazwa_produktu) {
+    function zmien($nazwa_zdjecia) {
         $('#brans').attr('src','<?= base_url()?>assetss/img/products/bransoletki/sznureczek/'+$nazwa_zdjecia+'?v=4');
-        $('#kolor_sznurka').val($nazwa_produktu);
+        $('#kolor_sznurka').val($nazwa_zdjecia);
     }
 </script>
 <script type="text/javascript">
@@ -185,16 +191,14 @@
         }
         return chetny_div;
     }
-
     <?php
     $i=1;
-        foreach($zawieszki as $key)
-        {
-            echo 'document.getElementById("zdj'.$i.'").onclick=function(){dodaj_zawieszke(wolny_div(), "'.$key->nazwa_zdjecia.'");};';
-            $i++;
-        }
+    foreach($zawieszki as $key)
+    {
+        echo 'document.getElementById("zdj'.$i.'").onclick=function(){dodaj_zawieszke(wolny_div(), "'.$key->nazwa_zdjecia.'");};';
+        $i++;
+    }
     ?>
-
 </script>
 <script src="<?= base_url().'assetss/js/drag_and_over.js'?>" type="text/javascript"></script>
 <script type="text/javascript">
@@ -218,60 +222,60 @@
         var zdjecie = str.substring(n+1, len-2);
         return zdjecie;
     }
-
     function dodaj_zawieszke($div, $nazwa_zdjecia)
     {
         if($div!='brak') {
             $("#" + $div).prepend('<img style="width:70px;" src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/' + $nazwa_zdjecia + '">');
             wybierz_cene();
             $("#" + $div + "delsz").css("display", "inline");
-
         }
         else
         //alert("Nie mozna wybrać więcej niż trzech zawieszek");
             dialogg();
     }
-
     function wybierz_cene() {
         ilosc_zawieszek++;
-
         switch (ilosc_zawieszek)
         {
+        <?php
+            foreach($stale_info as $item)
+            {
+            ?>
             case 1 :
                 $("#cena1").css("display", "inline");
                 $("#cena2").css("display", "none");
                 $("#cena3").css("display", "none");
+                $("#cena_glowna").val(<?=$item->zawieszka1?>);
                 break;
             case 2 :
                 $("#cena1").css("display", "none");
                 $("#cena2").css("display", "inline");
                 $("#cena3").css("display", "none");
+                $("#cena_glowna").val(<?=$item->zawieszka2?>);
                 break;
             case 3 :
                 $("#cena1").css("display", "none");
                 $("#cena2").css("display", "none");
                 $("#cena3").css("display", "inline");
+                $("#cena_glowna").val(<?=$item->zawieszka3?>);
                 break;
             default :
                 return false;
+
+        <?php
+            }
+            ?>
         }
-
     }
-
-
     $('#div1').bind("DOMSubtreeModified",function(){
         $("#zawieszka1").val(nazwa_zdjecia($("#div1").html()));
     });
-
     $('#div2').bind("DOMSubtreeModified",function(){
         $("#zawieszka2").val(nazwa_zdjecia($("#div2").html()));
     });
-
     $('#div3').bind("DOMSubtreeModified",function(){
         $("#zawieszka3").val(nazwa_zdjecia($("#div3").html()));
     });
-
-
     function wyczysc($div)
     {
         $("#"+$div).empty();
@@ -283,5 +287,4 @@
         else if($div=='div3')
             div3=0;
     }
-
 </script>

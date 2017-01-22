@@ -56,13 +56,13 @@
         		<td><?php  echo $i?></td>
                 <td><?php echo form_input(array('name' => $i.'[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5', 'style'=>'text-align:center;')); ?></td>
                 <td>
-                        <?php echo $items['name']; ?>
+                        <?php echo '<span style="font-weight: bold; font-size: larger">'.$items['name'].'</span>'; ?>
                     <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
 
                         <p>
                             <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
 
-                                <strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
+                                <?='<span style="color: rgba(51, 56, 77, 0.7)">'.str_replace('_', ' ',$option_name); ?>: <?=substr($option_value, 0, strpos($option_value,'.')) .'</span>'; ?><br />
 
                             <?php endforeach; ?>
                         </p>
@@ -90,7 +90,15 @@
 	<a href="<?php echo base_url().'koszyk/destroy'; ?>" class="btn btn-danger koszyk-buttons">Wyczyść koszyk</a>
 	
 	</div>
-
+        <?php
+            if($this->session->userdata('powrot'))
+            {
+                ?>
+                <a href="<?=$this->session->userdata('powrot')?>"><h2>Powrót</h2></a>
+             <?php
+                $this->session->unset_userdata('powrot');
+            }
+        ?>
 
 </div>
 </div>
@@ -102,5 +110,6 @@
 		echo "<h1>Brak produktów w koszyku</h1></div>";
 	}
 	?>
+</div>
 </div>
 </div>

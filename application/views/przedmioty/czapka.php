@@ -40,7 +40,7 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="nazwa-przedmiotu"><?=$pro->nazwa?></h1>
-            <p class="cena-przedmiotu"><span id="cena"><?=$pro->cena?>.00</span></p>
+            <p class="cena-przedmiotu"><span id="cena"><?=number_format($pro->cena, 2)?> zł</span></p>
         </div>
     </div>
 
