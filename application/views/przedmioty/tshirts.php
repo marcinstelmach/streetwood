@@ -1,7 +1,7 @@
 <div class="col-md-10 col-sm-12" style="padding-top: 20px;">
 
     <?php
-    foreach ($czapki as $key)
+    foreach ($t_shirts as $key)
     {
         echo '<div class="col-sm-6 col-md-4">
                 <a href="'.base_url().'odziez/t-shirt/'.$key->id_produktu.'-'.str_replace(' ', '-', $key->nazwa_produktu).'">
@@ -10,7 +10,7 @@
                 <p class="thumb-cena">'.$key->cena.' zł</p>
             </div>';
     }
-    if($koraliki==null)
+    if($t_shirts==null)
     {
         echo '<h1 class="text-center">Brak produktów w tej kategorii</h1>';
     }

@@ -980,11 +980,11 @@ class Administrator extends CI_Controller
 
 		public function statystyki()
 		{
-			$data['dzisiaj']=$this->Model_m->query('SELECT SUM(cena) AS dochod, COUNT(z.id_zamowienia) AS ilosc from zamowienia z where DAY(z.data_zamowienia)=DAY(NOW())');
+			$data['dzisiaj']=$this->Model_m->query('SELECT SUM(cena) AS dochod, COUNT(z.id_zamowienia) AS ilosc from zamowienia z where DAY(z.data_zamowienia)=DAY(NOW()) AND MONTH(z.data_zamowienia)=MONTH(NOW()) AND YEAR(z.data_zamowienia)=YEAR(NOW())');
 
-			$data['tydzien']=$this->Model_m->query('SELECT SUM(cena) AS dochod, COUNT(z.id_zamowienia) AS ilosc from zamowienia z where WEEK(z.data_zamowienia)=WEEK(NOW())');
+			$data['tydzien']=$this->Model_m->query('SELECT SUM(cena) AS dochod, COUNT(z.id_zamowienia) AS ilosc from zamowienia z where WEEK(z.data_zamowienia)=WEEK(NOW()) AND MONTH(z.data_zamowienia)=MONTH(NOW()) AND YEAR(z.data_zamowienia)=YEAR(NOW())');
 
-			$data['miesiac']=$this->Model_m->query('SELECT SUM(cena) AS dochod, COUNT(z.id_zamowienia) AS ilosc from zamowienia z where MONTH(z.data_zamowienia)=MONTH(NOW())');
+			$data['miesiac']=$this->Model_m->query('SELECT SUM(cena) AS dochod, COUNT(z.id_zamowienia) AS ilosc from zamowienia z where MONTH(z.data_zamowienia)=MONTH(NOW()) AND YEAR(z.data_zamowienia)=YEAR(NOW())');
 
 			$data['rok']=$this->Model_m->query('SELECT SUM(cena) AS dochod, COUNT(z.id_zamowienia) AS ilosc from zamowienia z where YEAR(z.data_zamowienia)=YEAR(NOW())');
 
