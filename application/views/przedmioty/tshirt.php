@@ -1,7 +1,7 @@
 <script type="text/javascript" src="<?=base_url()?>assetss/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="<?=base_url()?>assetss/js/jssor.slider.mini.js"></script>
 <script type="text/javascript" src="<?=base_url()?>assetss/js/galeria.js"></script>
-<div class="col-md-5">
+<div class="col-md-5" style="height: 600px;">
     <!-- Jssor Slider Begin -->
     <!-- To move inline styles to css file/block, please specify a class name for each element. -->
     <div id="slider1_container" style="position: relative; top: 20px; left: 0px; width: 700px;
@@ -73,7 +73,7 @@ foreach ($produkt as $pro) {
         </div>
     </div>
     <input type="hidden" name="nazwa" value="<?=$pro->nazwa?>">
-    <input type="hidden" name="cena" value="<?=$pro->cena?>">
+    <input type="hidden" name="cena" value="<?=$pro->cena?>" id="cena_glowna">
     <input type="hidden" name="id_produktu" value="<?=$pro->id_produktu?>">
     <input type="hidden" name="actual_adress" value="<?=base_url(uri_string())?>">
     <div class="row" style="margin-top: 20px">

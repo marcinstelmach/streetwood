@@ -78,7 +78,7 @@
     <input type="hidden" name="zawieszka2" id="zawieszka2" value=""/>
     <input type="hidden" name="zawieszka3" id="zawieszka3" value=""/>
     <input type="text" name="color" id="kolor_sznurka" value="" />
-    <input type="text" name="cena" id="cena_glowna" value=""/>
+    <input type="text" name="cena" id="cena_glowna" value="<?=$key->zawieszka1?>"/>
     <input type="hidden" name="nazwa" value="Sznureczek">
     <input type="hidden" name="id_produktu" value="1">
     <input type="hidden" name="actual_adress" value="<?=base_url(uri_string())?>">
@@ -226,15 +226,18 @@
     {
         if($div!='brak') {
             $("#" + $div).prepend('<img style="width:70px;" src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/' + $nazwa_zdjecia + '">');
-            wybierz_cene();
+            wybierz_cene(1);
             $("#" + $div + "delsz").css("display", "inline");
         }
         else
         //alert("Nie mozna wybrać więcej niż trzech zawieszek");
             dialogg();
     }
-    function wybierz_cene() {
-        ilosc_zawieszek++;
+    function wybierz_cene($inc) {
+        if($inc==1)
+            ilosc_zawieszek++;
+        else if($inc==0)
+            ilosc_zawieszek--;
         switch (ilosc_zawieszek)
         {
         <?php
@@ -286,5 +289,7 @@
             div2=0;
         else if($div=='div3')
             div3=0;
+
+        wybierz_cene(0);
     }
 </script>

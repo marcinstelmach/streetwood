@@ -55,7 +55,7 @@
             </button>
         </div>
         <input type="hidden" name="nazwa" value="<?=$pro->nazwa?>">
-        <input type="hidden" name="cena" value="<?=$pro->cena?>">
+        <input type="hidden" name="cena" value="<?=$pro->cena?>" id="cena_glowna">
         <input type="hidden" name="id_produktu" value="<?=$pro->id_produktu?>">
         <input type="hidden" name="actual_adress" value="<?=base_url(uri_string())?>">
     </div>

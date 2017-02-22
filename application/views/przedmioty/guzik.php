@@ -1,6 +1,9 @@
 <script type="text/javascript" src="<?=base_url()?>assetss/js/jquery-1.9.1.min.js"></script>
 <div class="col-md-5">
-    <h1 class="nazwa-przedmiotu visible-xs">Guzik</h1>
+    <?php
+    foreach ($produkt as $item) {
+    ?>
+    <h1 class="nazwa-przedmiotu visible-xs"><?=$item->nazwa?></h1>
     <div style="position: relative; height: 520px">
         <!-- Brans -->
         <?php
@@ -45,11 +48,11 @@
 <div class="col-md-5" style="padding-left: 80px;">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="nazwa-przedmiotu">Guzik</h1>
+            <h1 class="nazwa-przedmiotu"><?=$item->nazwa?></h1>
             <?php
             foreach ($stale_info as $key) {
             ?>
-            <p class="cena-przedmiotu cena1" style="display: none;"><span
+            <p class="cena-przedmiotu cena1" style="display: inline;"><span
                     id="cena"><?= number_format($key->zawieszka1, 2) ?> zł</span></p>
             <p class="cena-przedmiotu cena2" style="display: none;"><span
                     id="cena"><?= number_format($key->zawieszka2, 2) ?> zł</span></p>
@@ -67,16 +70,14 @@
         </div>
     </div>
     <?=form_open('koszyk/dodaj')?>
-    <?php
-    foreach ($produkt as $item) {
-        ?>
+
         <div class="row" style="padding-top: 20px">
             <div class="col-xs-12">
-                <button id="minus" class="increment" style="background-color: #555555; border: none">
+                <button id="minus" class="increment" style="background-color: #555555; border: none" type="button">
                     <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                 </button>
                 <input type="text" value="1" id="ilosc" class="ilosc" name="ilosc"/>
-                <button id="plus" class="increment" style="background-color: #555555; border: none;">
+                <button id="plus" class="increment" style="background-color: #555555; border: none;" type="button">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
             </div>
@@ -91,7 +92,7 @@
         <input type="hidden" name="zawieszka3" id="zawieszka3" value=""/>
         <input type="hidden" name="zawieszka4" id="zawieszka4" value=""/>
         <input type="hidden" name="zawieszka5" id="zawieszka5" value=""/>
-        <input type="hidden" name="cena" id="cena_glowna" value=""/>
+        <input type="hidden" name="cena" id="cena_glowna" value="<?=$key->zawieszka1?>"/>
         <input type="hidden" name="nazwa" value="<?= $item->nazwa ?>">
         <input type="hidden" name="id_produktu" value="<?= $item->id_produktu ?>">
         <input type="hidden" name="actual_adress" value="<?= base_url(uri_string()) ?>">
@@ -253,7 +254,7 @@
     {
         if($div!='brak') {
             $("#" + $div).append('<img style="width:60px;" src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/' + $nazwa_zdjecia + '">');
-            wybierz_cene();
+            wybierz_cene(1);
             $("#" + $div + "del").css("display", "inline");
         }
         else
@@ -261,8 +262,11 @@
             dialogg();
     }
 
-    function wybierz_cene() {
-        ilosc_zawieszek++;
+    function wybierz_cene($inc) {
+        if($inc==1)
+            ilosc_zawieszek++;
+        else if($inc==0)
+            ilosc_zawieszek--;
 
         switch (ilosc_zawieszek)
         {
@@ -355,6 +359,8 @@
             div4=0;
         else if($div=='div5')
             div5=0;
+
+        wybierz_cene(0);
     }
 
 </script>

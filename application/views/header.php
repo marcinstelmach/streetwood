@@ -23,14 +23,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-      <script type="text/javascript">
-          $(window).load(function() {
-              $(".loader").fadeOut("slow");
-          })
-      </script>
   </head>
   <body>
-  <div class="loader"></div>
   <nav class="navbar navbar-inverse navbar-custom navbar-fixed-top" role="navigation" style="padding-top: 10px;">
     <div class="container">
       <div class="navbar-header">
