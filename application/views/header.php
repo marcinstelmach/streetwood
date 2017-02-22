@@ -11,10 +11,10 @@
       <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/bootstrap.min.css" media="screen" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assetss/css/style.css?v=<?=time();?>" media="screen" type="text/css" />
+    <link rel="stylesheet" href="<?=base_url()?>assetss/css/bootstrap.min.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="<?=base_url()?>assetss/css/style.css?v=<?=time();?>" media="screen" type="text/css" />
     <link rel="stylesheet" href="http://localhost/streetwood/assetss/css/fontello.css">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assetss/img/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assetss/img/favicon.png">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,6 +22,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   </head>
   <body>
   <nav class="navbar navbar-inverse navbar-custom navbar-fixed-top" role="navigation" style="padding-top: 10px;">
@@ -33,7 +34,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-left" href="http://streetwood.pl"><img src="<?php echo base_url(); ?>assetss/img/logo.jpg" width="150" alt="Logo"></a>
+        <a class="navbar-left" href="<?=base_url()?>"><img src="<?=base_url()?>assetss/img/logo.jpg" width="150" alt="Logo"></a>
       </div><!--Zamknięcie headera-->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
@@ -66,9 +67,9 @@
             <li><a class="social-links" href="http://facebook.com/streetwoodpl"><i class="icon-facebook-official" style="font-size: 20px;"></i></a></li>
             <li><a class="social-links" href="http://instagram.com/street_wood"><i class="icon-instagram" style="font-size: 20px;"></i></a></li>
             <li><a class="social-links" href="#"><i class="icon-snapchat-ghost" style="font-size: 20px;" data-toggle="modal" data-target=".snapcode"></i></a></li>
-            <li><a class="social-links" href="<?php echo base_url().'uzytkownik/zaloguj'; ?>">ZALOGUJ SIĘ</a> </li>
-            <li><a class="social-links" href="<?php echo base_url().'uzytkownik/rejestracja'; ?>">ZAREJESTRUJ SIĘ</a></li>
-            <li><a class="social-links" href="#"><i class="icon-basket" style="font-size: 20px;"></i></a></li>
+            <li><a class="social-links" href="<?=base_url().'uzytkownik/zaloguj' ?>">ZALOGUJ SIĘ</a> </li>
+            <li><a class="social-links" href="<?=base_url().'uzytkownik/rejestracja' ?>">ZAREJESTRUJ SIĘ</a></li>
+            <li><a class="social-links" href="<?=base_url().'koszyk/wyswietl' ?>"><i class="icon-basket" style="font-size: 20px;"></i><span class="badge"><?=$this->cart->total_items()?></span></a></li>
           </ul>
         </ul>
       </div>

@@ -12,17 +12,39 @@ class Koszyk extends CI_Controller
 	
 	public function dodaj()
 	{
-
+        
         $data = array(
                'id'      => $this->input->post('id_produktu'),
                'qty'     => $this->input->post('ilosc'),
                'price'   => $this->input->post('cena'),
                'name'    => $this->input->post('nazwa'),
-               //'options' => array('Size' => $this->input->post('size'))
+               'options' => array()
             );
+        if($this->input->post('color'))
+            $data['options']['Color']=$this->input->post('color');
+
+        if($this->input->post('size'))
+            $data['options']['Size']=$this->input->post('size');
+        
+        if($this->input->post('zawieszka1'))
+            $data['options']['Zawieszka_1']=$this->input->post('zawieszka1');
+
+        if($this->input->post('zawieszka2'))
+            $data['options']['Zawieszka_2']=$this->input->post('zawieszka2');
+
+        if($this->input->post('zawieszka3'))
+            $data['options']['Zawieszka_3']=$this->input->post('zawieszka3');
+
+        if($this->input->post('zawieszka4'))
+            $data['options']['Zawieszka_4']=$this->input->post('zawieszka4');
+
+        if($this->input->post('zawieszka5'))
+            $data['options']['Zawieszka_5']=$this->input->post('zawieszka5');
+
+        $this->session->set_userdata('powrot', $this->input->post('actual_adress'));
         //'options' => array('Size' => $this->input->post('size'), 'Color' => 'Red')
 		$this->cart->insert($data);
-		header('Location: '.$this->input->post('actual_adress'));
+		header('Location: '.base_url().'koszyk/wyswietl');
 	}
 
 	public function wyswietl()

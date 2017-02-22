@@ -115,7 +115,7 @@
             </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-danger">Dodaj przedmiot</button>
+                  <input type="submit" class="btn btn-danger" value="Dodaj przedmiot" />
                 </div>
               </div>
             </form>
@@ -140,6 +140,18 @@
                     {
                         $("fieldset").prop('disabled', true);
                     }
-                })
+
+                    /*if(str=='Bransoletki > Guzik')
+                    {
+                        $(function(){
+                            $("input[type='submit']").click(function(){
+                                var $fileUpload = $("input[type='file']");
+                                if (parseInt($fileUpload.get(0).files.length)>2){
+                                    alert("You can only upload a maximum of 2 files");
+                                }
+                            });
+                        });
+                    }
+                })*/
                 .change();
         </script>

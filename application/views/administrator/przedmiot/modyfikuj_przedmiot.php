@@ -40,13 +40,21 @@
         </div>
       <div class="col-md-6">
       <h3>Chcesz zmienic zdjęcie?</h3>
+
       <?php 
           foreach ($zdjecia as $zdj)
           {
-              $zdjecie=$zdj->nazwa_zdjecia;
-              echo '<img src="'.base_url().'assetss/img/products/'.str_replace(' ','_', strtolower($key->nazwa_kategorii.'/'.$key->nazwa_pod_kategorii)).'/thumbs/'.$zdjecie.'">';
+              echo '<div>';
+
+              echo '<img src="'.base_url().'assetss/img/products/'.str_replace(' ','_', strtolower($key->nazwa_kategorii.'/'.$key->nazwa_pod_kategorii)).'/thumbs/'.$zdj->nazwa_zdjecia.'"><a class="btn btn-success" href="'.base_url().'administrator/setasdefault/'.$zdj->id_zdjecia.'/'.$key->id_produktu.'" role="button">Ustaw jako glowne</a>';
+              if ($zdj->glowne==true)
+              {
+                  echo '<span class="label label-default">Głowne</span>';
+              }
+                echo ' </div>';
           }
        ?>
+
         <?php
         $attributes = array('class' => 'form-horizontal');
           echo form_open_multipart('administrator/zmien-zdjecie/'.$key->id_produktu.'/'.str_replace(' ','_', strtolower($key->nazwa_kategorii.'/'.$key->nazwa_pod_kategorii)), $attributes);

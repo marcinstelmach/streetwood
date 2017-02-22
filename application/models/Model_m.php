@@ -195,7 +195,7 @@ class Model_m extends CI_Model
 
     public function pobierz_drzewko_kategorii()
     {
-        $drzewko = $this->db->query('select t1.nazwa_kategorii as nazwa_kategorii, t2.nazwa_kategorii as nazwa_pod_kategorii from kategorie as t1 join kategorie as t2 on t1.id_kategorii=t2.parent ORDER by t1.nazwa_kategorii');
+        $drzewko = $this->db->query('select t1.nazwa_kategorii as nazwa_kategorii, t2.nazwa_kategorii as nazwa_pod_kategorii from kategorie as t1 join kategorie as t2 on t1.id_kategorii=t2.parent where t2.nazwa_kategorii != "zawieszki" ORDER by t1.nazwa_kategorii, t2.nazwa_kategorii');
         return $drzewko->result();
     }
 
@@ -213,7 +213,7 @@ class Model_m extends CI_Model
 
     public function pobierz_wszystkie_produkty_kategorii($kategoria)
     {
-        $czapki=$this->db->query('SELECT p.nazwa as nazwa_produktu, z.nazwa_zdjecia as nazwa_zdjecia, p.cena as cena, p.id_produktu as id_produktu from produkty p, zdjecia z, kategorie k WHERE p.id_produktu=z.id_produktu AND p.id_kategorii=k.id_kategorii AND k.nazwa_kategorii="'.$kategoria.'" ORDER BY p.nazwa');
+        $czapki=$this->db->query('SELECT p.nazwa as nazwa_produktu, z.nazwa_zdjecia as nazwa_zdjecia, p.cena as cena, p.id_produktu as id_produktu from produkty p, zdjecia z, kategorie k WHERE p.id_produktu=z.id_produktu AND p.id_kategorii=k.id_kategorii AND k.nazwa_kategorii="'.$kategoria.'" AND z.glowne=true ORDER BY p.nazwa');
         return $czapki->result();
     }
 
@@ -225,7 +225,26 @@ class Model_m extends CI_Model
 
     public function pobierz_zdjecia_produktu($par)
     {
-        $zdjecia=$this->db->query('SELECT z.nazwa_zdjecia from zdjecia z, produkty p where p.id_produktu=z.id_produktu and p.id_produktu='.$par);
+        $zdjecia=$this->db->query('SELECT z.nazwa_zdjecia, z.glowne from zdjecia z, produkty p where p.id_produktu=z.id_produktu and p.id_produktu='.$par);
         return $zdjecia->result();
+    }
+
+
+    public function pobierz_stale($id)
+    {
+        $stale=$this->db->query('SELECT * FROM stale_ceny where id_stalej_ceny='.$id);
+        return $stale->result();
+    }
+
+    public function pobierz_guziki()
+    {
+        $sznureczki=$this->db->query('SELECT p.nazwa as nazwa_przedmiotu, z.nazwa_zdjecia as nazwa_zdjecia from produkty p, zdjecia z, kategorie k WHERE p.id_produktu=z.id_produktu AND p.id_kategorii=k.id_kategorii AND k.nazwa_kategorii="Guzik"');
+        return $sznureczki->result();
+    }
+
+    public function SetMainPhoto($id_zdjecia, $id_produktu)
+    {
+        $this->db->query('UPDATE zdjecia z SET z.glowne=true WHERE z.id_zdjecia='.$id_zdjecia);
+        $this->db->query('UPDATE zdjecia z SET z.glowne=false WHERE z.id_produktu = '.$id_produktu.' AND z.id_zdjecia<>'.$id_zdjecia);
     }
 }

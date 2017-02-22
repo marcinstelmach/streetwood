@@ -32,7 +32,7 @@
     </div>
     <!-- Jssor Slider End -->
 </div>
-
+<?=form_open('koszyk/dodaj')?>
 <?php
     foreach ($produkt as $pro) {
 ?>
@@ -40,20 +40,24 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="nazwa-przedmiotu"><?=$pro->nazwa?></h1>
-            <p class="cena-przedmiotu"><span id="cena"><?=$pro->cena?>.00</span></p>
+            <p class="cena-przedmiotu"><span id="cena"><?=number_format($pro->cena, 2)?> zł</span></p>
         </div>
     </div>
 
     <div class="row" style="padding-top: 20px">
         <div class="col-xs-5">
-            <button id="minus" class="increment" style="background-color: #555555; border: none">
+            <button id="minus" class="increment" style="background-color: #555555; border: none" type="button">
                 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
             </button>
-            <input type="text" value="1" id="ilosc" class="ilosc"/>
-            <button id="plus" class="increment" style="background-color: #555555; border: none;">
+            <input type="text" value="1" id="ilosc" class="ilosc" name="ilosc"/>
+            <button id="plus" class="increment" style="background-color: #555555; border: none;" type="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
         </div>
+        <input type="hidden" name="nazwa" value="<?=$pro->nazwa?>">
+        <input type="hidden" name="cena" value="<?=$pro->cena?>" id="cena_glowna">
+        <input type="hidden" name="id_produktu" value="<?=$pro->id_produktu?>">
+        <input type="hidden" name="actual_adress" value="<?=base_url(uri_string())?>">
     </div>
     <div class="row">
         <div class="col-md-4">
@@ -65,6 +69,7 @@
             <input class="dodaj-do-koszyka" type="submit" value="Dodaj do koszyka">
         </div>
     </div>
+    </form>
     <div class="row">
         <hr style="border-width: 2px; border-color:#0f1f0f />
                 <div class=" col-md-7">

@@ -1,6 +1,6 @@
-  <div class="row">
-        <div class="col-md-6">
-        <h1>Zaloguj się</h1>
+<div style="margin-top: 20px;">
+        <div class="col-md-5">
+        <h1 style="font-weight: bold;">Zaloguj się</h1>
         <?php 
 
       if(isset ($komunikat))  
@@ -30,8 +30,8 @@
               </div>
             </form>
         </div>
-        <div class="col-md-6">
-            <h1>Lub kupuj bez rejestracji</h1>
+        <div class="col-md-5">
+            <h1 style="font-weight: bold;">Lub kupuj bez rejestracji</h1>
             <?php
           $attributes = array('class' => 'form-horizontal');
           echo form_open('zamowienie/bez-rejestracji', $attributes);
@@ -84,8 +84,8 @@
 
         </div>
         
-  </div>
 
 
+</div>
 </div>
 </div>

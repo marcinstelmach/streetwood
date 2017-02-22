@@ -1,11 +1,11 @@
   <script type="text/javascript" src="<?=base_url()?>assetss/js/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="<?=base_url()?>assetss/js/jssor.slider.mini.js"></script>
         <script type="text/javascript" src="<?=base_url()?>assetss/js/galeria.js"></script>
-        <div class="col-md-5">
+        <div class="col-md-5" style="height: 600px; z-index: 1000;">
             <!-- Jssor Slider Begin -->
             <!-- To move inline styles to css file/block, please specify a class name for each element. -->
             <div id="slider1_container" style="position: relative; top: 20px; left: 0px; width: 700px;
-            height: 800px; background: #FFFFFF; overflow: hidden;">
+            height: 800px; background: #FFFFFF; overflow: hidden; z-index: -10;"
 
                 <!-- Slides Container -->
                 <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 700px; height: 700px; overflow: hidden;">
@@ -49,9 +49,11 @@
                 <div class="col-md-5">
                     <p>Model</p>
                     <select name="size">
-                        <option value="5">iPhone 5/5s</option>
-                        <option value="6">iPhone 6/6s</option>
-                        <option value="7">iPhone 7</option>
+                        <option value="iPhone 5/5s">iPhone 5/5s</option>
+                        <option value="iPhone 6/6s">iPhone 6/6s</option>
+                        <option value="iPhone 6/6s">iPhone 6/6s Plus</option>
+                        <option value="iPhone 7">iPhone 7</option>
+                        <option value="iPhone 7">iPhone 7 Plus</option>
                     </select>
                 </div>
             </div>
@@ -72,7 +74,7 @@
                 </div>
             </div>
             <input type="hidden" name="nazwa" value="<?=$pro->nazwa?>">
-            <input type="hidden" name="cena" value="<?=$pro->cena?>">
+            <input type="hidden" name="cena" value="<?=$pro->cena?>" id="cena_glowna">
             <input type="hidden" name="id_produktu" value="<?=$pro->id_produktu?>">
             <input type="hidden" name="actual_adress" value="<?=base_url(uri_string())?>">
             <div class="row" style="margin-top: 20px">

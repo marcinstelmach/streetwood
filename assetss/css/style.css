@@ -317,34 +317,6 @@ ul > li > ul > li > a
     width:600px;
 }
 
-#div1 /*lewa brans*/
-{
-    position: absolute;
-    top: 300px;
-    left: 40px;
-    transform: rotate(45deg);
-    width: 60px;
-    cursor: pointer;
-}
-
-#div2 /*srodkowa brans*/
-{
-    position: absolute;
-    top: 350px;
-    left: 150px;
-    width: 60px;
-    cursor: pointer;
-}
-
-#div3 /*prawa brans*/
-{
-    position: absolute;
-    top: 320px;
-    left: 290px;
-    transform: rotate(315deg);
-    width: 60px;
-    cursor: pointer;
-}
 /* przycisk */
 .wybierz-zawieszke
 {
@@ -356,6 +328,14 @@ ul > li > ul > li > a
     margin: 4px 2px;
     cursor: pointer;
     font-size: 15px;
+}
+@media (max-width: 500px) {
+    #wybierz-zawieszke
+    {
+        position: fixed;
+        left: auto; /* <-- Reset the default left value */
+        right: auto;
+    }
 }
 
 #wybierz-zawieszke
@@ -385,8 +365,193 @@ ul > li > ul > li > a
     margin: auto;
 }
 
-.modal {
+
+.snapcode {
     margin-left: auto;
     margin-right: auto;
     width: 300px;
 }
+
+.thumbki
+{
+    width:300px;
+    height: 300px;
+}
+.thumb-tytul
+{
+    font-weight: bold;
+    text-align: center;
+    font-size:20px;
+}
+
+.thumb-cena
+{
+    text-align: center;
+    font-size: 16px;
+    color:#AAADB0;
+}
+
+.przejdz-dalej
+{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 0;
+}
+
+.koszyk-buttons
+{
+    border-radius: 0;
+}
+
+.sz1 /*lewa brans sznurkowa*/
+{
+    position: absolute;
+    top: 300px;
+    left: 40px;
+    transform: rotate(45deg);
+    width: 60px;
+    cursor: pointer;
+}
+
+.sz2 /*srodkowa brans*/
+{
+    position: absolute;
+    top: 350px;
+    left: 150px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.sz3 /*prawa brans*/
+{
+    position: absolute;
+    top: 320px;
+    left: 290px;
+    transform: rotate(315deg);
+    width: 60px;
+    cursor: pointer;
+}
+
+#div1delsz /* usuwanie zawieszek sznureczka */
+{
+    position: absolute;
+    top: 280px;
+    left: 70px;
+}
+
+#div2delsz
+{
+    position: absolute;
+    top: 330px;
+    left: 180px;
+}
+#div3delsz
+{
+    position: absolute;
+    top: 300px;
+    left: 320px;
+}
+
+.gb1 /*pierwsza brans guzikowa */
+{
+    position: absolute;
+    top: 400px;
+    left: 40px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.gb2 /*druga brans*/
+{
+    position: absolute;
+    top: 400px;
+    left: 110px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.gb3 /*trzecia brans*/
+{
+    position: absolute;
+    top: 400px;
+    left: 180px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.gb4 /*czwarta brans*/
+{
+    position: absolute;
+    top: 400px;
+    left: 250px;
+    width: 60px;
+    cursor: pointer;
+}
+.gb5 /*piata brans*/
+{
+    position: absolute;
+    top: 400px;
+    left: 320px;
+    width: 60px;
+    cursor: pointer;
+}
+
+#guzik
+{
+    position: relative;
+    top: -50px;
+}
+
+input
+{
+    border-radius: 0px !important;
+}
+
+#div1del /*usuwanie zawieszek guzika*/
+{
+    position: absolute;
+    top: 350px;
+    left: 60px;
+}
+
+#div2del
+{
+    position: absolute;
+    top: 350px;
+    left: 130px;
+}
+#div3del
+{
+    position: absolute;
+    top: 350px;
+    left: 200px;
+}
+#div4del
+{
+    position: absolute;
+    top: 350px;
+    left: 270px;
+}
+#div5del
+{
+    position: absolute;
+    top: 350px;
+    left: 340px;
+}
+
+.buttondel {
+    background-color: transparent;
+    border:0;
+    color: #5e5e5e;
+    padding: 4px 4px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+}
+

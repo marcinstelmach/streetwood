@@ -14,6 +14,7 @@ class Bransoletki extends CI_Controller
 
     public function sznureczek()
     {
+        $dane['stale_info']=$this->Model_m->pobierz_stale(1);
         $dane['sznureczki']=$this->Model_m->pobierz_sznureczki();
         $dane['zawieszki']=$this->Model_m->pobierz_zawieszki();
         $this->load->view('header', $this->kategorie);
@@ -22,13 +23,83 @@ class Bransoletki extends CI_Controller
         $this->load->view('footer');
     }
 
+
     public function guzik()
     {
-        $dane['sznureczki']=$this->Model_m->pobierz_sznureczki();
-        $dane['zawieszki']=$this->Model_m->pobierz_zawieszki();
-        $this->load->view('header', $this->kategorie);
-        $this->load->view('przedmioty/category', $this->kategorie);
-        $this->load->view('przedmioty/sznureczek', $dane);
-        $this->load->view('footer');
+        $args = func_get_args();
+
+        if (empty($args))
+        {
+            $dane['guziki'] = $this->Model_m->pobierz_wszystkie_produkty_kategorii('Guzik');
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
+            $this->load->view('przedmioty/guziki', $dane);
+            $this->load->view('footer');
+        }
+        foreach ($args as $par)
+        {
+            $par=substr($par, 0, strpos($par, '-'));
+            $dane['stale_info']=$this->Model_m->pobierz_stale(2);
+            $dane['zawieszki']=$this->Model_m->pobierz_zawieszki();
+            $dane['produkt']=$this->Model_m->pobierz_dane_produktu($par);
+            $dane['zdjecia']=$this->Model_m->pobierz_zdjecia_produktu($par);
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
+            $this->load->view('przedmioty/guzik', $dane);
+            $this->load->view('footer');
+        }
     }
+
+    public function kotwica()
+    {
+        $args = func_get_args();
+
+        if (empty($args))
+        {
+            $dane['kotwice'] = $this->Model_m->pobierz_wszystkie_produkty_kategorii('Kotwica');
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
+            $this->load->view('przedmioty/kotwice', $dane);
+            $this->load->view('footer');
+        }
+        foreach ($args as $par)
+        {
+            $par=substr($par, 0, strpos($par, '-'));
+            $dane['stale_info']=$this->Model_m->pobierz_stale(3);
+            $dane['zawieszki']=$this->Model_m->pobierz_zawieszki();
+            $dane['produkt']=$this->Model_m->pobierz_dane_produktu($par);
+            $dane['zdjecia']=$this->Model_m->pobierz_zdjecia_produktu($par);
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
+            $this->load->view('przedmioty/kotwica', $dane);
+            $this->load->view('footer');
+        }
+    }
+
+    public function koraliki()
+    {
+        $args = func_get_args();
+
+        if (empty($args))
+        {
+            $dane['koraliki'] = $this->Model_m->pobierz_wszystkie_produkty_kategorii('Koraliki');
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
+            $this->load->view('przedmioty/koraliki', $dane);
+            $this->load->view('footer');
+        }
+        foreach ($args as $par)
+        {
+            $par=substr($par, 0, strpos($par, '-'));
+            $dane['stale_info']=$this->Model_m->pobierz_stale(4);
+            $dane['zawieszki']=$this->Model_m->pobierz_zawieszki();
+            $dane['produkt']=$this->Model_m->pobierz_dane_produktu($par);
+            $dane['zdjecia']=$this->Model_m->pobierz_zdjecia_produktu($par);
+            $this->load->view('header', $this->kategorie);
+            $this->load->view('przedmioty/category', $this->kategorie);
+            $this->load->view('przedmioty/koralikii', $dane);
+            $this->load->view('footer');
+        }
+    }
+    
 }
