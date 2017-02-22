@@ -82,11 +82,6 @@
                 </button>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <p>Suma: <span id="suma"></span>.00</p>
-            </div>
-        </div>
         <input type="hidden" name="zawieszka1" id="zawieszka1" value=""/>
         <input type="hidden" name="zawieszka2" id="zawieszka2" value=""/>
         <input type="hidden" name="zawieszka3" id="zawieszka3" value=""/>
@@ -108,7 +103,7 @@
     <div class="row">
         <hr />
         <h2>Szczegóły</h2>
-        <?php echo '<p>'.$key->opis.'</p>';
+        <?php echo '<p>'.$item->opis.'</p>';
         }
         ?>
 
@@ -212,6 +207,7 @@
         else if(div1==1 && div2==1 && div3==1 && div4==1 && div5==1)
         {
             chetny_div='brak';
+            alert("Maksymalna ilość zawieszek to 5 :)");
         }
         return chetny_div;
     }
@@ -229,19 +225,6 @@
 <script src="<?= base_url().'assetss/js/drag_and_over.js'?>" type="text/javascript"></script>
 <script type="text/javascript">
     var ilosc_zawieszek=0;
-
-    function dialogg(){
-        $( function() {
-            $( "#dialog-message" ).dialog({
-                modal: true,
-                buttons: {
-                    Ok: function() {
-                        $( this ).dialog( "close" );
-                    }
-                }
-            });
-        } );
-    }
     function nazwa_zdjecia(str)
     {
         var n = str.lastIndexOf("/");
@@ -258,8 +241,6 @@
             $("#" + $div + "del").css("display", "inline");
         }
         else
-        //alert("Nie mozna wybrać więcej niż trzech zawieszek");
-            dialogg();
     }
 
     function wybierz_cene($inc) {

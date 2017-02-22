@@ -454,7 +454,7 @@ ul > li > ul > li > a
 #div3delsz
 {
     position: absolute;
-    top: 300px;
+    top: 290px;
     left: 320px;
 }
 
@@ -554,4 +554,3 @@ input
     text-decoration: none;
     font-size: 10px;
 }
-

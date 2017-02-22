@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 13 Gru 2016, 12:53
--- Wersja serwera: 10.1.16-MariaDB
--- Wersja PHP: 7.0.9
+-- Czas generowania: 22 Lut 2017, 16:58
+-- Wersja serwera: 10.1.21-MariaDB
+-- Wersja PHP: 7.0.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -54,7 +54,21 @@ INSERT INTO `adresy` (`id_adresu`, `miasto`, `ulica`, `nr_domu`, `kod_pocztowy`)
 (32, 'Warszawa', 'Zjazdowa', '77', '01-025'),
 (33, 'Aleksandrów', 'Szeroka', '23', '23-408'),
 (34, 'Sdfsfdsdsdf', 'Qq', '234', '23-408'),
-(35, 'Ważywniak', 'Kręta', '78', '88-555');
+(35, 'Ważywniak', 'Kręta', '78', '88-555'),
+(36, 'Biłgoraj ', 'Kościuszki', '30/49', '23-400');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `dostawa`
+--
+
+CREATE TABLE `dostawa` (
+  `id_dostawy` int(11) NOT NULL,
+  `nazwa_dostawy` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL,
+  `cena` int(11) NOT NULL,
+  `rodzaj_dostawy` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -74,9 +88,9 @@ CREATE TABLE `kategorie` (
 
 INSERT INTO `kategorie` (`id_kategorii`, `nazwa_kategorii`, `parent`) VALUES
 (1, 'Bransoletki', NULL),
-(2, 'Case', NULL),
+(2, 'Case_', NULL),
 (3, 'Odziez', NULL),
-(4, 'BackPack', NULL),
+(4, 'Plecak', NULL),
 (5, 'Sznureczek', 1),
 (6, 'Kotwica', 1),
 (7, 'Guzik', 1),
@@ -85,7 +99,7 @@ INSERT INTO `kategorie` (`id_kategorii`, `nazwa_kategorii`, `parent`) VALUES
 (11, 'Inne Modele', 2),
 (12, 'Czapki', 3),
 (13, 'T-shirt', 3),
-(14, 'Plecak', 4),
+(14, 'BackPack', 4),
 (15, 'Zawieszki', 1);
 
 -- --------------------------------------------------------
@@ -201,7 +215,47 @@ INSERT INTO `produkty` (`id_produktu`, `nazwa`, `cena`, `id_kategorii`, `stan`, 
 (136, 'Beanie Czerwona', 35, 12, 1, 'Bleeeeeeeee', NULL),
 (137, 'Beanie Oliwka', 35, 12, 1, 'Bleeeeeeeee', NULL),
 (138, 'Beanie Szara', 35, 12, 1, 'Bleeeeeeeee', NULL),
-(139, 'Koszulka Biała', 35, 13, 1, 'Bleeeeeeeee', NULL);
+(139, 'Koszulka Biała', 35, 13, 1, 'Bleeeeeeeee', NULL),
+(140, 'Kotwica Błękitna', 222, 6, 1, 'Kotwica', NULL),
+(141, 'Kotwica Biała', 222, 6, 1, 'Kotwica', NULL),
+(142, 'Kotwica Czerwona', 222, 6, 1, 'Kotwica', NULL),
+(143, 'Kotwica Granatowa', 222, 6, 1, 'Kotwica', NULL),
+(144, 'Guzik Czarny', 222, 7, 1, 'Guzik Czarny', NULL),
+(145, 'Guzik Różowy', 222, 7, 1, 'Guzik Różowy', NULL),
+(146, 'Koraliki Czarne', 222, 10, 1, 'Koraliki', NULL),
+(147, 'Koraliki Niebieskie', 222, 10, 1, 'Koraliki', NULL),
+(148, 'Jednorożec', 35, 8, 1, 'Iphone Case', NULL),
+(149, 'Korony', 35, 8, 1, 'Iphone Case', NULL),
+(150, 'Tshirt Biały StreetWood', 35, 13, 1, 'Tshirt Biały StreetWood', NULL),
+(151, 'Tshirt Biały Wrotki', 100, 13, 1, 'Tshirt Biały StreetWood', NULL),
+(152, 'Beanie Biała', 70, 12, 1, 'Beanie Biała', NULL),
+(153, 'Beanie Butelkowa', 70, 12, 1, 'Beanie Biała', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `stale_ceny`
+--
+
+CREATE TABLE `stale_ceny` (
+  `id_stalej_ceny` int(11) NOT NULL,
+  `zawieszka1` int(11) NOT NULL,
+  `zawieszka2` int(11) NOT NULL,
+  `zawieszka3` int(11) NOT NULL,
+  `zawieszka4` int(11) DEFAULT NULL,
+  `zawieszka5` int(11) DEFAULT NULL,
+  `opis` varchar(100) COLLATE utf8mb4_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Zrzut danych tabeli `stale_ceny`
+--
+
+INSERT INTO `stale_ceny` (`id_stalej_ceny`, `zawieszka1`, `zawieszka2`, `zawieszka3`, `zawieszka4`, `zawieszka5`, `opis`) VALUES
+(1, 20, 30, 40, NULL, NULL, 'Sznureczek'),
+(2, 20, 25, 30, 45, 50, ''),
+(3, 20, 25, 30, 35, 45, 'Kotwica'),
+(4, 20, 25, 30, 35, 40, 'Koraliki');
 
 -- --------------------------------------------------------
 
@@ -247,29 +301,31 @@ CREATE TABLE `zamowienia` (
   `czy_wyslano` tinyint(1) NOT NULL,
   `czy_zaplacono` tinyint(1) NOT NULL,
   `cena` double NOT NULL,
-  `data_zamowienia` date NOT NULL
+  `data_zamowienia` date NOT NULL,
+  `dostawa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
 -- Zrzut danych tabeli `zamowienia`
 --
 
-INSERT INTO `zamowienia` (`id_zamowienia`, `id_uzytkownika`, `id_adresu`, `czy_wyslano`, `czy_zaplacono`, `cena`, `data_zamowienia`) VALUES
-(11, 3, 20, 1, 1, 37239, '2016-11-17'),
-(12, 1, 21, 0, 0, 698, '2016-11-16'),
-(13, 1, 22, 1, 0, 1874, '0000-00-00'),
-(14, 4, 23, 0, 0, 138605, '2016-11-24'),
-(15, 1, 24, 0, 0, 31082, '2016-11-08'),
-(17, 1, 26, 0, 0, 50, '2016-11-09'),
-(18, 1, 27, 0, 0, 287, '2016-11-07'),
-(19, 1, 28, 1, 1, 963, '2016-11-03'),
-(20, 1, 29, 1, 1, 140, '2016-10-18'),
-(21, NULL, 30, 0, 0, 218, '2016-09-13'),
-(22, NULL, 31, 0, 0, 218, '2016-10-18'),
-(23, 1, 32, 0, 0, 65, '2016-08-30'),
-(24, 1, 33, 0, 0, 362, '2016-11-17'),
-(25, 5, 34, 1, 1, 362, '2016-09-22'),
-(26, 6, 35, 0, 0, 444, '2016-11-01');
+INSERT INTO `zamowienia` (`id_zamowienia`, `id_uzytkownika`, `id_adresu`, `czy_wyslano`, `czy_zaplacono`, `cena`, `data_zamowienia`, `dostawa`) VALUES
+(11, 3, 20, 1, 1, 37239, '2016-11-17', 0),
+(12, 1, 21, 0, 0, 698, '2016-11-16', 0),
+(13, 1, 22, 1, 0, 1874, '0000-00-00', 0),
+(14, 4, 23, 0, 0, 138605, '2016-11-24', 0),
+(15, 1, 24, 0, 0, 31082, '2016-11-08', 0),
+(17, 1, 26, 0, 0, 50, '2016-11-09', 0),
+(18, 1, 27, 0, 0, 287, '2016-11-07', 0),
+(19, 1, 28, 1, 1, 963, '2016-11-03', 0),
+(20, 1, 29, 1, 1, 140, '2016-10-18', 0),
+(21, NULL, 30, 0, 0, 218, '2016-09-13', 0),
+(22, NULL, 31, 0, 0, 218, '2016-10-18', 0),
+(23, 1, 32, 0, 0, 65, '2016-08-30', 0),
+(24, 1, 33, 0, 0, 362, '2016-11-17', 0),
+(25, 5, 34, 1, 1, 362, '2016-09-22', 0),
+(26, 6, 35, 0, 0, 444, '2016-11-01', 0),
+(27, 1, 36, 0, 0, 40, '2017-02-22', 0);
 
 -- --------------------------------------------------------
 
@@ -327,7 +383,8 @@ INSERT INTO `zam_tow` (`id_zam_tow`, `id_produktu`, `id_zamowienia`, `ilosc`) VA
 (54, 37, 25, 1),
 (55, 38, 25, 1),
 (56, 35, 25, 1),
-(57, 35, 26, 2);
+(57, 35, 26, 2),
+(58, 1, 27, 1);
 
 -- --------------------------------------------------------
 
@@ -338,95 +395,114 @@ INSERT INTO `zam_tow` (`id_zam_tow`, `id_produktu`, `id_zamowienia`, `ilosc`) VA
 CREATE TABLE `zdjecia` (
   `id_zdjecia` int(11) NOT NULL,
   `nazwa_zdjecia` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL,
-  `id_produktu` int(11) NOT NULL
+  `id_produktu` int(11) NOT NULL,
+  `glowne` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
 -- Zrzut danych tabeli `zdjecia`
 --
 
-INSERT INTO `zdjecia` (`id_zdjecia`, `nazwa_zdjecia`, `id_produktu`) VALUES
-(64, '1.jpg', 69),
-(65, '2.jpg', 69),
-(66, '1.jpg', 70),
-(67, '2.jpg', 70),
-(77, '1.jpg', 75),
-(78, '2.jpg', 75),
-(79, '3.jpg', 75),
-(80, '4.jpg', 75),
-(81, '5.jpg', 75),
-(82, '1.jpg', 76),
-(83, '2.jpg', 76),
-(86, '4.jpg', 78),
-(87, '3.jpg', 79),
-(88, '3.jpg', 77),
-(90, '4.jpg', 80),
-(91, '01.png', 81),
-(92, '02.png', 82),
-(93, '03.png', 83),
-(94, '6.png', 84),
-(95, '7.png', 85),
-(96, '13.png', 86),
-(97, 'brazowy.png', 87),
-(98, 'brzoskwinia.png', 88),
-(100, 'czerwony.png', 90),
-(101, 'fiolet.png', 91),
-(102, 'khaki.png', 92),
-(103, 'granat.png', 93),
-(104, 'brazowy.png', 94),
-(105, 'brzoskwinia.png', 95),
-(106, 'czarny.png', 96),
-(107, 'czerwony.png', 97),
-(108, 'ecru.png', 98),
-(109, 'fiolet.png', 99),
-(110, 'granat.png', 100),
-(111, 'khaki.png', 101),
-(112, 'niebieski.png', 102),
-(113, 'pomaranczowy.png', 103),
-(114, 'rozowy.png', 104),
-(115, 'szary.png', 105),
-(116, 'zielony.png', 106),
-(117, 'zolty.png', 107),
-(118, 'BDSM_pack-1-3000px kopia.png', 108),
-(119, 'christmas-wallpaper-2.jpg', 109),
-(120, 'DEVIL_pack-1-3000px kopia.png', 110),
-(121, 'FACE_2_pack-1-3000px kopia.png', 111),
-(122, 'FACE_OKULARYpack-1-3000px kopia.png', 112),
-(123, 'FACE_pack-1-3000px kopia.png', 113),
-(124, '0RH+grupy-krwi kopia.png', 114),
-(125, '0RH-grupy-krwi kopia.png', 115),
-(126, 'ABRH+grupy-krwi kopia.png', 116),
-(127, 'ABRH-grupy-krwi kopia.png', 117),
-(128, 'ABRH-grupy-krwi_2 kopia.png', 118),
-(129, 'ARH+grupy-krwi kopia.png', 119),
-(130, 'BRH+grupy-krwi kopia.png', 120),
-(131, 'BRH-grupy-krwi kopia.png', 121),
-(132, 'A_alfabet---puzzle kopia.png', 122),
-(133, 'B_alfabet---puzzle kopia.png', 123),
-(134, 'C_alfabet---puzzle kopia.png', 124),
-(135, 'D_alfabet---puzzle kopia.png', 125),
-(136, 'E_alfabet---puzzle kopia.png', 126),
-(137, 'F_alfabet---puzzle kopia.png', 127),
-(138, 'G_alfabet---puzzle kopia.png', 128),
-(139, '_P3B1506_.jpg', 129),
-(140, '_P3B1527_.jpg', 129),
-(141, '_P3B1507_.jpg', 130),
-(142, '_P3B1532_.jpg', 130),
-(143, '_P3B1512_.jpg', 131),
-(144, '_P3B1536_.jpg', 131),
-(145, '_P3B1509_.jpg', 132),
-(146, '_P3B1539_.jpg', 132),
-(147, 'biala.jpg', 133),
-(148, 'butelkowa.jpg', 134),
-(149, 'czarna.jpg', 135),
-(150, 'czerwona.jpg', 136),
-(151, 'oliwka.jpg', 137),
-(152, 'szara.jpg', 138),
-(154, 'biała jednorozec.jpg', 139),
-(155, 'biała sw.jpg', 139),
-(156, 'biała tył.jpg', 139),
-(157, 'biała wrotki.jpg', 139),
-(158, 'czarna sw.jpg', 139);
+INSERT INTO `zdjecia` (`id_zdjecia`, `nazwa_zdjecia`, `id_produktu`, `glowne`) VALUES
+(64, '1.jpg', 69, 0),
+(65, '2.jpg', 69, 0),
+(66, '1.jpg', 70, 0),
+(67, '2.jpg', 70, 0),
+(77, '1.jpg', 75, 0),
+(78, '2.jpg', 75, 0),
+(79, '3.jpg', 75, 0),
+(80, '4.jpg', 75, 0),
+(81, '5.jpg', 75, 0),
+(82, '1.jpg', 76, 0),
+(83, '2.jpg', 76, 0),
+(86, '4.jpg', 78, 0),
+(87, '3.jpg', 79, 0),
+(88, '3.jpg', 77, 0),
+(90, '4.jpg', 80, 0),
+(91, '01.png', 81, 0),
+(92, '02.png', 82, 0),
+(93, '03.png', 83, 0),
+(94, '6.png', 84, 0),
+(95, '7.png', 85, 0),
+(96, '13.png', 86, 0),
+(97, 'brazowy.png', 87, 0),
+(98, 'brzoskwinia.png', 88, 0),
+(100, 'czerwony.png', 90, 0),
+(101, 'fiolet.png', 91, 0),
+(102, 'khaki.png', 92, 0),
+(103, 'granat.png', 93, 0),
+(104, 'brazowy.png', 94, 0),
+(105, 'brzoskwinia.png', 95, 0),
+(106, 'czarny.png', 96, 0),
+(107, 'czerwony.png', 97, 0),
+(108, 'ecru.png', 98, 0),
+(109, 'fiolet.png', 99, 0),
+(110, 'granat.png', 100, 0),
+(111, 'khaki.png', 101, 0),
+(112, 'niebieski.png', 102, 0),
+(113, 'pomaranczowy.png', 103, 0),
+(114, 'rozowy.png', 104, 0),
+(115, 'szary.png', 105, 0),
+(116, 'zielony.png', 106, 0),
+(117, 'zolty.png', 107, 0),
+(118, 'BDSM_pack-1-3000px kopia.png', 108, 0),
+(119, 'christmas-wallpaper-2.jpg', 109, 0),
+(120, 'DEVIL_pack-1-3000px kopia.png', 110, 0),
+(121, 'FACE_2_pack-1-3000px kopia.png', 111, 0),
+(122, 'FACE_OKULARYpack-1-3000px kopia.png', 112, 0),
+(123, 'FACE_pack-1-3000px kopia.png', 113, 0),
+(124, '0RH+grupy-krwi kopia.png', 114, 0),
+(125, '0RH-grupy-krwi kopia.png', 115, 0),
+(126, 'ABRH+grupy-krwi kopia.png', 116, 0),
+(127, 'ABRH-grupy-krwi kopia.png', 117, 0),
+(128, 'ABRH-grupy-krwi_2 kopia.png', 118, 0),
+(129, 'ARH+grupy-krwi kopia.png', 119, 0),
+(130, 'BRH+grupy-krwi kopia.png', 120, 0),
+(131, 'BRH-grupy-krwi kopia.png', 121, 0),
+(132, 'A_alfabet---puzzle kopia.png', 122, 0),
+(133, 'B_alfabet---puzzle kopia.png', 123, 0),
+(134, 'C_alfabet---puzzle kopia.png', 124, 0),
+(135, 'D_alfabet---puzzle kopia.png', 125, 0),
+(136, 'E_alfabet---puzzle kopia.png', 126, 0),
+(137, 'F_alfabet---puzzle kopia.png', 127, 0),
+(138, 'G_alfabet---puzzle kopia.png', 128, 0),
+(139, '_P3B1506_.jpg', 129, 0),
+(140, '_P3B1527_.jpg', 129, 0),
+(141, '_P3B1507_.jpg', 130, 0),
+(142, '_P3B1532_.jpg', 130, 0),
+(143, '_P3B1512_.jpg', 131, 0),
+(144, '_P3B1536_.jpg', 131, 0),
+(145, '_P3B1509_.jpg', 132, 0),
+(146, '_P3B1539_.jpg', 132, 0),
+(147, 'biala.jpg', 133, 0),
+(148, 'butelkowa.jpg', 134, 0),
+(149, 'czarna.jpg', 135, 0),
+(150, 'czerwona.jpg', 136, 0),
+(151, 'oliwka.jpg', 137, 0),
+(152, 'szara.jpg', 138, 0),
+(154, 'biała jednorozec.jpg', 139, 0),
+(155, 'biała sw.jpg', 139, 0),
+(156, 'biała tył.jpg', 139, 0),
+(157, 'biała wrotki.jpg', 139, 0),
+(158, 'czarna sw.jpg', 139, 0),
+(159, '_P3B1482_.jpg', 140, 1),
+(160, '_P3B1484_.jpg', 141, 1),
+(161, '_P3B1486_.jpg', 142, 1),
+(162, '_P3B1488_.jpg', 143, 1),
+(163, '_P3B1509_.jpg', 144, 1),
+(164, '_P3B1539_.jpg', 144, 0),
+(165, '_P3B1519_.jpg', 145, 1),
+(166, '_P3B1546_.jpg', 145, 0),
+(167, '_P3B6159.jpg', 146, 1),
+(168, '_P3B6163.jpg', 147, 1),
+(169, '5s jednorozec.jpg', 148, 1),
+(170, '6s jednorozec.jpg', 148, 0),
+(171, '5s korony.jpg', 149, 1),
+(172, '6s korony.jpg', 149, 0),
+(173, 'biala sw.jpg', 150, 1),
+(174, 'biała wrotki.jpg', 151, 1),
+(175, 'biala.jpg', 152, 1),
+(176, 'butelkowa.jpg', 153, 1);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -437,6 +513,12 @@ INSERT INTO `zdjecia` (`id_zdjecia`, `nazwa_zdjecia`, `id_produktu`) VALUES
 --
 ALTER TABLE `adresy`
   ADD PRIMARY KEY (`id_adresu`);
+
+--
+-- Indexes for table `dostawa`
+--
+ALTER TABLE `dostawa`
+  ADD PRIMARY KEY (`id_dostawy`);
 
 --
 -- Indexes for table `kategorie`
@@ -455,6 +537,12 @@ ALTER TABLE `kategorie_zawieszek`
 --
 ALTER TABLE `produkty`
   ADD PRIMARY KEY (`id_produktu`);
+
+--
+-- Indexes for table `stale_ceny`
+--
+ALTER TABLE `stale_ceny`
+  ADD PRIMARY KEY (`id_stalej_ceny`);
 
 --
 -- Indexes for table `uzytkownicy`
@@ -488,7 +576,12 @@ ALTER TABLE `zdjecia`
 -- AUTO_INCREMENT dla tabeli `adresy`
 --
 ALTER TABLE `adresy`
-  MODIFY `id_adresu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_adresu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+--
+-- AUTO_INCREMENT dla tabeli `dostawa`
+--
+ALTER TABLE `dostawa`
+  MODIFY `id_dostawy` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `kategorie`
 --
@@ -503,7 +596,12 @@ ALTER TABLE `kategorie_zawieszek`
 -- AUTO_INCREMENT dla tabeli `produkty`
 --
 ALTER TABLE `produkty`
-  MODIFY `id_produktu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `id_produktu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
+--
+-- AUTO_INCREMENT dla tabeli `stale_ceny`
+--
+ALTER TABLE `stale_ceny`
+  MODIFY `id_stalej_ceny` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT dla tabeli `uzytkownicy`
 --
@@ -513,17 +611,17 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT dla tabeli `zamowienia`
 --
 ALTER TABLE `zamowienia`
-  MODIFY `id_zamowienia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_zamowienia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT dla tabeli `zam_tow`
 --
 ALTER TABLE `zam_tow`
-  MODIFY `id_zam_tow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id_zam_tow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 --
 -- AUTO_INCREMENT dla tabeli `zdjecia`
 --
 ALTER TABLE `zdjecia`
-  MODIFY `id_zdjecia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `id_zdjecia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

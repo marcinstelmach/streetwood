@@ -4,18 +4,15 @@
     <div style="position: relative; height: 520px">
         <!-- Brans -->
         <img src="<?=base_url()?>assetss/img/products/bransoletki/sznureczek/brzoskwinia.png"  id="brans" draggable="false" style="z-index: -10;"/>
-
-        <!-- Lewy divek -->
+        
         <button onclick="wyczysc('div1')" id="div1delsz" class="buttondel" style="display: none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <div id="div1" class="column sz1" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
-        <!-- Prawy divek -->
         <button onclick="wyczysc('div2')" id="div2delsz" class="buttondel" style="display: none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <div id="div2" class="column sz2" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
         <button onclick="wyczysc('div3')" id="div3delsz" class="buttondel" style="display: none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <div id="div3" class="column sz3" draggable="true" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();" ></div>
 
     </div>
-    <!-- Środkowy divek -->
 
 
 
@@ -69,16 +66,11 @@
             </button>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <p>Suma: <span id="suma"></span>.00</p>
-        </div>
-    </div>
     <input type="hidden" name="zawieszka1" id="zawieszka1" value=""/>
     <input type="hidden" name="zawieszka2" id="zawieszka2" value=""/>
     <input type="hidden" name="zawieszka3" id="zawieszka3" value=""/>
-    <input type="text" name="color" id="kolor_sznurka" value="" />
-    <input type="text" name="cena" id="cena_glowna" value="<?=$key->zawieszka1?>"/>
+    <input type="hidden" name="color" id="kolor_sznurka" value="brzoskwinia.png" />
+    <input type="hidden" name="cena" id="cena_glowna" value="<?=$key->zawieszka1?>"/>
     <input type="hidden" name="nazwa" value="Sznureczek">
     <input type="hidden" name="id_produktu" value="1">
     <input type="hidden" name="actual_adress" value="<?=base_url(uri_string())?>">
@@ -103,7 +95,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="wybierz-zawieszke" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="wybierz-zawieszke" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index: 9998;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -148,22 +140,10 @@
         </div>
     </div>
 </div>
-<!-- Dialog -->
-<div id="dialog-message" title="Bład" style="display:none" >
-    <p>
-        <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
-        Maksymalna ilość zawieszek to 3. Jesli chcesz zmienić zawieszkę, usuń dodaną i dodaj nowa.
-    </p>
-</div>
-<!--Koniec Dialogu -->
 <script type="text/javascript" src="<?= base_url().'assetss/js/ilosc.js'?>"></script>
+<script src="<?= base_url().'assetss/js/drag_and_over.js'?>" type="text/javascript"></script>
 <script type="text/javascript">
-    function zmien($nazwa_zdjecia) {
-        $('#brans').attr('src','<?= base_url()?>assetss/img/products/bransoletki/sznureczek/'+$nazwa_zdjecia+'?v=4');
-        $('#kolor_sznurka').val($nazwa_zdjecia);
-    }
-</script>
-<script type="text/javascript">
+    var ilosc_zawieszek=0;
     var div1=0;
     var div2=0;
     var div3=0;
@@ -188,6 +168,7 @@
         else if(div1==1 && div2==1 && div3==1)
         {
             chetny_div='brak';
+            alert("Maksymalna ilość zawieszek to 3 :)");
         }
         return chetny_div;
     }
@@ -199,22 +180,12 @@
         $i++;
     }
     ?>
-</script>
-<script src="<?= base_url().'assetss/js/drag_and_over.js'?>" type="text/javascript"></script>
-<script type="text/javascript">
-    var ilosc_zawieszek=0;
-    function dialogg(){
-        $( function() {
-            $( "#dialog-message" ).dialog({
-                modal: true,
-                buttons: {
-                    Ok: function() {
-                        $( this ).dialog( "close" );
-                    }
-                }
-            });
-        } );
+
+    function zmien($nazwa_zdjecia) {
+        $('#brans').attr('src','<?=base_url()?>assetss/img/products/bransoletki/sznureczek/'+$nazwa_zdjecia+'?v=4');
+        $('#kolor_sznurka').val($nazwa_zdjecia);
     }
+
     function nazwa_zdjecia(str)
     {
         var n = str.lastIndexOf("/");
@@ -229,9 +200,39 @@
             wybierz_cene(1);
             $("#" + $div + "delsz").css("display", "inline");
         }
-        else
-        //alert("Nie mozna wybrać więcej niż trzech zawieszek");
-            dialogg();
+    }
+
+    $('#div1').bind("DOMSubtreeModified",function(){
+        $("#zawieszka1").val(nazwa_zdjecia($("#div1").html()));
+    });
+
+    $('#div2').bind("DOMSubtreeModified",function(){
+        $("#zawieszka2").val(nazwa_zdjecia($("#div2").html()));
+    });
+
+    $('#div3').bind("DOMSubtreeModified",function(){
+        $("#zawieszka3").val(nazwa_zdjecia($("#div3").html()));
+    });
+
+    $('#div4').bind("DOMSubtreeModified",function(){
+        $("#zawieszka4").val(nazwa_zdjecia($("#div4").html()));
+    });
+
+    $('#div5').bind("DOMSubtreeModified",function(){
+        $("#zawieszka5").val(nazwa_zdjecia($("#div5").html()));
+    });
+    function wyczysc($div)
+    {
+        $("#"+$div).empty();
+        $("#" + $div + "delsz").css("display", "none");
+        if($div=='div1')
+            div1=0;
+        else if($div=='div2')
+            div2=0;
+        else if($div=='div3')
+            div3=0;
+
+        wybierz_cene(0);
     }
     function wybierz_cene($inc) {
         if($inc==1)
@@ -269,27 +270,5 @@
             }
             ?>
         }
-    }
-    $('#div1').bind("DOMSubtreeModified",function(){
-        $("#zawieszka1").val(nazwa_zdjecia($("#div1").html()));
-    });
-    $('#div2').bind("DOMSubtreeModified",function(){
-        $("#zawieszka2").val(nazwa_zdjecia($("#div2").html()));
-    });
-    $('#div3').bind("DOMSubtreeModified",function(){
-        $("#zawieszka3").val(nazwa_zdjecia($("#div3").html()));
-    });
-    function wyczysc($div)
-    {
-        $("#"+$div).empty();
-        $("#" + $div + "delsz").css("display", "none");
-        if($div=='div1')
-            div1=0;
-        else if($div=='div2')
-            div2=0;
-        else if($div=='div3')
-            div3=0;
-
-        wybierz_cene(0);
     }
 </script>
