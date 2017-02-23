@@ -124,8 +124,6 @@ class Administrator extends CI_Controller
 				
 
 			$this->form_validation->set_rules('nazwa', 'Nazwa', 'required');
-			$this->form_validation->set_rules('opis', 'Opis', 'required');
-			$this->form_validation->set_rules('cena', 'Cena', 'required');
 			$this->form_validation->set_rules('id_kategorii', 'Kategoria', 'required');
 			$this->form_validation->set_rules('stan', 'Stan', 'required');
 			$this->form_validation->set_message('required', 'Pole %s jest wymagane');
@@ -810,7 +808,7 @@ class Administrator extends CI_Controller
 		}
 		$dane['adres']=$this->Model_m->query('select a.miasto, a.ulica, a.nr_domu, a.kod_pocztowy from adresy a, zamowienia z where a.id_adresu=z.id_adresu and z.id_zamowienia='.$id_zamowienia);
 		$dane['uzytkownik']=$this->Model_m->query('select u.imie, u.nazwisko, u.email, u.telefon from uzytkownicy u, zamowienia z WHERE z.id_uzytkownika=u.id_uzytkownika and z.id_zamowienia='.$id_zamowienia);
-		$dane['produkt']=$this->Model_m->query('select p.nazwa, p.cena, t.ilosc FROM produkty p, zamowienia z, zam_tow t WHERE p.id_produktu=t.id_produktu and t.id_zamowienia=z.id_zamowienia and z.id_zamowienia='.$id_zamowienia);
+		$dane['produkt']=$this->Model_m->query('select p.nazwa, p.cena, t.ilosc, t.komentarz FROM produkty p, zamowienia z, zam_tow t WHERE p.id_produktu=t.id_produktu and t.id_zamowienia=z.id_zamowienia and z.id_zamowienia='.$id_zamowienia);
 		$dane['id_zamowienia']=$id_zamowienia;
 		$dane['zamowienie']=$this->Model_m->query('select z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from zamowienia z where z.id_zamowienia='.$id_zamowienia);
 
@@ -854,6 +852,42 @@ class Administrator extends CI_Controller
 		$this->load->view('administrator/zamowienie/nowe_zamowienia', $dane);
 		$this->load->view('administrator/footer');
 	}
+
+    public function pobranie()
+    {
+        if(($this->session->userdata('administrator')==FALSE))
+        {
+            header('location: '.base_url());
+            die();
+        }
+        $args = func_get_args();
+        if (empty($args))
+        {
+            $dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
+        }
+        foreach ($args as $par)
+        {
+            if($par=='dzisiaj')
+            {
+                $dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 and DAY(z.data_zamowienia)=DAY(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
+                goto end;
+            }
+            elseif($par=='tydzien')
+            {
+                $dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 and WEEK(z.data_zamowienia)=WEEK(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
+                goto end;
+            }
+            elseif($par=='miesiac')
+            {
+                $dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 and MONTH(z.data_zamowienia)=MONTH(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
+                goto end;
+            }
+        }
+        end:
+        $this->load->view('administrator/header');
+        $this->load->view('administrator/zamowienie/nowe_zamowienia', $dane);
+        $this->load->view('administrator/footer');
+    }
 
 	public function nie_wyslane()
 	{
@@ -974,10 +1008,6 @@ class Administrator extends CI_Controller
 		header('location: '.base_url().'administrator/szczegoly-zamowienia/'.$id_zamowienia);
 	}
 
-
-
-
-
 		public function statystyki()
 		{
 			$data['dzisiaj']=$this->Model_m->query('SELECT SUM(cena) AS dochod, COUNT(z.id_zamowienia) AS ilosc from zamowienia z where DAY(z.data_zamowienia)=DAY(NOW()) AND MONTH(z.data_zamowienia)=MONTH(NOW()) AND YEAR(z.data_zamowienia)=YEAR(NOW())');
@@ -1054,4 +1084,47 @@ class Administrator extends CI_Controller
         $this->Model_m->SetMainPhoto($id_zdjecia, $id_produktu);
         header('location: '.base_url().'administrator/modyfikacja-przedmiotu/'.$id_produktu);
     }
+
+    public function dostawy()
+    {
+        $dane['dostawy']=$this->Model_m->get('dostawa');
+        $this->load->view('administrator/header');
+        $this->load->view('administrator/dostawa/dostawy', $dane);
+        $this->load->view('administrator/footer');
+    }
+
+    public function dostawa_dodaj()
+    {
+        $this->form_validation->set_rules('nazwa', 'Nazwa', 'required');
+        $this->form_validation->set_rules('cena', 'Cena', 'required|numeric');
+        $this->form_validation->set_rules('rodzaj_dostawy', 'Rodzaj dostawy', 'required');
+        $this->form_validation->set_message('required', 'Pole %s jest wymagane');
+        $this->form_validation->set_message('numeric', 'Pole %s musi mieć wartość numeryczna');
+        if ($this->form_validation->run() == FALSE)
+        {
+            $dane['dostawy']=$this->Model_m->get('dostawa');
+            $this->load->view('administrator/header');
+            $this->load->view('administrator/dostawa/dostawy', $dane);
+            $this->load->view('administrator/footer');
+        }
+        else
+        {
+            $data['nazwa_dostawy'] = $this->input->post('nazwa');
+            $data['cena'] = $this->input->post('cena');
+            $data['rodzaj_dostawy'] = $this->input->post('rodzaj_dostawy');
+
+            $this->Model_m->dodaj('dostawa', $data);
+
+            $this->session->set_flashdata('dodano', TRUE);
+            header('location: ' . base_url() . 'administrator/dostawy');
+        }
+    }
+
+    public function dostawa_usun($id)
+    {
+        $this->Model_m->delete($id, 'id_dostawy', 'dostawa');
+        header('location: ' . base_url() . 'administrator/dostawy');
+    }
+
+    
 }

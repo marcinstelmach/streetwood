@@ -247,4 +247,18 @@ class Model_m extends CI_Model
         $this->db->query('UPDATE zdjecia z SET z.glowne=true WHERE z.id_zdjecia='.$id_zdjecia);
         $this->db->query('UPDATE zdjecia z SET z.glowne=false WHERE z.id_produktu = '.$id_produktu.' AND z.id_zdjecia<>'.$id_zdjecia);
     }
+
+	public function czy_moje_zamowienie($id_zamowienia, $id_uzytkownika)
+	{
+		$query=$this->db->query('SELECT z.id_zamowienia FROM zamowienia z, uzytkownicy u WHERE z.id_uzytkownika=u.id_uzytkownika AND u.id_uzytkownika='.$id_uzytkownika.' and z.id_zamowienia='.$id_zamowienia);
+
+		if ($query->num_rows() > 0)
+		{
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
 }

@@ -42,7 +42,6 @@ class Koszyk extends CI_Controller
             $data['options']['Zawieszka_5']=$this->input->post('zawieszka5');
 
         $this->session->set_userdata('powrot', $this->input->post('actual_adress'));
-        //'options' => array('Size' => $this->input->post('size'), 'Color' => 'Red')
 		$this->cart->insert($data);
 		header('Location: '.base_url().'koszyk/wyswietl');
 	}

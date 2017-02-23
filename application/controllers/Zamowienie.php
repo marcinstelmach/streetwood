@@ -125,6 +125,15 @@ class Zamowienie extends CI_Controller
 			$zam_tow['id_zamowienia']=$id_zamowienia;
 			$zam_tow['id_produktu']=$items['id'];
 			$zam_tow['ilosc']=$items['qty'];
+			if ($this->cart->has_options($items['rowid']) == TRUE)
+			{
+				$option='';
+				foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value)
+				{
+					$option.=$option_name.': '.$option_value.'<br>';
+				}
+			}
+			$zam_tow['komentarz']=$option;
 
 			$mail['string'].='<tr><td>'.$id_zamowienia.'</td><td>'.$items['id'].'</td><td>'.$items['qty'].'</td></tr>';
 

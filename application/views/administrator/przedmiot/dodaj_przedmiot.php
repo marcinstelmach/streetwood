@@ -27,30 +27,33 @@
               <div class="form-group">
                 <label for="nazwa" class="col-sm-3 control-label">Nazwa</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="nazwa" placeholder="Nazwa" name="nazwa" value="<?=$this->session->userdata('nazwa')?>">
+                  <input type="text" class="form-control" id="nazwa" placeholder="Nazwa" name="nazwa" value="<?=$this->session->userdata('nazwa')?>" required>
                 </div>
                 <?php echo "<div class='bladwalidacji'>".form_error('nazwa')."</div>"; ?>
               </div>
+            <div class="form-group">
+                <label for="kategoria" class="col-sm-3 control-label">Kategoria</label>
+                <div class="col-sm-5">
+                    <select name="id_kategorii" class="form-control" id="kategoria">
+                        <?php foreach ($kategorie as $key) {
+                            if($this->session->userdata('id_kategorii')==$key->id_kategorii)
+                                echo '<option value="'.$key->id_kategorii.'|'.$key->id_kategorii_1.'" selected>'.$key->lev1.' > '.$key->lev2.'</option>';
+                            else
+                                echo '<option value="'.$key->id_kategorii.'|'.$key->id_kategorii_1.'">'.$key->lev1.' > '.$key->lev2.'</option>';
+                        } ?>
+                    </select>
+                </div>
+            </div>
+            <fieldset id="cena-field" disabled>
               <div class="form-group">
                 <label for="cena" class="col-sm-3 control-label">Cena za sztuke</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="cena" placeholder="Cena" name="cena" value="<?=$this->session->userdata('cena')?>">
+                  <input type="text" class="form-control" id="cena" placeholder="Cena" name="cena" value="<?=$this->session->userdata('cena')?>" required>
                 </div>
                 <?php echo "<div class='bladwalidacji'>".form_error('cena')."</div>"; ?>
               </div>
-              <div class="form-group">
-                <label for="kategoria" class="col-sm-3 control-label">Kategoria</label>
-                <div class="col-sm-5">
-                  <select name="id_kategorii" class="form-control" id="kategoria">
-                    <?php foreach ($kategorie as $key) {
-                        if($this->session->userdata('id_kategorii')==$key->id_kategorii)
-                            echo '<option value="'.$key->id_kategorii.'|'.$key->id_kategorii_1.'" selected>'.$key->lev1.' > '.$key->lev2.'</option>';
-                        else
-                            echo '<option value="'.$key->id_kategorii.'|'.$key->id_kategorii_1.'">'.$key->lev1.' > '.$key->lev2.'</option>';
-                    } ?>
-                  </select>
-                </div>
-              </div>
+            </fieldset>
+
             <fieldset id="kat" disabled>
             <div class="form-group" id="kategoria-zawieszek">
                 <label for="kategoria_zawieszek" class="col-sm-3 control-label">Kategoria Zawieszek</label>
@@ -93,13 +96,15 @@
                 </div>
                 <?php echo "<div class='bladwalidacji'>".form_error('stan')."</div>"; ?>
               </div>
+            <fieldset id="opis-field" disabled>
               <div class="form-group">
                 <label for="opis" class="col-sm-3 control-label">Opis</label>
                 <div class="col-sm-5">
-                  <textarea class="form-control" rows="3" id="opis" placeholder="opis" name="opis"><?=$this->session->userdata('opis')?></textarea>
+                  <textarea class="form-control" rows="3" id="opis" placeholder="opis" name="opis" required><?=$this->session->userdata('opis')?></textarea>
                 </div>
                 <?php echo "<div class='bladwalidacji'>".form_error('opis')."</div>"; ?>
               </div>
+            </fieldset>
             <div class="form-group">
                 <div class="checkbox">
                 <label>
@@ -130,28 +135,51 @@
                     var str = "";
                     $( "#kategoria option:selected" ).each(function() {
                         str = $( this ).text();
-                        console.log(str);
                     });
                     if(str=='Bransoletki > Zawieszki')
                     {
-                        $("fieldset").prop('disabled', false);
+                        $("#kat").prop('disabled', false);
+                        $("#cena-field").prop('disabled', true);
+                        $("#opis-field").prop('disabled', true);
+                        $("#cena").prop('required', false);
+                        $("#opis").prop('required', false);
+                    }
+                    else if(str=="Bransoletki > Guzik")
+                    {
+                        $("#cena-field").prop('disabled', false);
+                        $("#opis-field").prop('disabled', true);
+                        $("#cena").prop('required', true);
+                        $("#opis").prop('required', false);
+                    }
+                    else if(str=="Bransoletki > Kotwica")
+                    {
+                        $("#cena-field").prop('disabled', false);
+                        $("#opis-field").prop('disabled', true);
+                        $("#cena").prop('required', true);
+                        $("#opis").prop('required', false);
+                    }
+                    else if(str=="Bransoletki > Koraliki")
+                    {
+                        $("#cena-field").prop('disabled', false);
+                        $("#opis-field").prop('disabled', true);
+                        $("#cena").prop('required', true);
+                        $("#opis").prop('required', false);
+                    }
+                    else if(str=="Bransoletki > Sznureczek")
+                    {
+                        $("#cena-field").prop('disabled', true);
+                        $("#opis-field").prop('disabled', true);
+                        $("#cena").prop('required', false);
+                        $("#opis").prop('required', false);
                     }
                     else
                     {
-                        $("fieldset").prop('disabled', true);
+                        $("#kat").prop('disabled', true);
+                        $("#cena-field").prop('disabled', false);
+                        $("#opis-field").prop('disabled', false);
+                        $("#cena").prop('required', true);
+                        $("#opis").prop('required', true);
                     }
-
-                    /*if(str=='Bransoletki > Guzik')
-                    {
-                        $(function(){
-                            $("input[type='submit']").click(function(){
-                                var $fileUpload = $("input[type='file']");
-                                if (parseInt($fileUpload.get(0).files.length)>2){
-                                    alert("You can only upload a maximum of 2 files");
-                                }
-                            });
-                        });
-                    }
-                })*/
+                })
                 .change();
         </script>

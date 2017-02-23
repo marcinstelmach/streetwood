@@ -84,11 +84,6 @@ body {
   margin-top: 0;
 }
 
-
-/*
- * Placeholder dashboard ideas
- */
-
 .placeholders {
   margin-bottom: 30px;
   text-align: center;
@@ -106,5 +101,11 @@ body {
 
 .menu-kontekstowe
 {
+  font-size: 10px;
+}
+
+.obowiazek
+{
+  color: #7f7f7f;
   font-size: 10px;
 }

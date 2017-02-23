@@ -49,17 +49,16 @@
 
     </div>
     <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-12">
       <h2>Produkty</h2>
       <div class="table-responsive">
         <table class="table table-striped">
         <thead>
           <td>#</td>
           <td>Nazwa</td>
-          <td>Długość</td>
-          <td>Szerokość</td>
           <td>Cena za sztukę</td>
           <td>Ilość</td>
+          <td>Komentarz</td>
         </thead>
         <tbody>
         <?php
@@ -68,10 +67,9 @@
             <tr>
               <td><?php echo $i; ?></td>
               <td><?php echo $key->nazwa ?></td>
-              <td><?php echo $key->dlugosc ?></td>
-              <td><?php echo $key->szerokosc ?></td>
               <td><?php echo number_format($key->cena, 2, ',', ' ').' zł'; ?></td>
               <td><?php echo $key->ilosc ?></td>
+                <td><?=$key->komentarz?></td>
             </tr>
             <?php 
               $i++;
