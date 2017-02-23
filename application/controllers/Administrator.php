@@ -768,32 +768,44 @@ class Administrator extends CI_Controller
 			header('location: '.base_url()); 
 				die();
 		}
+
+        //Ustawienie zmiennej sesyjnej w zaleznosci od platnosci
+        if ($this->input->get('rodzaj')=='przelew')
+        {
+            $this->session->set_userdata('rodzaj', 'przelew');
+        }
+        if ($this->input->get('rodzaj')=='pobranie')
+        {
+            $this->session->set_userdata('rodzaj', 'pobranie');
+        }
+        if (!$this->input->get('rodzaj'))
+        {
+            if($this->session->userdata('rodzaj'))
+            {
+                $this->session->unset_userdata('rodzaj');
+            }
+        }
 		$args = func_get_args();
 		if (empty($args))
 		{
-			$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-			goto end;
+            $dane['zamowienia']=$this->Model_m->ListaZamowien('',$this->input->get('rodzaj'), '', '');
 		}
 		foreach ($args as $par)
 		{
 			if($par=='dzisiaj')
 			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and DAY(z.data_zamowienia)=DAY(NOW()) and MONTH(z.data_zamowienia)=MONTH(NOW()) and YEAR(z.data_zamowienia)=YEAR(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-				goto end;
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('dzisiaj',$this->input->get('rodzaj'), '', '');
 			}
 			elseif($par=='tydzien')
 			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and WEEK(z.data_zamowienia)=WEEK(NOW()) and YEAR(z.data_zamowienia)=YEAR(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-				goto end;
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('tydzien',$this->input->get('rodzaj'), '', '');
 			}
 			elseif($par=='miesiac')
 			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and MONTH(z.data_zamowienia)=MONTH(NOW()) and YEAR(z.data_zamowienia)=YEAR(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-				goto end;
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('miesiac',$this->input->get('rodzaj'), '', '');
 			}
 		}
-		
-		end:
+
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/zamowienie/nowe_zamowienia', $dane);
 		$this->load->view('administrator/footer');
@@ -824,70 +836,48 @@ class Administrator extends CI_Controller
 			header('location: '.base_url());
 				die();
 		}
-		$args = func_get_args();
-		if (empty($args))
-		{
-			$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-		}
-		foreach ($args as $par)
-		{
-			if($par=='dzisiaj')
-			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 and DAY(z.data_zamowienia)=DAY(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-				goto end;
-			}
-			elseif($par=='tydzien')
-			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 and WEEK(z.data_zamowienia)=WEEK(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-				goto end;
-			}
-			elseif($par=='miesiac')
-			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 and MONTH(z.data_zamowienia)=MONTH(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-				goto end;
-			}
-		}
-		end:
-		$this->load->view('administrator/header');
-		$this->load->view('administrator/zamowienie/nowe_zamowienia', $dane);
-		$this->load->view('administrator/footer');
-	}
 
-    public function pobranie()
-    {
-        if(($this->session->userdata('administrator')==FALSE))
+        //Ustawienie zmiennej sesyjnej w zaleznosci od platnosci
+        if ($this->input->get('rodzaj')=='przelew')
         {
-            header('location: '.base_url());
-            die();
+            $this->session->set_userdata('rodzaj', 'przelew');
+        }
+        if ($this->input->get('rodzaj')=='pobranie')
+        {
+            $this->session->set_userdata('rodzaj', 'pobranie');
+        }
+        if (!$this->input->get('rodzaj'))
+        {
+            if($this->session->userdata('rodzaj'))
+            {
+                $this->session->unset_userdata('rodzaj');
+            }
         }
         $args = func_get_args();
         if (empty($args))
         {
-            $dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
+            $dane['zamowienia']=$this->Model_m->ListaZamowien('',$this->input->get('rodzaj'), 'nie', '');
         }
         foreach ($args as $par)
         {
             if($par=='dzisiaj')
             {
-                $dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 and DAY(z.data_zamowienia)=DAY(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-                goto end;
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('dzisiaj',$this->input->get('rodzaj'), 'nie', '');
             }
             elseif($par=='tydzien')
             {
-                $dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 and WEEK(z.data_zamowienia)=WEEK(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-                goto end;
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('tydzien',$this->input->get('rodzaj'), 'nie', '');
             }
             elseif($par=='miesiac')
             {
-                $dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_zaplacono=0 and MONTH(z.data_zamowienia)=MONTH(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-                goto end;
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('miesiac',$this->input->get('rodzaj'), 'nie', '');
             }
         }
-        end:
-        $this->load->view('administrator/header');
-        $this->load->view('administrator/zamowienie/nowe_zamowienia', $dane);
-        $this->load->view('administrator/footer');
-    }
+
+		$this->load->view('administrator/header');
+		$this->load->view('administrator/zamowienie/nowe_zamowienia', $dane);
+		$this->load->view('administrator/footer');
+	}
 
 	public function nie_wyslane()
 	{
@@ -897,31 +887,43 @@ class Administrator extends CI_Controller
 				die();
 		}
 
-		$args = func_get_args();
-		if (empty($args))
-		{
-			$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_wyslano=0 GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-			goto end;
-		}
-		foreach ($args as $par)
-		{
-			if($par=='dzisiaj')
-			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_wyslano=0 and DAY(z.data_zamowienia)=DAY(NOW()) GROUP by z.id_zamowienia');
-				goto end;
-			}
-			elseif($par=='tydzien')
-			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_wyslano=0 and WEEK(z.data_zamowienia)=WEEK(NOW()) GROUP by z.id_zamowienia');
-				goto end;
-			}
-			elseif($par=='miesiac')
-			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_wyslano=0 and MONTH(z.data_zamowienia)=MONTH(NOW()) GROUP by z.id_zamowienia');
-				goto end;
-			}
-		}
-		end:
+        //Ustawienie zmiennej sesyjnej w zaleznosci od platnosci
+        if ($this->input->get('rodzaj')=='przelew')
+        {
+            $this->session->set_userdata('rodzaj', 'przelew');
+        }
+        if ($this->input->get('rodzaj')=='pobranie')
+        {
+            $this->session->set_userdata('rodzaj', 'pobranie');
+        }
+        if (!$this->input->get('rodzaj'))
+        {
+            if($this->session->userdata('rodzaj'))
+            {
+                $this->session->unset_userdata('rodzaj');
+            }
+        }
+        $args = func_get_args();
+        if (empty($args))
+        {
+            $dane['zamowienia']=$this->Model_m->ListaZamowien('',$this->input->get('rodzaj'), '', 'nie');
+        }
+        foreach ($args as $par)
+        {
+            if($par=='dzisiaj')
+            {
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('dzisiaj',$this->input->get('rodzaj'), '', 'nie');
+            }
+            elseif($par=='tydzien')
+            {
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('tydzien',$this->input->get('rodzaj'), '', 'nie');
+            }
+            elseif($par=='miesiac')
+            {
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('miesiac',$this->input->get('rodzaj'), '', 'nie');
+            }
+        }
+
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/zamowienie/nowe_zamowienia', $dane);
 		$this->load->view('administrator/footer');
@@ -934,31 +936,42 @@ class Administrator extends CI_Controller
 			header('location: '.base_url());
 				die();
 		}
-		$args = func_get_args();
-		if (empty($args))
-		{
-			$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_wyslano=1 and z.czy_zaplacono=1 GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-			goto end;
-		}
-		foreach ($args as $par)
-		{
-			if($par=='dzisiaj')
-			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_wyslano=1 and z.czy_zaplacono=1 and DAY(z.data_zamowienia)=DAY(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-				goto end;
-			}
-			elseif($par=='tydzien')
-			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_wyslano=1 and z.czy_zaplacono=1 and WEEK(z.data_zamowienia)=WEEK(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-				goto end;
-			}
-			elseif($par=='miesiac')
-			{
-				$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika and z.czy_wyslano=1 and z.czy_zaplacono=1 and MONTH(z.data_zamowienia)=MONTH(NOW()) GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
-				goto end;
-			}
-		}
-		end:
+        //Ustawienie zmiennej sesyjnej w zaleznosci od platnosci
+        if ($this->input->get('rodzaj')=='przelew')
+        {
+            $this->session->set_userdata('rodzaj', 'przelew');
+        }
+        if ($this->input->get('rodzaj')=='pobranie')
+        {
+            $this->session->set_userdata('rodzaj', 'pobranie');
+        }
+        if (!$this->input->get('rodzaj'))
+        {
+            if($this->session->userdata('rodzaj'))
+            {
+                $this->session->unset_userdata('rodzaj');
+            }
+        }
+        $args = func_get_args();
+        if (empty($args))
+        {
+            $dane['zamowienia']=$this->Model_m->ListaZamowien('',$this->input->get('rodzaj'), 'tak', 'tak');
+        }
+        foreach ($args as $par)
+        {
+            if($par=='dzisiaj')
+            {
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('dzisiaj',$this->input->get('rodzaj'), 'tak', 'tak');
+            }
+            elseif($par=='tydzien')
+            {
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('tydzien',$this->input->get('rodzaj'), 'tak', 'tak');
+            }
+            elseif($par=='miesiac')
+            {
+                $dane['zamowienia']=$this->Model_m->ListaZamowien('miesiac',$this->input->get('rodzaj'), 'tak', 'tak');
+            }
+        }
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/zamowienie/nowe_zamowienia', $dane);
 		$this->load->view('administrator/footer');
@@ -1055,24 +1068,62 @@ class Administrator extends CI_Controller
 
     public function stale_ceny()
     {
-
         $this->form_validation->set_rules('z1', 'Brans z 1', 'numeric');
         if ($this->form_validation->run() == FALSE)
         {
-            $dane['ceny_brans']=$this->Model_m->pobierz_stale(1);
+            $dane['sznureczek']=$this->Model_m->pobierz_stale(1);
+            $dane['guzik']=$this->Model_m->pobierz_stale(2);
+            $dane['kotwica']=$this->Model_m->pobierz_stale(3);
+            $dane['koralik']=$this->Model_m->pobierz_stale(4);
             $this->load->view('administrator/header');
             $this->load->view('administrator/przedmiot/stale_ceny', $dane);
             $this->load->view('administrator/footer');
         }
         else
         {
-            $ceny_brans['zawieszka1']=$this->input->post('z1');
-            $ceny_brans['zawieszka2']=$this->input->post('z2');
-            $ceny_brans['zawieszka3']=$this->input->post('z3');
-            $ceny_brans['opis']=$this->input->post('opis');
-            $this->Model_m->update('stale_ceny', $ceny_brans, 'id_stalej_ceny', 1);
+            switch($this->input->post('rodzajBransoletki'))
+            {
+                case 'sznureczek' :
+                    $ceny_brans['zawieszka1']=$this->input->post('z1');
+                    $ceny_brans['zawieszka2']=$this->input->post('z2');
+                    $ceny_brans['zawieszka3']=$this->input->post('z3');
+                    $ceny_brans['opis']=$this->input->post('opis');
+                    $this->Model_m->update('stale_ceny', $ceny_brans, 'id_stalej_ceny', 1);
+                    break;
+                case 'guzik' :
+                    $ceny_brans['zawieszka1']=$this->input->post('z1');
+                    $ceny_brans['zawieszka2']=$this->input->post('z2');
+                    $ceny_brans['zawieszka3']=$this->input->post('z3');
+                    $ceny_brans['zawieszka4']=$this->input->post('z4');
+                    $ceny_brans['zawieszka5']=$this->input->post('z5');
+                    $ceny_brans['opis']=$this->input->post('opis');
+                    $this->Model_m->update('stale_ceny', $ceny_brans, 'id_stalej_ceny', 2);
+                    break;
+                case 'kotwica' :
+                    $ceny_brans['zawieszka1']=$this->input->post('z1');
+                    $ceny_brans['zawieszka2']=$this->input->post('z2');
+                    $ceny_brans['zawieszka3']=$this->input->post('z3');
+                    $ceny_brans['zawieszka4']=$this->input->post('z4');
+                    $ceny_brans['zawieszka5']=$this->input->post('z5');
+                    $ceny_brans['opis']=$this->input->post('opis');
+                    $this->Model_m->update('stale_ceny', $ceny_brans, 'id_stalej_ceny', 3);
+                    break;
+                case 'koraliki' :
+                    $ceny_brans['zawieszka1']=$this->input->post('z1');
+                    $ceny_brans['zawieszka2']=$this->input->post('z2');
+                    $ceny_brans['zawieszka3']=$this->input->post('z3');
+                    $ceny_brans['zawieszka4']=$this->input->post('z4');
+                    $ceny_brans['zawieszka5']=$this->input->post('z5');
+                    $ceny_brans['opis']=$this->input->post('opis');
+                    $this->Model_m->update('stale_ceny', $ceny_brans, 'id_stalej_ceny', 4);
+                    break;
+            }
+
             $this->session->set_flashdata('stale_ceny');
-            $dane['ceny_brans']=$this->Model_m->pobierz_stale(1);
+            $dane['sznureczek']=$this->Model_m->pobierz_stale(1);
+            $dane['guzik']=$this->Model_m->pobierz_stale(2);
+            $dane['kotwica']=$this->Model_m->pobierz_stale(3);
+            $dane['koralik']=$this->Model_m->pobierz_stale(4);
             $this->load->view('administrator/header');
             $this->load->view('administrator/przedmiot/stale_ceny', $dane);
             $this->load->view('administrator/footer');

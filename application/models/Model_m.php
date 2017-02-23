@@ -261,4 +261,54 @@ class Model_m extends CI_Model
 			return FALSE;
 		}
 	}
+
+    public function ListaZamowien($okres, $dostawa, $wyslane, $oplacone)
+    {
+        $okresStr='';
+        $dostawaStr='';
+        $wyslaneStr='';
+        $oplaconeStr='';
+        if($okres=='dzisiaj')
+        {
+            $okresStr=' and DAY(z.data_zamowienia)=DAY(NOW()) and MONTH(z.data_zamowienia)=MONTH(NOW()) and YEAR(z.data_zamowienia)=YEAR(NOW()) ';
+        }
+        elseif($okres=='tydzien')
+        {
+            $okresStr=' and WEEK(z.data_zamowienia)=WEEK(NOW()) and YEAR(z.data_zamowienia)=YEAR(NOW()) ';
+        }
+        elseif($okres=='miesiac')
+        {
+            $okresStr=' and MONTH(z.data_zamowienia)=MONTH(NOW()) and YEAR(z.data_zamowienia)=YEAR(NOW()) ';
+        }
+
+        if($dostawa=='przelew')
+        {
+            $dostawaStr=' and d.rodzaj_dostawy=1 ';
+        }
+        elseif($dostawa=='pobranie')
+        {
+            $dostawaStr=' and d.rodzaj_dostawy=0 ';
+        }
+
+        if($wyslane=='tak')
+        {
+            $wyslaneStr=' and z.czy_wyslano=1 ';
+        }
+        elseif ($wyslane=='nie')
+        {
+            $wyslaneStr=' and z.czy_wyslano=0 ';
+        }
+
+        if($oplacone=='tak')
+        {
+            $oplaconeStr=' and z.czy_zaplacono=1 ';
+        }
+        elseif ($oplacone=='nie')
+        {
+            $oplaconeStr=' and z.czy_zaplacono=0 ';
+        }
+
+        $zamowienie=$this->db->query('select z.id_zamowienia, u.imie, u.nazwisko, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia, d.rodzaj_dostawy from uzytkownicy u, zamowienia z, dostawa d where u.id_uzytkownika=z.id_uzytkownika AND z.dostawa=d.id_dostawy'.$okresStr.$dostawaStr.$wyslaneStr.$oplaconeStr.' GROUP by z.id_zamowienia ORDER BY z.data_zamowienia DESC');
+        return $zamowienie->result();
+    }
 }

@@ -69,6 +69,8 @@
           </ul>
           <ul class="nav nav-sidebar">
             <li <?php if($this->uri->segment(2)=='statystyki') echo 'class="active"' ?>><?php echo anchor('administrator/statystyki', 'Statystyki sprzedazy'); ?></li>
+              <li <?php if($this->uri->segment(2)=='dostawy') echo 'class="active"' ?>><?php echo anchor('administrator/dostawy', 'Dostawy'); ?></li>
+              <li <?php if($this->uri->segment(2)=='stale-ceny') echo 'class="active"' ?>><?php echo anchor('administrator/stale-ceny', 'Stałe Ceny'); ?></li>
 
           </ul>
         </div>
