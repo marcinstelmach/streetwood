@@ -516,32 +516,32 @@ input
 #div1del /*usuwanie zawieszek guzika*/
 {
     position: absolute;
-    top: 350px;
+    top: 380px;
     left: 60px;
 }
 
 #div2del
 {
     position: absolute;
-    top: 350px;
+    top: 380px;
     left: 130px;
 }
 #div3del
 {
     position: absolute;
-    top: 350px;
+    top: 380px;
     left: 200px;
 }
 #div4del
 {
     position: absolute;
-    top: 350px;
+    top: 380px;
     left: 270px;
 }
 #div5del
 {
     position: absolute;
-    top: 350px;
+    top: 380px;
     left: 340px;
 }
 
@@ -592,4 +592,104 @@ input
     color: #fff;
     text-decoration: none;
     cursor: pointer;
+}
+
+.zdecyduj-cont
+{
+    border-right-style: solid;
+    border-right-width:1px;
+    border-right-color: #000;
+    
+}
+
+.btn-zdecyduj
+{
+    border-radius: 0;
+    background-color: #33aa33;
+    color: #fff;
+}
+
+.btn-zdecyduj:hover
+{
+    border-radius: 0;
+    background-color: #33aa33;
+    color: #fff;
+}
+
+.table-order
+{
+    border:0;
+}
+
+.section input[type="radio"]{
+    display: none;
+}
+
+.container-radio
+{
+    padding-left:50px;
+}
+
+.container-radio label {
+    position: relative;
+}
+
+.container-radio span::before,
+.container-radio span::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.container-radio span.radio:hover {
+    cursor: pointer;
+}
+.container-radio span.radio::before {
+    left: -52px;
+    width: 45px;
+    height: 25px;
+    background-color: #e2e2e2;
+    border-radius: 50px;
+}
+.container-radio span.radio::after {
+    left: -49px;
+    width: 17px;
+    height: 17px;
+    border-radius: 10px;
+    background-color: #3a3a3a;
+    transition: left .25s, background-color .25s;
+}
+input[type="radio"]:checked + label span.radio::after {
+    left: -27px;
+    background-color: #33aa33;
+}
+
+.container-zamowienie::-webkit-scrollbar {
+    width: 1em;
+}
+
+.container-zamowienie::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.container-zamowienie::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+.container-zamowienie
+{
+    overflow-y: scroll;
+}
+
+.right-menu
+{
+    padding-right:20px;
+}
+
+.add-cart-div
+{
+    margin-top: 20px;
 }

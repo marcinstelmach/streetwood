@@ -123,7 +123,7 @@
                   <input type="submit" class="btn btn-danger" value="Dodaj przedmiot" />
                 </div>
               </div>
-            </form>
+            </form> 
         </div>
           </div>
         </div>

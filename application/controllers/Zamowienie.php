@@ -15,10 +15,12 @@ class Zamowienie extends CI_Controller
 		
 		if($this->session->userdata('zalogowany')==TRUE || $this->session->userdata('bez_rejestracji')==TRUE)
 		{
+            $dane['dostawy']=$this->Model_m->get('dostawa');
 			$this->session->set_userdata('krok_1', TRUE);
 			$this->load->view('header', $this->kategorie);
-			$this->load->view('przedmioty/category', $this->kategorie);
-			$this->load->view('zamowienie/krok_1');
+			//$this->load->view('przedmioty/category', $this->kategorie);
+			//$this->load->view('zamowienie/krok_1');
+			$this->load->view('zamowienie/calosc', $dane);
 			$this->load->view('footer');
 		}
 		else

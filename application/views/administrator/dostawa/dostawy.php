@@ -43,7 +43,7 @@
             </form>
         </div>
         <div class="col-md-6">
-            <h1>Edytuj przesyłki</h1>
+            <h1>Edytuj rabaty</h1>
             <div class="table-responsive">
                 <table class="table">
                     <tr>
