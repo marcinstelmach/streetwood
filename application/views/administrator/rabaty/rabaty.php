@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label for="kod">KOD</label>
-                <input type="text" class="form-control" id="kod" placeholder="Kod" name="kod">
+                <input type="text" class="form-control" id="kod" placeholder="Kod" name="kod" disabled>
             </div>
             <?php echo '<div class="bladwalidacji">' . form_error("kod") . '</div>'; ?>
             <div class="form-group">

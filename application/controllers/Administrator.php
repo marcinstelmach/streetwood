@@ -1021,7 +1021,7 @@ class Administrator extends CI_Controller
     public function rabaty()
     {
         $dane['rabaty'] = $this->Model_m->get('rabaty');
-        $dane['kategorie'] = $this->Model_m->get('kategorie');
+        $dane['kategorie'] = $this->Model_m->getZawieszkiNotParent();
         $this->load->view('administrator/header');
         $this->load->view('administrator/rabaty/rabaty', $dane);
         $this->load->view('administrator/footer');
@@ -1037,7 +1037,7 @@ class Administrator extends CI_Controller
         $this->form_validation->set_message('max_length', 'Pole %s max 20 znaków');
         if ($this->form_validation->run() == FALSE) {
             $dane['rabaty'] = $this->Model_m->get('rabaty');
-            $dane['kategorie'] = $this->Model_m->get('kategorie');
+            $dane['kategorie'] = $this->Model_m->getZawieszkiNotParent();
             $this->load->view('administrator/header');
             $this->load->view('administrator/rabaty/rabaty', $dane);
             $this->load->view('administrator/footer');
@@ -1046,7 +1046,9 @@ class Administrator extends CI_Controller
             $data['wartosc'] = $this->input->post('wartosc');
             $data['aktywny'] = false;
             $data['kod'] = $this->input->post('kod');
+
             $data['na_wszystko'] = $this->input->post('na_wszystko');
+
             if ($this->input->post('kategoria') != '')
                 $data['id_kategorii'] = $this->input->post('kategoria');
             else
