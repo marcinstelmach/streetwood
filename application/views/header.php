@@ -53,7 +53,7 @@
                         {
                             if ($kat->nazwa_kategorii == $cat->nazwa_kategorii)
                             {
-                                echo '<li>' . anchor(strtolower(str_replace(' ', '-', $cat->nazwa_kategorii.'/'.$kat->nazwa_pod_kategorii)), $kat->nazwa_pod_kategorii) . '</li>';
+                                echo '<li>' . anchor(strtolower(str_replace(' ', '-', $cat->nazwa_kategorii.'/'.$kat->nazwa_pod_kategorii)),                                 $kat->nazwa_pod_kategorii) . '</li>';
                             }
                         }
                         echo ' </ul>
@@ -66,7 +66,7 @@
           <ul class="nav navbar-nav navbar-right fejsy">
             <li><a class="social-links" href="http://facebook.com/streetwoodpl"><i class="icon-facebook-official" style="font-size: 20px;"></i></a></li>
             <li><a class="social-links" href="http://instagram.com/street_wood"><i class="icon-instagram" style="font-size: 20px;"></i></a></li>
-            <li><a class="social-links" href="#"><i class="icon-snapchat-ghost" style="font-size: 20px;" data-toggle="modal" data-target=".snapcode"></i></a></li>
+            <li><a class="social-links" href="#" id="myBtn"><i class="icon-snapchat-ghost" style="font-size: 20px;"></i></a></li>
             <li><a class="social-links" href="<?=base_url().'uzytkownik/zaloguj' ?>">ZALOGUJ SIĘ</a> </li>
             <li><a class="social-links" href="<?=base_url().'uzytkownik/rejestracja' ?>">ZAREJESTRUJ SIĘ</a></li>
             <li><a class="social-links" href="<?=base_url().'koszyk/wyswietl' ?>"><i class="icon-basket" style="font-size: 20px;"></i><span class="badge"><?=$this->cart->total_items()?></span></a></li>
@@ -76,10 +76,15 @@
     </div>
   </nav> <!-- Koniec menu nav -->
   <!-- Modal -->
-  <div class="modal fade snapcode" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-      <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <img src="<?=base_url()?>assetss/img/snapcode.jpg" alt="SnapCode" style="width: 300px;">
-          </div>
+  <!-- The Modal -->
+  <div id="myModal" class="modalSnap">
+
+      <!-- Modal content -->
+      <div class="modal-contentSnap">
+          <span class="close">&times;</span>
+          <img src="<?=base_url()?>assetss/img/snapcode.jpg" alt="SnapCode" style="width: 400px;" class="center-block">
       </div>
+
   </div>
+
+<script src="<?=base_url()?>assetss/js/modalSnap.js"></script>

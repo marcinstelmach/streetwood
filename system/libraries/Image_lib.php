@@ -632,7 +632,7 @@ class CI_Image_lib {
 			$this->quality = 90;
 		}
 
-		// Set the x/y coordinates
+		// Set the x/rabaty coordinates
 		is_numeric($this->x_axis) OR $this->x_axis = 0;
 		is_numeric($this->y_axis) OR $this->y_axis = 0;
 
@@ -778,7 +778,7 @@ class CI_Image_lib {
 		}
 		else
 		{
-			// If resizing the x/y axis must be zero
+			// If resizing the x/rabaty axis must be zero
 			$this->x_axis = 0;
 			$this->y_axis = 0;
 		}
@@ -1176,7 +1176,7 @@ class CI_Image_lib {
 		if ($this->wm_hor_alignment === 'R')
 			$this->wm_hor_offset = $this->wm_hor_offset * -1;
 
-		// Set the base x and y axis values
+		// Set the base x and rabaty axis values
 		$x_axis = $this->wm_hor_offset + $this->wm_padding;
 		$y_axis = $this->wm_vrt_offset + $this->wm_padding;
 

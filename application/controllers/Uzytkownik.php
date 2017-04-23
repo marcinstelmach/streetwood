@@ -2,11 +2,12 @@
 
 class Uzytkownik extends CI_Controller
 {
-	
+	private $kategorie='';
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Model_m');
+        $this->kategorie['drzewko']=$this->Model_m->pobierz_drzewko_kategorii();
 	}
 
 	public function Index()
@@ -18,7 +19,7 @@ class Uzytkownik extends CI_Controller
 		}
 		$dane['dane']=$this->Model_m->pobierzgdzie('login', $this->session->userdata('login'), 'uzytkownicy');
 
-		$this->load->view('header');
+		$this->load->view('header', $this->kategorie);
 		$this->load->view('uzytkownik/menu_boczne');
 		$this->load->view('uzytkownik/wyswietl_dane', $dane);
 		$this->load->view('footer');	 
@@ -135,7 +136,7 @@ class Uzytkownik extends CI_Controller
 				$this->form_validation->set_message('min_length', 'Pole %s jest za krótkie');
 				if ($this->form_validation->run() == FALSE)
 				{
-					$this->load->view('header');
+					$this->load->view('header', $this->kategorie);
 					$this->load->view('uzytkownik/start_container');
 					$this->load->view('uzytkownik/menu_boczne');
 					$this->load->view('uzytkownik/modyfikacja');
@@ -174,7 +175,7 @@ class Uzytkownik extends CI_Controller
 		}
 		else
 		{
-			header('location: '.$url.'zaloguj');
+			header('location: '.base_url().'zaloguj');
 		}
 	}
 
@@ -239,7 +240,7 @@ class Uzytkownik extends CI_Controller
 	{
 		$dane['zamowienia']=$this->Model_m->query('select z.id_zamowienia, u.imie, u.nazwisko, u.id_uzytkownika, z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from uzytkownicy u, zamowienia z where u.id_uzytkownika=z.id_uzytkownika AND u.id_uzytkownika='.$this->session->userdata('id_uzytkownika').' GROUP by z.id_zamowienia');
 
-		$this->load->view('header');
+		$this->load->view('header', $this->kategorie);
 		$this->load->view('uzytkownik/menu_boczne');
 		$this->load->view('uzytkownik/zamowienia', $dane);
 		$this->load->view('footer');
@@ -247,13 +248,24 @@ class Uzytkownik extends CI_Controller
 
 	public function szczegoly_zamowienia($id_zamowienia)
 	{
+		if(($this->session->userdata('zalogowany')!=TRUE))
+		{
+			$this->session->set_userdata('id_zamowienia', $id_zamowienia);
+			header('location: '.base_url().'uzytkownik/zaloguj');
+			die();
+		}
+		if (!$this->Model_m->czy_moje_zamowienie($id_zamowienia, $this->session->userdata('id_uzytkownika')))
+		{
+			echo '<h1 style="text-decoration: underline; text-align: center; margin-top: 100px; font-size: 50px;">403 Forbbiden</h1>';
+			die();
+		}
 		$dane['adres']=$this->Model_m->query('select a.miasto, a.ulica, a.nr_domu, a.kod_pocztowy from adresy a, zamowienia z where a.id_adresu=z.id_adresu and z.id_zamowienia='.$id_zamowienia);
 		$dane['uzytkownik']=$this->Model_m->query('select u.imie, u.nazwisko, u.email, u.telefon from uzytkownicy u, zamowienia z WHERE z.id_uzytkownika=u.id_uzytkownika and z.id_zamowienia='.$id_zamowienia);
-		$dane['produkt']=$this->Model_m->query('select p.nazwa, p.dlugosc, p.szerokosc, p.cena, t.ilosc FROM produkty p, zamowienia z, zam_tow t WHERE p.id_produktu=t.id_produktu and t.id_zamowienia=z.id_zamowienia and z.id_zamowienia='.$id_zamowienia);
+		$dane['produkt']=$this->Model_m->query('select p.nazwa, p.cena, t.ilosc, t.komentarz FROM produkty p, zamowienia z, zam_tow t WHERE p.id_produktu=t.id_produktu and t.id_zamowienia=z.id_zamowienia and z.id_zamowienia='.$id_zamowienia);
 		$dane['id_zamowienia']=$id_zamowienia;
 		$dane['zamowienie']=$this->Model_m->query('select z.czy_wyslano, z.czy_zaplacono, z.cena, z.data_zamowienia from zamowienia z where z.id_zamowienia='.$id_zamowienia);
 
-		$this->load->view('header');
+		$this->load->view('header', $this->kategorie);
 		$this->load->view('uzytkownik/menu_boczne');
 		$this->load->view('uzytkownik/szczegoly_zamowienia', $dane);
 		$this->load->view('footer');

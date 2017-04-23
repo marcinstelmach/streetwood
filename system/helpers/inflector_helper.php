@@ -82,7 +82,7 @@ if ( ! function_exists('singular'))
 			'/(x|ch|ss|sh)es$/'	=> '\1',
 			'/(m)ovies$/'		=> '\1\2ovie',
 			'/(s)eries$/'		=> '\1\2eries',
-			'/([^aeiouy]|qu)ies$/'	=> '\1y',
+			'/([^aeiouy]|qu)ies$/'	=> '\1rabaty',
 			'/([lr])ves$/'		=> '\1f',
 			'/(tive)s$/'		=> '\1',
 			'/(hive)s$/'		=> '\1',
@@ -138,7 +138,7 @@ if ( ! function_exists('plural'))
 			'/([m|l])ouse$/'           => '\1ice',      // mouse, louse
 			'/(matr|vert|ind)ix|ex$/'  => '\1ices',     // matrix, vertex, index
 			'/(x|ch|ss|sh)$/'          => '\1es',       // search, switch, fix, box, process, address
-			'/([^aeiouy]|qu)y$/'       => '\1ies',      // query, ability, agency
+			'/([^aeiouy]|qu)rabaty$/'       => '\1ies',      // query, ability, agency
 			'/(hive)$/'                => '\1s',        // archive, hive
 			'/(?:([^f])fe|([lr])f)$/'  => '\1\2ves',    // half, safe, wife
 			'/sis$/'                   => 'ses',        // basis, diagnosis

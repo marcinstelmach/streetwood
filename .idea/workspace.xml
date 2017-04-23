@@ -34,6 +34,7 @@
     <favorites_list name="streetwood" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Model_m.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/Model_m.php">
@@ -78,6 +79,9 @@
         </entry>
       </file>
     </leaf>
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+>>>>>>> refs/remotes/origin/0.1
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -92,57 +96,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_kategorie.php" />
-        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/wyswietl_kategorie.php" />
-        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/wyswietl_przedmioty.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/sznu.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/cat.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/sznureczek_copy.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/cat_test.php" />
-        <option value="$PROJECT_DIR$/application/views/footer.php" />
-        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_kategorie.php" />
-        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_podobny.php" />
-        <option value="$PROJECT_DIR$/application/controllers/O.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/tshirt_copy.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Case_iphone.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/cases.php" />
-        <option value="$PROJECT_DIR$/application/views/slider.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/backpack.php" />
         <option value="$PROJECT_DIR$/application/views/przedmioty/inne_modele.php" />
-        <option value="$PROJECT_DIR$/application/views/zamowienie/zdecyduj.php" />
-        <option value="$PROJECT_DIR$/application/views/zamowienie/krok_1.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Zamowienie.php" />
-        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/stale_ceny.php" />
         <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_przedmiot.php" />
-        <option value="$PROJECT_DIR$/application/models/Model_m.php" />
-        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_przedmiot.php" />
         <option value="$PROJECT_DIR$/application/controllers/Case_.php" />
         <option value="$PROJECT_DIR$/application/controllers/Plecak.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/koraliki.php" />
         <option value="$PROJECT_DIR$/application/controllers/Bransoletki.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Koszyk.php" />
         <option value="$PROJECT_DIR$/application/views/koszyk/koszyk.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Administrator.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/guziki.php" />
         <option value="$PROJECT_DIR$/application/views/przedmioty/kotwice.php" />
         <option value="$PROJECT_DIR$/application/views/przedmioty/cases_iphone.php" />
         <option value="$PROJECT_DIR$/application/views/przedmioty/czapki.php" />
         <option value="$PROJECT_DIR$/application/controllers/Odziez.php" />
         <option value="$PROJECT_DIR$/application/views/przedmioty/tshirts.php" />
         <option value="$PROJECT_DIR$/application/views/przedmioty/backpacks.php" />
-        <option value="$PROJECT_DIR$/application/views/header.php" />
-        <option value="$PROJECT_DIR$/assetss/css/style.css" />
-        <option value="$PROJECT_DIR$/application/views/zamowienie/krok_2.php" />
         <option value="$PROJECT_DIR$/application/views/zamowienie/krok_3.php" />
         <option value="$PROJECT_DIR$/application/views/przedmioty/category.php" />
+        <option value="$PROJECT_DIR$/application/views/przedmioty/tshirt.php" />
+        <option value="$PROJECT_DIR$/application/views/przedmioty/koraliki.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/assetss/js/ilosc.js" />
+        <option value="$PROJECT_DIR$/assetss/js/zawieszki.js" />
+        <option value="$PROJECT_DIR$/assetss/js/modalSnap.js" />
+        <option value="$PROJECT_DIR$/application/views/header.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Koszyk.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/zamowienie/szczegoly_zamowienia.php" />
+        <option value="$PROJECT_DIR$/assetss/css/dashboard.css" />
+        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_przedmiot.php" />
+        <option value="$PROJECT_DIR$/application/views/uzytkownik/szczegoly_zamowienia.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Uzytkownik.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/przedmiot/stale_ceny.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/zamowienie/nowe_zamowienia.php" />
+        <option value="$PROJECT_DIR$/application/views/zamowienie/krok_1.php" />
+        <option value="$PROJECT_DIR$/application/views/zamowienie/krok_2.php" />
+        <option value="$PROJECT_DIR$/application/views/zamowienie/zdecyduj.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Zamowienie.php" />
+        <option value="$PROJECT_DIR$/application/views/zamowienie/calosc.php" />
+        <option value="$PROJECT_DIR$/application/views/przedmioty/backpack.php" />
+        <option value="$PROJECT_DIR$/application/views/przedmioty/case_iphone.php" />
         <option value="$PROJECT_DIR$/application/views/przedmioty/kotwica.php" />
+        <option value="$PROJECT_DIR$/application/views/przedmioty/czapka.php" />
+        <option value="$PROJECT_DIR$/application/views/przedmioty/koralikii.php" />
         <option value="$PROJECT_DIR$/application/views/przedmioty/sznureczek.php" />
         <option value="$PROJECT_DIR$/application/views/przedmioty/guzik.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/koralikii.php" />
-        <option value="$PROJECT_DIR$/assetss/js/ilosc.js" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/czapka.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/case_iphone.php" />
-        <option value="$PROJECT_DIR$/application/views/przedmioty/tshirt.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/rabat/rabaty.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/y/rabaty.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/dostawa/dostawy.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/header.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/test.php" />
+        <option value="$PROJECT_DIR$/application/views/administrator/rabaty/rabaty.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Administrator.php" />
+        <option value="$PROJECT_DIR$/application/models/Model_m.php" />
+        <option value="$PROJECT_DIR$/assetss/css/style.css" />
+        <option value="$PROJECT_DIR$/application/views/przedmioty/guziki.php" />
       </list>
     </option>
   </component>
@@ -322,54 +326,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="administrator" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="streetwood" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="streetwood" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="administrator" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="przedmiot" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="streetwood" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="streetwood" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -399,7 +355,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../php/php.exe" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -516,22 +472,45 @@
       <workItem from="1487359399773" duration="6000" />
       <workItem from="1487359409215" duration="13000" />
       <workItem from="1487667215462" duration="86000" />
+<<<<<<< HEAD
       <workItem from="1487766982698" duration="9155000" />
       <workItem from="1487788486146" duration="95000" />
+=======
+      <workItem from="1487766982698" duration="16128000" />
+      <workItem from="1487788663862" duration="3593000" />
+      <workItem from="1487838777882" duration="4779000" />
+      <workItem from="1487845049288" duration="21000" />
+      <workItem from="1487853951255" duration="14761000" />
+      <workItem from="1487925882812" duration="5183000" />
+      <workItem from="1488195998465" duration="60000" />
+      <workItem from="1490346789993" duration="848000" />
+      <workItem from="1490966495030" duration="4756000" />
+      <workItem from="1491806748354" duration="13000" />
+      <workItem from="1492849684452" duration="13418000" />
+>>>>>>> refs/remotes/origin/0.1
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="256095000" />
+=======
+    <option name="totallyTimeSpent" value="310405000" />
+>>>>>>> refs/remotes/origin/0.1
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
+<<<<<<< HEAD
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20863836" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20790629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> refs/remotes/origin/0.1
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39905363" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -542,7 +521,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39905363" sideWeight="0.49707174" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -565,178 +543,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
       <option name="time" value="1" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/slider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/sklep/lista.php" />
-    <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1817">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_kategorie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/memcached.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/smileys.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/core/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-491">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/backpack.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-678">
-          <caret line="16" column="98" selection-start-line="16" selection-start-column="98" selection-end-line="16" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assetss/js/drag_and_over.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/inne_modele.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="77" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/zamowienie/zdecyduj.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="29" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/zamowienie/krok_1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Zamowienie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3791">
-          <caret line="223" column="20" selection-start-line="223" selection-start-column="20" selection-end-line="223" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/body.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="73" column="12" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/modyfikuj_przedmiot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="52" column="15" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_przedmiot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="41" column="37" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Case_.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Uzytkownik.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Sklep.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/koszyk/koszyk.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="98" column="54" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/guziki.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/kotwice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/przedmioty/czapki.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/cases_iphone.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -751,7 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8">
           <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,48 +586,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Koszyk.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="43" column="84" selection-start-line="43" selection-start-column="84" selection-end-line="43" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assetss/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/backpacks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Plecak.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/zamowienie/krok_2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="91" column="13" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -821,103 +600,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Administrator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="1043" column="48" selection-start-line="1043" selection-start-column="43" selection-end-line="1043" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/przedmioty/category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/koraliki.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="5" selection-start-line="12" selection-start-column="4" selection-end-line="15" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/sznureczek.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="80" column="80" selection-start-line="80" selection-start-column="80" selection-end-line="80" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/koralikii.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="165" column="82" selection-start-line="165" selection-start-column="82" selection-end-line="165" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/kotwica.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="82" column="86" selection-start-line="82" selection-start-column="86" selection-end-line="82" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assetss/js/ilosc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/guzik.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="94" column="39" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Bransoletki.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="99" column="51" selection-start-line="99" selection-start-column="51" selection-end-line="99" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/stale_ceny.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="31" column="99" selection-start-line="31" selection-start-column="99" selection-end-line="31" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Model_m.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3944">
-          <caret line="232" column="33" selection-start-line="232" selection-start-column="28" selection-end-line="232" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/czapka.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="57" column="80" selection-start-line="57" selection-start-column="80" selection-end-line="57" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/case_iphone.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="66" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -925,9 +611,507 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/cases_iphone.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/backpacks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assetss/js/ilosc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assetss/js/zawieszki.js" />
+    <entry file="file://$PROJECT_DIR$/assetss/js/modalSnap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Koszyk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/koszyk/koszyk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="64" column="114" selection-start-line="64" selection-start-column="102" selection-end-line="64" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assetss/css/dashboard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="108" column="16" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Uzytkownik.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="274" column="1" selection-start-line="274" selection-start-column="1" selection-end-line="274" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/stale_ceny.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="119" column="76" selection-start-line="119" selection-start-column="76" selection-end-line="119" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/libraries/Calendar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9005">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/zamowienie/szczegoly_zamowienia.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1003">
+          <caret line="69" column="31" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/uzytkownik/szczegoly_zamowienia.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/zamowienie/nowe_zamowienia.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="138" column="59" selection-start-line="138" selection-start-column="59" selection-end-line="138" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/zamowienie/krok_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+=======
+        <state relative-caret-position="656">
+          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/zamowienie/krok_2.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-8">
+          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <folding />
+=======
+        <state relative-caret-position="144">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/zamowienie/zdecyduj.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="289">
+          <caret line="80" column="29" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="29" />
+=======
+        <state relative-caret-position="238">
+          <caret line="14" column="110" selection-start-line="14" selection-start-column="110" selection-end-line="14" selection-end-column="110" />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Zamowienie.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="352">
+          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/zamowienie/calosc.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-34">
+          <caret line="43" column="84" selection-start-line="43" selection-start-column="84" selection-end-line="43" selection-end-column="84" />
+=======
+        <state relative-caret-position="193">
+          <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/backpack.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/kotwica.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="340">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+          <folding />
+=======
+        <state relative-caret-position="208">
+          <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/czapka.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="204">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+=======
+        <state relative-caret-position="421">
+          <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/koraliki.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="351">
+          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+=======
+        <state relative-caret-position="112">
+          <caret line="7" column="90" selection-start-line="7" selection-start-column="90" selection-end-line="7" selection-end-column="90" />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/koralikii.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="495">
+          <caret line="91" column="13" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
+=======
+        <state relative-caret-position="1872">
+          <caret line="116" column="14" selection-start-line="116" selection-start-column="14" selection-end-line="116" selection-end-column="14" />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/sznureczek.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="665">
+          <caret line="76" column="78" selection-start-line="76" selection-start-column="78" selection-end-line="76" selection-end-column="78" />
+=======
+        <state relative-caret-position="1616">
+          <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+          <folding>
+            <marker date="1490971153717" expanded="true" signature="6074:6523" placeholder="..." />
+            <marker date="1490971153717" expanded="true" signature="6160:6517" placeholder="..." />
+            <marker date="1490971153717" expanded="true" signature="6356:6486" placeholder="..." />
+            <marker date="1490971153717" expanded="true" signature="6661:6714" placeholder="..." />
+          </folding>
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/guzik.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="466">
+          <caret line="1043" column="48" selection-start-line="1043" selection-start-column="43" selection-end-line="1043" selection-end-column="48" />
+=======
+        <state relative-caret-position="288">
+          <caret line="118" column="35" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
+          <folding>
+            <marker date="1490971218512" expanded="true" signature="7534:7983" placeholder="..." />
+            <marker date="1490971218512" expanded="true" signature="7620:7977" placeholder="..." />
+            <marker date="1490971218512" expanded="true" signature="7816:7946" placeholder="..." />
+            <marker date="1490971218512" expanded="true" signature="8121:8174" placeholder="..." />
+          </folding>
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/case_iphone.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="88" column="10" selection-start-line="80" selection-start-column="4" selection-end-line="88" selection-end-column="10" />
+          <folding>
+            <marker date="1490970511312" expanded="true" signature="867:1169" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/dostawa/dostawy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+          <folding>
+            <marker date="1492853089559" expanded="true" signature="312:474" placeholder="..." />
+            <marker date="1492853089559" expanded="true" signature="2467:2639" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="345">
+          <caret line="80" column="80" selection-start-line="80" selection-start-column="80" selection-end-line="80" selection-end-column="80" />
+          <folding />
+=======
+        <state relative-caret-position="1392">
+          <caret line="84" column="91" selection-start-line="84" selection-start-column="91" selection-end-line="84" selection-end-column="91" />
+          <folding>
+            <marker date="1487844670852" expanded="true" signature="2600:2909" placeholder="..." />
+            <marker date="1487844670852" expanded="true" signature="2894:2908" placeholder="..." />
+          </folding>
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/body.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="323">
+          <caret line="165" column="82" selection-start-line="165" selection-start-column="82" selection-end-line="165" selection-end-column="82" />
+=======
+        <state relative-caret-position="437">
+          <caret line="80" column="301" selection-start-line="80" selection-start-column="283" selection-end-line="80" selection-end-column="301" />
+>>>>>>> refs/remotes/origin/0.1
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="408">
+          <caret line="82" column="86" selection-start-line="82" selection-start-column="86" selection-end-line="82" selection-end-column="86" />
+=======
+        <state relative-caret-position="437">
+          <caret line="75" column="140" selection-start-line="75" selection-start-column="140" selection-end-line="75" selection-end-column="140" />
+>>>>>>> refs/remotes/origin/0.1
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_kategorie.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="17">
+          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/przedmiot/dodaj_przedmiot.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="183">
+          <caret line="94" column="39" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="39" />
+          <folding />
+=======
+        <state relative-caret-position="213">
+          <caret line="131" column="8" selection-start-line="131" selection-start-column="8" selection-end-line="131" selection-end-column="96" />
+          <folding>
+            <marker date="1489658422820" expanded="true" signature="329:658" placeholder="..." />
+            <marker date="1489658422820" expanded="true" signature="402:645" placeholder="..." />
+          </folding>
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="612">
+          <caret line="99" column="51" selection-start-line="99" selection-start-column="51" selection-end-line="99" selection-end-column="51" />
+=======
+        <state relative-caret-position="96">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/przedmioty/guziki.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="476">
+          <caret line="31" column="99" selection-start-line="31" selection-start-column="99" selection-end-line="31" selection-end-column="99" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+          <folding>
+            <marker date="1492878149696" expanded="true" signature="121:478" placeholder="..." />
+            <marker date="1492878149696" expanded="true" signature="121:813" placeholder="..." />
+            <marker date="1492878149696" expanded="true" signature="262:406" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Bransoletki.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="19" column="52" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="52" />
+          <folding />
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Administrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="3944">
+          <caret line="232" column="33" selection-start-line="232" selection-start-column="28" selection-end-line="232" selection-end-column="33" />
+          <folding />
+=======
+        <state relative-caret-position="341">
+          <caret line="1039" column="72" selection-start-line="1039" selection-start-column="72" selection-end-line="1039" selection-end-column="72" />
+          <folding>
+            <marker date="1492874110914" expanded="true" signature="1590:1654" placeholder="SELECT k.naz... kategorie" />
+            <marker date="1492874110914" expanded="true" signature="1707:1771" placeholder="SELECT k.naz... kategorie" />
+            <marker date="1492874110914" expanded="true" signature="8695:8748" placeholder="SELECT nazwa... zdjecia" />
+            <marker date="1492874110914" expanded="true" signature="18723:18976" placeholder="select p.id_... produkty" />
+            <marker date="1492874110914" expanded="true" signature="20091:20135" placeholder="select * fro... zdjecia" />
+            <marker date="1492874110914" expanded="true" signature="22817:22987" placeholder="select p.id_... produkty" />
+            <marker date="1492874110914" expanded="true" signature="25180:25375" placeholder="SELECT t1.na... kategorie" />
+            <marker date="1492874110914" expanded="true" signature="26528:26584" placeholder="select nazwa... zdjecia" />
+            <marker date="1492874110914" expanded="true" signature="31879:32009" placeholder="select a.mia... adresy" />
+            <marker date="1492874110914" expanded="true" signature="32083:32222" placeholder="select u.imi... uzytkownicy" />
+            <marker date="1492874110914" expanded="true" signature="32293:32469" placeholder="select p.naz... produkty" />
+            <marker date="1492874110914" expanded="true" signature="32592:32697" placeholder="select z.czy... zamowienia" />
+            <marker date="1492874110914" expanded="true" signature="39361:39560" placeholder="SELECT SUM(c... zamowienia" />
+            <marker date="1492874110914" expanded="true" signature="39615:39816" placeholder="SELECT SUM(c... zamowienia" />
+            <marker date="1492874110914" expanded="true" signature="39871:40032" placeholder="SELECT SUM(c... zamowienia" />
+            <marker date="1492874110914" expanded="true" signature="40083:40202" placeholder="SELECT SUM(c... zamowienia" />
+            <marker date="1492874110914" expanded="true" signature="40362:40471" placeholder="SELECT SUM(c... zamowienia" />
+            <marker date="1492874110914" expanded="true" signature="40688:40790" placeholder="SELECT SUM(c... zamowienia" />
+          </folding>
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Model_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="952">
+          <caret line="57" column="80" selection-start-line="57" selection-start-column="80" selection-end-line="57" selection-end-column="80" />
+          <folding />
+=======
+        <state relative-caret-position="376">
+          <caret line="194" column="437" selection-start-line="194" selection-start-column="437" selection-end-line="194" selection-end-column="437" />
+          <folding>
+            <marker date="1492877455346" expanded="true" signature="3678:3758" placeholder="select k.id_... kategorie" />
+            <marker date="1492877455346" expanded="true" signature="3906:3969" placeholder="select k.naz... kategorie" />
+            <marker date="1492877455346" expanded="true" signature="4120:4350" placeholder="SELECT t1.na... kategorie" />
+            <marker date="1492877455346" expanded="true" signature="4498:4815" placeholder="select p.id_... produkty" />
+            <marker date="1492877455346" expanded="true" signature="4968:5179" placeholder="SELECT p.naz... produkty" />
+            <marker date="1492877455346" expanded="true" signature="5319:5565" placeholder="select t1.na... kategorie" />
+            <marker date="1492877455346" expanded="true" signature="5716:5806" placeholder="SELECT kz.na... kategorie_zawieszek" />
+            <marker date="1492877455346" expanded="true" signature="5950:6254" placeholder="SELECT p.naz... produkty" />
+            <marker date="1492877455346" expanded="true" signature="6414:6809" placeholder="SELECT p.naz... produkty" />
+            <marker date="1492877455346" expanded="true" signature="6849:7236" placeholder="SELECT p.naz... produkty" />
+            <marker date="1492877455346" expanded="true" signature="6849:7268" placeholder="SELECT p.naz... produkty" />
+            <marker date="1492877455346" expanded="true" signature="6849:7304" placeholder="SELECT p.naz... produkty" />
+            <marker date="1492877455346" expanded="true" signature="7404:7526" placeholder="SELECT p.naz... produkty" />
+            <marker date="1492877455346" expanded="true" signature="7673:7785" placeholder="SELECT z.naz... zdjecia" />
+            <marker date="1492877455346" expanded="true" signature="7919:7965" placeholder="SELECT * FRO... stale_ceny" />
+            <marker date="1492877455346" expanded="true" signature="8098:8304" placeholder="SELECT p.naz... produkty" />
+            <marker date="1492877455346" expanded="true" signature="8445:8499" placeholder="UPDATE zdjec... " />
+            <marker date="1492877455346" expanded="true" signature="8543:8640" placeholder="UPDATE zdjec... " />
+            <marker date="1492877455346" expanded="true" signature="8779:8940" placeholder="SELECT z.id_... zamowienia" />
+            <marker date="1492877455346" expanded="true" signature="10382:10729" placeholder="select z.id_... uzytkownicy" />
+            <marker date="1492877455346" expanded="true" signature="10867:10919" placeholder="select * FRO... kategorie" />
+          </folding>
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/administrator/rabaty/rabaty.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="51">
+          <caret line="3" column="66" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
+          <folding />
+=======
+        <state relative-caret-position="341">
+          <caret line="39" column="102" selection-start-line="39" selection-start-column="102" selection-end-line="39" selection-end-column="102" />
+          <folding>
+            <marker date="1492873868029" expanded="true" signature="302:464" placeholder="..." />
+            <marker date="1492873868029" expanded="true" signature="2563:3104" placeholder="..." />
+            <marker date="1492873868029" expanded="true" signature="2641:3104" placeholder="..." />
+            <marker date="1492873868029" expanded="true" signature="2679:3104" placeholder="..." />
+            <marker date="1492873868029" expanded="true" signature="2704:2972" placeholder="..." />
+            <marker date="1492873868029" expanded="true" signature="3109:3294" placeholder="..." />
+            <marker date="1492873868029" expanded="true" signature="3109:4019" placeholder="..." />
+            <marker date="1492873868029" expanded="true" signature="4807:4913" placeholder="{...}" />
+            <marker date="1492873868029" expanded="true" signature="4874:4913" placeholder="{...}" />
+          </folding>
+>>>>>>> refs/remotes/origin/0.1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assetss/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="51">
+          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
           <folding>
             <marker date="1487788462470" expanded="true" signature="865:1156" placeholder="..." />
           </folding>
+=======
+        <state relative-caret-position="328">
+          <caret line="699" column="17" selection-start-line="699" selection-start-column="17" selection-end-line="699" selection-end-column="17" />
+          <folding />
+>>>>>>> refs/remotes/origin/0.1
         </state>
       </provider>
     </entry>

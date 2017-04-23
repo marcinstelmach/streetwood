@@ -43,8 +43,10 @@
             }
             end:
            ?>
-          
-          <?php 
+            <a href="?rodzaj=przelew" class="btn btn-default" id="btnPrzelew" style="margin-left: 30px;">Przelew</a>
+            <a href="?rodzaj=pobranie" class="btn btn-default" id="btnPobranie">Pobranie</a>
+            <a href="<?=$url=strtok($_SERVER["REQUEST_URI"],'?');?>" class="btn btn-default" id="btnWszystko">Wszystko</a>
+          <?php
             if(empty($zamowienia))
             {
               echo '<h2 class="text-center">Brak zamówień </h2>';
@@ -63,6 +65,7 @@
                   <th>Zapłacone</th>
                   <th>Wysłane</th>
                   <th>Cena</th>
+                  <th>Rodzaj dostawy</th>
                   <th>Szczegóły zamówienia</th>
                 </tr>
               </thead>
@@ -95,6 +98,14 @@
                     
                   </td>
                   <td><?php echo number_format($key->cena, 2, ',', ' ').' zł'; ?></td>
+                  <td>
+                      <?php
+                        if($key->rodzaj_dostawy)
+                            echo 'Przelew';
+                        else
+                            echo 'Pobranie';
+                      ?>
+                  </td>  
                   <td><a class="btn btn-default" href="<?php echo base_url().'administrator/szczegoly-zamowienia/'.$key->id_zamowienia; ?>" role="button">Szczegóły zamowienia</a></td>
                 </tr>
                 </a>
@@ -107,3 +118,35 @@
         </div>
       </div>
     </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+            function getParameterByName(name, url) {
+                if (!url) {
+                    url = window.location.href;
+                }
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+            var str = getParameterByName('rodzaj');
+
+            if(str=='przelew')
+            {
+                $('#btnPrzelew').addClass('btn btn-warning');
+                $('#btnWszystko').addClass('btn btn-default');
+            }
+            else if(str=='pobranie')
+            {
+                $('#btnPobranie').addClass('btn btn-warning');
+                $('#btnWszystko').addClass('btn btn-default');
+            }
+            else
+            {
+                $('#btnPrzelew').addClass('btn btn-default');
+                $('#btnPobranie').addClass('btn btn-default');
+                $('#btnWszystko').addClass('btn btn-warning');
+            }
+        </script>
