@@ -89,7 +89,6 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
 
-            <input type="hidden" name="promocja" id="promocja" value="<?= $item->wartosc ?>"/>
             <input type="hidden" name="zawieszka1" id="zawieszka1" value=""/>
             <input type="hidden" name="zawieszka2" id="zawieszka2" value=""/>
             <input type="hidden" name="zawieszka3" id="zawieszka3" value=""/>
@@ -254,7 +253,7 @@
                 $(".cena3").css("display", "none");
                 $(".cena4").css("display", "none");
                 $(".cena5").css("display", "none");
-                $("#cena_glowna").val(wydzielCene(".cena1"));
+                $("#cena_glowna").val(<?=$item->zawieszka1?>);
                 break;
             case 2 :
                 $(".cena1").css("display", "none");
@@ -337,5 +336,3 @@
     }
 
 </script>
-
-<script src="<?= base_url() . 'assetss/js/promocja.js' ?>" type="text/javascript"></script>

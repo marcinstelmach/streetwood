@@ -63,25 +63,19 @@
         <div class="col-md-12">
             <h1 class="nazwa-przedmiotu"><?= $item->nazwa ?></h1>
             <?php
-            $i = 1;
             foreach ($stale_info as $key) {
             ?>
             <p class="cena-przedmiotu cena1" style="display: inline;"><span
-                    id="cena"><?= number_format($key->zawieszka1, 2) ?></span>zł</p>
+                    id="cena"><?= number_format($key->zawieszka1, 2) ?> zł</span></p>
             <p class="cena-przedmiotu cena2" style="display: none;"><span
-                    id="cena"><?= number_format($key->zawieszka2, 2) ?></span>zł</p>
+                    id="cena"><?= number_format($key->zawieszka2, 2) ?> zł</span></p>
             <p class="cena-przedmiotu cena3" style="display: none;"><span
-                    id="cena"><?= number_format($key->zawieszka3, 2) ?></span>zł</p>
+                    id="cena"><?= number_format($key->zawieszka3, 2) ?> zł</span></p>
             <p class="cena-przedmiotu cena4" style="display: none;"><span
-                    id="cena"><?= number_format($key->zawieszka4, 2) ?></span>zł</p>
+                    id="cena"><?= number_format($key->zawieszka4, 2) ?> zł</span></p>
             <p class="cena-przedmiotu cena5" style="display: none;"><span
-                    id="cena"><?= number_format($key->zawieszka5, 2) ?></span>zł</p>
+                    id="cena"><?= number_format($key->zawieszka5, 2) ?> zł</span></p>
         </div>
-        <input type="hidden" id="stala-cena1" value="<?= $key->zawieszka1 ?>"/>
-        <input type="hidden" id="stala-cena2" value="<?= $key->zawieszka2 ?>"/>
-        <input type="hidden" id="stala-cena3" value="<?= $key->zawieszka3 ?>"/>
-        <input type="hidden" id="stala-cena4" value="<?= $key->zawieszka4 ?>"/>
-        <input type="hidden" id="stala-cena5" value="<?= $key->zawieszka5 ?>"/>
     </div>
     <div class="row" style="margin-top: 20px">
         <div class="col-md-7">
@@ -100,7 +94,6 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
 
-            <input type="hidden" name="promocja" id="promocja" value="<?= $item->wartosc ?>"/>
             <input type="hidden" name="zawieszka1" id="zawieszka1" value=""/>
             <input type="hidden" name="zawieszka2" id="zawieszka2" value=""/>
             <input type="hidden" name="zawieszka3" id="zawieszka3" value=""/>
@@ -184,11 +177,42 @@
         Maksymalna ilość zawieszek to 3. Jesli chcesz zmienić zawieszkę, usuń dodaną i dodaj nowa.
     </p>
 </div>
-<script src="<?= base_url() . 'assetss/js/functions.js' ?>" type="text/javascript"></script>
+<!--Koniec Dialogu -->
 <script type="text/javascript" src="<?= base_url() . 'assetss/js/ilosc.js' ?>"></script>
-<script type="text/javascript" src="<?= base_url() . 'assetss/js/chetneDivki5.js' ?>"></script>
-<script src="<?= base_url() . 'assetss/js/drag_and_over.js' ?>" type="text/javascript"></script>
 <script type="text/javascript">
+    var div1 = 0;
+    var div2 = 0;
+    var div3 = 0;
+    var div4 = 0;
+    var div5 = 0;
+    var chetny_div = '';
+    function wolny_div() {
+        if (div1 == 0) {
+            chetny_div = 'div1';
+            div1 = 1;
+        }
+        else if (div2 == 0) {
+            chetny_div = 'div2';
+            div2 = 1;
+        }
+        else if (div3 == 0) {
+            chetny_div = 'div3';
+            div3 = 1
+        }
+        else if (div4 == 0) {
+            chetny_div = 'div4';
+            div4 = 1
+        }
+        else if (div5 == 0) {
+            chetny_div = 'div5';
+            div5 = 1
+        }
+        else if (div1 == 1 && div2 == 1 && div3 == 1 && div4 == 1 && div5 == 1) {
+            chetny_div = 'brak';
+            alert("Maksymalna ilość zawieszek to 5 :)");
+        }
+        return chetny_div;
+    }
 
     <?php
     $i = 1;
@@ -198,7 +222,17 @@
     }
     ?>
 
+</script>
+<script src="<?= base_url() . 'assetss/js/drag_and_over.js' ?>" type="text/javascript"></script>
+<script type="text/javascript">
     var ilosc_zawieszek = 0;
+    function nazwa_zdjecia(str) {
+        var n = str.lastIndexOf("/");
+        var len = str.length;
+        var zdjecie = str.substring(n + 1, len - 2);
+        return zdjecie;
+    }
+
     function dodaj_zawieszke($div, $nazwa_zdjecia) {
         if ($div != 'brak') {
             $("#" + $div).append('<img style="width:60px;" src="<?=base_url()?>assetss/img/products/bransoletki/zawieszki/' + $nazwa_zdjecia + '">');
@@ -206,4 +240,104 @@
             $("#" + $div + "del").css("display", "inline");
         }
     }
+
+    function wybierz_cene($inc) {
+        if ($inc == 1)
+            ilosc_zawieszek++;
+        else if ($inc == 0)
+            ilosc_zawieszek--;
+
+        switch (ilosc_zawieszek) {
+        <?php
+            foreach($stale_info as $item)
+            {
+            ?>
+            case 1 :
+                $(".cena1").css("display", "inline");
+                $(".cena2").css("display", "none");
+                $(".cena3").css("display", "none");
+                $(".cena4").css("display", "none");
+                $(".cena5").css("display", "none");
+                $("#cena_glowna").val(<?=$item->zawieszka1?>);
+                break;
+            case 2 :
+                $(".cena1").css("display", "none");
+                $(".cena2").css("display", "inline");
+                $(".cena3").css("display", "none");
+                $(".cena4").css("display", "none");
+                $(".cena5").css("display", "none");
+                $("#cena_glowna").val(<?=$item->zawieszka2?>);
+                break;
+            case 3 :
+                $(".cena1").css("display", "none");
+                $(".cena2").css("display", "none");
+                $(".cena3").css("display", "inline");
+                $(".cena4").css("display", "none");
+                $(".cena5").css("display", "none");
+                $("#cena_glowna").val(<?=$item->zawieszka3?>);
+                break;
+            case 4 :
+                $(".cena1").css("display", "none");
+                $(".cena2").css("display", "none");
+                $(".cena3").css("display", "none");
+                $(".cena4").css("display", "inline");
+                $(".cena5").css("display", "none");
+                $("#cena_glowna").val(<?=$item->zawieszka4?>);
+                break;
+            case 5 :
+                $(".cena1").css("display", "none");
+                $(".cena2").css("display", "none");
+                $(".cena3").css("display", "none");
+                $(".cena4").css("display", "none");
+                $(".cena5").css("display", "inline");
+                $("#cena_glowna").val(<?=$item->zawieszka5?>);
+                break;
+            default :
+                return false;
+
+        <?php
+            }
+            ?>
+        }
+
+    }
+
+    $('#div1').bind("DOMSubtreeModified", function () {
+        $("#zawieszka1").val(nazwa_zdjecia($("#div1").html()));
+    });
+
+    $('#div2').bind("DOMSubtreeModified", function () {
+        $("#zawieszka2").val(nazwa_zdjecia($("#div2").html()));
+    });
+
+    $('#div3').bind("DOMSubtreeModified", function () {
+        $("#zawieszka3").val(nazwa_zdjecia($("#div3").html()));
+    });
+
+    $('#div4').bind("DOMSubtreeModified", function () {
+        $("#zawieszka4").val(nazwa_zdjecia($("#div4").html()));
+    });
+
+    $('#div5').bind("DOMSubtreeModified", function () {
+        $("#zawieszka5").val(nazwa_zdjecia($("#div5").html()));
+    });
+
+
+    function wyczysc($div) {
+        $("#" + $div).empty();
+        $("#" + $div + "del").css("display", "none");
+        if ($div == 'div1')
+            div1 = 0;
+        else if ($div == 'div2')
+            div2 = 0;
+        else if ($div == 'div3')
+            div3 = 0;
+        else if ($div == 'div4')
+            div4 = 0;
+        else if ($div == 'div5')
+            div5 = 0;
+
+        wybierz_cene(0);
+    }
+
 </script>
