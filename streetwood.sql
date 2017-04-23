@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 22 Lut 2017, 16:58
+-- Czas generowania: 22 Kwi 2017, 20:15
 -- Wersja serwera: 10.1.21-MariaDB
 -- Wersja PHP: 7.0.15
 
@@ -39,23 +39,9 @@ CREATE TABLE `adresy` (
 --
 
 INSERT INTO `adresy` (`id_adresu`, `miasto`, `ulica`, `nr_domu`, `kod_pocztowy`) VALUES
-(20, 'Biłgoraj', 'Kościuszki', '30/49', '23-400'),
-(21, 'Kraków', 'Wysoka', '78', '77-789'),
-(22, 'Kraków', 'Wysoka', '79', '77-789'),
-(23, 'Warszawa', 'Zjazdowa', '77', '01-025'),
-(24, 'Biłgoraj', 'Kościuszki', '30/49', '23-400'),
-(25, 'Biłgoraj', 'Kościuszki', '30/49', '23-400'),
-(26, 'Biłgoraj', 'Kościuszki', '30/49', '23-400'),
-(27, 'Aleksandrów', 'Szeroka', '23', '23-408'),
-(28, 'Biłgoraj', 'Kościuszki', '30/49', '23-400'),
-(29, 'Biłgoraj', 'Kościuszki', '30/49', '23-400'),
-(30, 'Kraków', 'Wysoka', '78', '77-789'),
-(31, 'Warszawa', 'Zjazdowa', '77', '01-025'),
-(32, 'Warszawa', 'Zjazdowa', '77', '01-025'),
-(33, 'Aleksandrów', 'Szeroka', '23', '23-408'),
-(34, 'Sdfsfdsdsdf', 'Qq', '234', '23-408'),
-(35, 'Ważywniak', 'Kręta', '78', '88-555'),
-(36, 'Biłgoraj ', 'Kościuszki', '30/49', '23-400');
+(39, 'Biłgoraj', 'Kościuszki, 30/49, 30/49', '30/49', '23-400'),
+(40, 'Warszawa', 'Zjazdowa, 77', '77', '01-025'),
+(41, 'Kraków', 'Wysoka, 78, 78', '78', '77-789');
 
 -- --------------------------------------------------------
 
@@ -69,6 +55,14 @@ CREATE TABLE `dostawa` (
   `cena` int(11) NOT NULL,
   `rodzaj_dostawy` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Zrzut danych tabeli `dostawa`
+--
+
+INSERT INTO `dostawa` (`id_dostawy`, `nazwa_dostawy`, `cena`, `rodzaj_dostawy`) VALUES
+(1, 'Kurier za pobraniem', 15, 1),
+(2, 'Kurier przelew', 20, 0);
 
 -- --------------------------------------------------------
 
@@ -131,10 +125,10 @@ INSERT INTO `kategorie_zawieszek` (`id_kategorii_zawieszek`, `nazwa_kategorii_za
 CREATE TABLE `produkty` (
   `id_produktu` int(11) NOT NULL,
   `nazwa` varchar(30) COLLATE utf8mb4_polish_ci NOT NULL,
-  `cena` double NOT NULL,
+  `cena` int(11) DEFAULT NULL,
   `id_kategorii` int(11) NOT NULL,
   `stan` tinyint(1) NOT NULL,
-  `opis` longtext COLLATE utf8mb4_polish_ci NOT NULL,
+  `opis` longtext COLLATE utf8mb4_polish_ci,
   `id_kategorii_zawieszek` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
@@ -143,31 +137,7 @@ CREATE TABLE `produkty` (
 --
 
 INSERT INTO `produkty` (`id_produktu`, `nazwa`, `cena`, `id_kategorii`, `stan`, `opis`, `id_kategorii_zawieszek`) VALUES
-(35, 'Test2', 222, 1, 0, 'asdasda', NULL),
-(37, 'Mata Wiklinowa', 65, 1, 1, 'est to naturalne, ekologiczne ogrodzenie wiklinowe wykonane z wysokiej jakości wikliny. Mata wiklinowa szyta jest co 10 cm drutem owijającym o grubości 0,4 mm i prowadzącym 0,8 mm. Do produkcji płotów wiklinowych używamy wyłącznie polskiego, ocynkowanego drutu. Początek i koniec każdej maty wiklinowej posiada kilkucentymetrowy odcinek drutu, aby można było połączyć nim kolejną matę. Dzięki temu możemy połączyć ze sobą dowolną liczbę mat wiklinowych, bez widocznych oznak łączenia.', NULL),
-(38, 'Mata Krzywa', 75, 1, 0, '2est to naturalne, ekologiczne ogrodzenie wiklinowe wykonane z wysokiej jakości wikliny. Mata wiklinowa szyta jest co 10 cm drutem owijającym o grubości 0,4 mm i prowadzącym 0,8 mm. Do produkcji płotów wiklinowych używamy wyłącznie polskiego, ocynkowanego drutu. Początek i koniec każdej maty wiklinowej posiada kilkucentymetrowy odcinek drutu, aby można było połączyć nim kolejną matę. Dzięki temu możemy połączyć ze sobą dowolną liczbę mat wiklinowych, bez widocznych oznak łączenia.', NULL),
-(39, 'Mata Skrętna', 78, 3, 1, 'est to naturalne, ekologiczne ogrodzenie wiklinowe wykonane z wysokiej jakości wikliny. Mata wiklinowa szyta jest co 10 cm drutem owijającym o grubości 0,4 mm i prowadzącym 0,8 mm. Do produkcji płotów wiklinowych używamy wyłącznie polskiego, ocynkowanego drutu. Początek i koniec każdej maty wiklinowej posiada kilkucentymetrowy odcinek drutu, aby można było połączyć nim kolejną matę. Dzięki temu możemy połączyć ze sobą dowolną liczbę mat wiklinowych, bez widocznych oznak łączenia.', NULL),
-(40, 'NAzwa', 120, 1, 0, 'qqqfdzdfd', NULL),
-(41, 'Paragon', 20, 4, 1, 'QWERTY', NULL),
-(42, 'Test Nr 1', 20, 1, 1, 'Brans', NULL),
-(43, 'Obrazek', 78, 1, 1, 'qweer', NULL),
-(44, 'Asd', 0, 1, 1, '456', NULL),
-(45, 'Tescik', 78, 1, 1, '84', NULL),
-(46, 'Moje Zdjęcia', 75, 19, 1, 'Qwer', NULL),
-(47, 'Tescik', 54, 20, 1, 'dfdfgsdgs g', NULL),
-(48, 'Nazwa', 54, 21, 1, 'dfgdfg ', NULL),
-(49, 'Asdasda', 231, 22, 1, 'sdgsddsgdg', NULL),
-(50, 'Tyutyu', 345, 23, 0, 'dsfdf s', NULL),
-(51, 'Tyrty', 345, 24, 1, 'bcxcbbcxxbccbx', NULL),
-(52, 'Qwe', 234, 25, 1, '3453we f df s', NULL),
-(53, 'Test2ffff', 222, 1, 1, '', NULL),
-(54, 'Nazwa', 54, 21, 1, 'dfgdfg ', NULL),
-(69, 'Case IPhone 6', 20, 27, 1, 'Case dla telefonu iPhone 6', NULL),
-(71, 'Case IPhone 6', 55, 29, 1, 'Caw', NULL),
-(72, 'Czapka', 45, 29, 1, 'qweeqwe', NULL),
-(73, 'Wszystko', 45, 29, 1, 'sdfsdfsdf', NULL),
-(74, 'Qqqq', 6, 29, 1, 'asdasd', NULL),
-(75, 'Case IPhone 6', 584, 30, 1, 'qwe', NULL),
+(1, 'Sznureczek', 20, 5, 1, 'Sznureczek', NULL),
 (76, 'Case IPhone', 35, 8, 1, 'a,sdnbasdkasdkbaskhdasds as\r\na\r\nsdasldkaskjdbasd', NULL),
 (78, 'Czapki', 55, 3, 1, 'Czapki fajnie', NULL),
 (79, 'Case', 45, 8, 1, 'erwerwerwerwer', NULL),
@@ -229,7 +199,36 @@ INSERT INTO `produkty` (`id_produktu`, `nazwa`, `cena`, `id_kategorii`, `stan`, 
 (150, 'Tshirt Biały StreetWood', 35, 13, 1, 'Tshirt Biały StreetWood', NULL),
 (151, 'Tshirt Biały Wrotki', 100, 13, 1, 'Tshirt Biały StreetWood', NULL),
 (152, 'Beanie Biała', 70, 12, 1, 'Beanie Biała', NULL),
-(153, 'Beanie Butelkowa', 70, 12, 1, 'Beanie Biała', NULL);
+(153, 'Beanie Butelkowa', 70, 12, 1, 'Beanie Biała', NULL),
+(154, 'Guzik Granatowy', 70, 7, 1, 'Guzik', NULL),
+(155, 'Guzik Zółty', 20, 7, 1, NULL, NULL),
+(156, 'Guzik Pomaranczowy', 30, 7, 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `rabaty`
+--
+
+CREATE TABLE `rabaty` (
+  `id_rabatu` int(11) NOT NULL,
+  `nazwa_rabatu` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL,
+  `wartosc` int(11) NOT NULL,
+  `id_kategorii` int(11) DEFAULT NULL,
+  `aktywny` tinyint(1) NOT NULL,
+  `na_wszystko` tinyint(1) DEFAULT NULL,
+  `kod` varchar(50) COLLATE utf8mb4_polish_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Zrzut danych tabeli `rabaty`
+--
+
+INSERT INTO `rabaty` (`id_rabatu`, `nazwa_rabatu`, `wartosc`, `id_kategorii`, `aktywny`, `na_wszystko`, `kod`) VALUES
+(3, 'Guzik Pomaranczowy', 15, NULL, 1, 1, 'StreetWood'),
+(4, 'Test2', 50, NULL, 1, 1, 'Meen'),
+(7, 'Test', 20, 8, 1, NULL, ''),
+(9, 'Guziki', 15, 7, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -252,9 +251,9 @@ CREATE TABLE `stale_ceny` (
 --
 
 INSERT INTO `stale_ceny` (`id_stalej_ceny`, `zawieszka1`, `zawieszka2`, `zawieszka3`, `zawieszka4`, `zawieszka5`, `opis`) VALUES
-(1, 20, 30, 40, NULL, NULL, 'Sznureczek'),
-(2, 20, 25, 30, 45, 50, ''),
-(3, 20, 25, 30, 35, 45, 'Kotwica'),
+(1, 20, 25, 30, NULL, NULL, 'Sznureczek'),
+(2, 20, 25, 30, 35, 40, 'Guzik'),
+(3, 20, 25, 30, 35, 40, 'Kotwica'),
 (4, 20, 25, 30, 35, 40, 'Koraliki');
 
 -- --------------------------------------------------------
@@ -302,7 +301,7 @@ CREATE TABLE `zamowienia` (
   `czy_zaplacono` tinyint(1) NOT NULL,
   `cena` double NOT NULL,
   `data_zamowienia` date NOT NULL,
-  `dostawa` int(11) NOT NULL
+  `dostawa` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
@@ -310,22 +309,9 @@ CREATE TABLE `zamowienia` (
 --
 
 INSERT INTO `zamowienia` (`id_zamowienia`, `id_uzytkownika`, `id_adresu`, `czy_wyslano`, `czy_zaplacono`, `cena`, `data_zamowienia`, `dostawa`) VALUES
-(11, 3, 20, 1, 1, 37239, '2016-11-17', 0),
-(12, 1, 21, 0, 0, 698, '2016-11-16', 0),
-(13, 1, 22, 1, 0, 1874, '0000-00-00', 0),
-(14, 4, 23, 0, 0, 138605, '2016-11-24', 0),
-(15, 1, 24, 0, 0, 31082, '2016-11-08', 0),
-(17, 1, 26, 0, 0, 50, '2016-11-09', 0),
-(18, 1, 27, 0, 0, 287, '2016-11-07', 0),
-(19, 1, 28, 1, 1, 963, '2016-11-03', 0),
-(20, 1, 29, 1, 1, 140, '2016-10-18', 0),
-(21, NULL, 30, 0, 0, 218, '2016-09-13', 0),
-(22, NULL, 31, 0, 0, 218, '2016-10-18', 0),
-(23, 1, 32, 0, 0, 65, '2016-08-30', 0),
-(24, 1, 33, 0, 0, 362, '2016-11-17', 0),
-(25, 5, 34, 1, 1, 362, '2016-09-22', 0),
-(26, 6, 35, 0, 0, 444, '2016-11-01', 0),
-(27, 1, 36, 0, 0, 40, '2017-02-22', 0);
+(30, 1, 39, 0, 1, 40, '2017-02-23', 1),
+(31, 1, 40, 0, 0, 40, '2017-02-16', 2),
+(32, 1, 41, 0, 0, 50, '2017-01-11', 1);
 
 -- --------------------------------------------------------
 
@@ -337,54 +323,18 @@ CREATE TABLE `zam_tow` (
   `id_zam_tow` int(11) NOT NULL,
   `id_produktu` int(11) NOT NULL,
   `id_zamowienia` int(11) NOT NULL,
-  `ilosc` int(11) NOT NULL
+  `ilosc` int(11) NOT NULL,
+  `komentarz` text COLLATE utf8mb4_polish_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
 -- Zrzut danych tabeli `zam_tow`
 --
 
-INSERT INTO `zam_tow` (`id_zam_tow`, `id_produktu`, `id_zamowienia`, `ilosc`) VALUES
-(19, 1, 11, 2),
-(20, 2, 11, 1),
-(21, 13, 11, 4),
-(22, 18, 11, 1),
-(23, 20, 12, 2),
-(24, 26, 12, 1),
-(25, 1, 12, 1),
-(26, 21, 13, 1),
-(27, 13, 13, 4),
-(28, 2, 13, 1),
-(29, 19, 14, 2),
-(30, 14, 14, 2),
-(31, 3, 14, 9),
-(32, 17, 15, 1),
-(33, 14, 15, 25),
-(34, 20, 15, 1),
-(35, 2, 15, 1),
-(36, 1, 17, 1),
-(37, 2, 17, 1),
-(38, 35, 18, 1),
-(39, 37, 18, 1),
-(40, 35, 19, 4),
-(41, 38, 19, 1),
-(42, 38, 20, 1),
-(43, 37, 20, 1),
-(44, 37, 21, 1),
-(45, 38, 21, 1),
-(46, 39, 21, 1),
-(47, 37, 22, 1),
-(48, 38, 22, 1),
-(49, 39, 22, 1),
-(50, 37, 23, 1),
-(51, 35, 24, 1),
-(52, 37, 24, 1),
-(53, 38, 24, 1),
-(54, 37, 25, 1),
-(55, 38, 25, 1),
-(56, 35, 25, 1),
-(57, 35, 26, 2),
-(58, 1, 27, 1);
+INSERT INTO `zam_tow` (`id_zam_tow`, `id_produktu`, `id_zamowienia`, `ilosc`, `komentarz`) VALUES
+(64, 146, 30, 1, NULL),
+(65, 1, 31, 1, 'Color: czarny.png\\nZawieszka_1: DEVIL_pack-1-3000px kopia.png\\nZawieszka_2: FACE_OKULARYpack-1-3000px kopia.png\\nZawieszka_3: FACE_pack-1-3000px kopia.png\\n'),
+(66, 147, 32, 2, 'Zawieszka_1: ABRH-grupy-krwi kopia.png<br>Zawieszka_2: ABRH-grupy-krwi_2 kopia.png<br>');
 
 -- --------------------------------------------------------
 
@@ -502,7 +452,11 @@ INSERT INTO `zdjecia` (`id_zdjecia`, `nazwa_zdjecia`, `id_produktu`, `glowne`) V
 (173, 'biala sw.jpg', 150, 1),
 (174, 'biała wrotki.jpg', 151, 1),
 (175, 'biala.jpg', 152, 1),
-(176, 'butelkowa.jpg', 153, 1);
+(176, 'butelkowa.jpg', 153, 1),
+(177, '_P3B1507_.jpg', 154, 1),
+(178, '_P3B1532_.jpg', 154, 0),
+(179, '_P3B1512_.jpg', 155, 1),
+(180, '_P3B1515_.jpg', 156, 1);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -537,6 +491,12 @@ ALTER TABLE `kategorie_zawieszek`
 --
 ALTER TABLE `produkty`
   ADD PRIMARY KEY (`id_produktu`);
+
+--
+-- Indexes for table `rabaty`
+--
+ALTER TABLE `rabaty`
+  ADD PRIMARY KEY (`id_rabatu`);
 
 --
 -- Indexes for table `stale_ceny`
@@ -576,12 +536,12 @@ ALTER TABLE `zdjecia`
 -- AUTO_INCREMENT dla tabeli `adresy`
 --
 ALTER TABLE `adresy`
-  MODIFY `id_adresu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_adresu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT dla tabeli `dostawa`
 --
 ALTER TABLE `dostawa`
-  MODIFY `id_dostawy` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dostawy` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT dla tabeli `kategorie`
 --
@@ -596,7 +556,12 @@ ALTER TABLE `kategorie_zawieszek`
 -- AUTO_INCREMENT dla tabeli `produkty`
 --
 ALTER TABLE `produkty`
-  MODIFY `id_produktu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
+  MODIFY `id_produktu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+--
+-- AUTO_INCREMENT dla tabeli `rabaty`
+--
+ALTER TABLE `rabaty`
+  MODIFY `id_rabatu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT dla tabeli `stale_ceny`
 --
@@ -611,17 +576,17 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT dla tabeli `zamowienia`
 --
 ALTER TABLE `zamowienia`
-  MODIFY `id_zamowienia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_zamowienia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT dla tabeli `zam_tow`
 --
 ALTER TABLE `zam_tow`
-  MODIFY `id_zam_tow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_zam_tow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT dla tabeli `zdjecia`
 --
 ALTER TABLE `zdjecia`
-  MODIFY `id_zdjecia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+  MODIFY `id_zdjecia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
